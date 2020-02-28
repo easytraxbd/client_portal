@@ -11,8 +11,8 @@ const mix = require('laravel-mix');
  |
  */
 
-// mix.react('resources/js/app.js', 'public/js')
-//    .sass('resources/sass/app.scss', 'public/css');
+mix.react('resources/js/app.js', 'public/js')
+   .sass('resources/sass/app.scss', 'public/css');
 
 //login page
 mix.react('resources/assets/js/pages/custom/login/login-1.js', 'public/js/login.js')
