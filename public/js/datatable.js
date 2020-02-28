@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -3435,7 +3435,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!**************************************************************************************!*\
   !*** multi ./resources/assets/js/global/components/base/datatable/core.datatable.js ***!
   \**************************************************************************************/
