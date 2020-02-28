@@ -139,7 +139,7 @@ class TicketController extends Controller
         $data = $request->all();
         $data['status'] = 1;
         $data['priority'] = 1;
-        $data['ticket_type_id'] = 224;
+        $data['ticket_type_id'] = 226;
         $data['client_id'] = Auth::user()->id;
         if (Ticket::create($data)){
             return redirect('ticket')->with('success','Ticket created successfully');
