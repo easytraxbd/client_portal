@@ -15,21 +15,21 @@ mix.react('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css');
 
 //login page
-mix.react('resources/demo4/src/assets/js/pages/custom/login/login-1.js', 'public/js/login.js')
-   .sass('resources/demo4/src/assets/sass/pages/login/login-1.scss', 'public/css/login.css');
+mix.react('resources/assets/js/pages/custom/login/login-1.js', 'public/js/login.js')
+   .sass('resources/assets/sass/pages/login/login-1.scss', 'public/css/login.css');
 //invoice
-mix.sass('resources/demo4/src/assets/sass/pages/invoices/invoice-1.scss', 'public/css/invoice.css');
+mix.sass('resources/assets/sass/pages/invoices/invoice-1.scss', 'public/css/invoice.css');
 
 //select2
-mix.react('resources/demo4/src/assets/js/pages/crud/forms/widgets/select2.js', 'public/js/select2.js');
+mix.react('resources/assets/js/pages/crud/forms/widgets/select2.js', 'public/js/select2.js');
 // copy images folder into laravel public folder
 // mix.copyDirectory('resources/demo4/src/assets/media', 'public/assets/media');
 
 //dashboard js
-mix.react('resources/demo4/src/assets/js/pages/dashboard.js', 'public/js/dashboard.js');
+mix.react('resources/assets/js/pages/dashboard.js', 'public/js/dashboard.js');
 
 //datatables
-mix.react('resources/demo4/src/assets/js/global/components/base/datatable/core.datatable.js', 'public/js/datatable.js');
+mix.react('resources/assets/js/global/components/base/datatable/core.datatable.js', 'public/js/datatable.js');
 
 
 /**

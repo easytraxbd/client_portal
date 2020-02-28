@@ -86,10 +86,10 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/demo4/src/assets/js/global/components/base/datatable/core.datatable.js":
-/*!******************************************************************************************!*\
-  !*** ./resources/demo4/src/assets/js/global/components/base/datatable/core.datatable.js ***!
-  \******************************************************************************************/
+/***/ "./resources/assets/js/global/components/base/datatable/core.datatable.js":
+/*!********************************************************************************!*\
+  !*** ./resources/assets/js/global/components/base/datatable/core.datatable.js ***!
+  \********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3436,13 +3436,13 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 /***/ }),
 
 /***/ 4:
-/*!************************************************************************************************!*\
-  !*** multi ./resources/demo4/src/assets/js/global/components/base/datatable/core.datatable.js ***!
-  \************************************************************************************************/
+/*!**************************************************************************************!*\
+  !*** multi ./resources/assets/js/global/components/base/datatable/core.datatable.js ***!
+  \**************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\wamp\www\client_portal\resources\demo4\src\assets\js\global\components\base\datatable\core.datatable.js */"./resources/demo4/src/assets/js/global/components/base/datatable/core.datatable.js");
+module.exports = __webpack_require__(/*! C:\wamp\www\client_portal\resources\assets\js\global\components\base\datatable\core.datatable.js */"./resources/assets/js/global/components/base/datatable/core.datatable.js");
 
 
 /***/ })

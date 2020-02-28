@@ -86,10 +86,10 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/demo4/src/assets/js/pages/crud/forms/widgets/select2.js":
-/*!***************************************************************************!*\
-  !*** ./resources/demo4/src/assets/js/pages/crud/forms/widgets/select2.js ***!
-  \***************************************************************************/
+/***/ "./resources/assets/js/pages/crud/forms/widgets/select2.js":
+/*!*****************************************************************!*\
+  !*** ./resources/assets/js/pages/crud/forms/widgets/select2.js ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -264,13 +264,13 @@ jQuery(document).ready(function () {
 /***/ }),
 
 /***/ 2:
-/*!*********************************************************************************!*\
-  !*** multi ./resources/demo4/src/assets/js/pages/crud/forms/widgets/select2.js ***!
-  \*********************************************************************************/
+/*!***********************************************************************!*\
+  !*** multi ./resources/assets/js/pages/crud/forms/widgets/select2.js ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\wamp\www\client_portal\resources\demo4\src\assets\js\pages\crud\forms\widgets\select2.js */"./resources/demo4/src/assets/js/pages/crud/forms/widgets/select2.js");
+module.exports = __webpack_require__(/*! C:\wamp\www\client_portal\resources\assets\js\pages\crud\forms\widgets\select2.js */"./resources/assets/js/pages/crud/forms/widgets/select2.js");
 
 
 /***/ })

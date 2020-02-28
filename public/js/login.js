@@ -86,10 +86,10 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/demo4/src/assets/js/pages/custom/login/login-1.js":
-/*!*********************************************************************!*\
-  !*** ./resources/demo4/src/assets/js/pages/custom/login/login-1.js ***!
-  \*********************************************************************/
+/***/ "./resources/assets/js/pages/custom/login/login-1.js":
+/*!***********************************************************!*\
+  !*** ./resources/assets/js/pages/custom/login/login-1.js ***!
+  \***********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -167,13 +167,13 @@ jQuery(document).ready(function () {
 /***/ }),
 
 /***/ 1:
-/*!***************************************************************************!*\
-  !*** multi ./resources/demo4/src/assets/js/pages/custom/login/login-1.js ***!
-  \***************************************************************************/
+/*!*****************************************************************!*\
+  !*** multi ./resources/assets/js/pages/custom/login/login-1.js ***!
+  \*****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\wamp\www\client_portal\resources\demo4\src\assets\js\pages\custom\login\login-1.js */"./resources/demo4/src/assets/js/pages/custom/login/login-1.js");
+module.exports = __webpack_require__(/*! C:\wamp\www\client_portal\resources\assets\js\pages\custom\login\login-1.js */"./resources/assets/js/pages/custom/login/login-1.js");
 
 
 /***/ })
