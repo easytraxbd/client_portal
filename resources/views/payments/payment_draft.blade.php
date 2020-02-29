@@ -8,7 +8,7 @@
 				<i class="kt-font-brand flaticon2-line-chart"></i>
 			</span>
                 <h3 class="kt-portlet__head-title">
-                    Payments
+                    Draft Payments
                 </h3>
             </div>
             <div class="kt-portlet__head-toolbar">
@@ -34,12 +34,12 @@
                            role="grid" aria-describedby="example1_info">
                         <thead>
                         <tr role="row">
-                            <th>Payment ID</th>
-                            <th>Payment Date</th>
+                            <th>Draft Payment ID</th>
+                            <th>Date</th>
                             <th>Amount</th>
                             <th>Invoice</th>
                             <th>Payment Method</th>
-                            <th>Payment Collector</th>
+{{--                            <th>Payment Collector</th>--}}
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -64,14 +64,14 @@
                     $('#payment-table').DataTable({
                         processing: true,
                         serverSide: true,
-                        ajax: '/payment/data',
+                        ajax: '/payment-draft/data',
                         columns: [
                             {data: 'id', name: 'id'},
                             {data: 'payment_date', name: 'payment_date'},
                             {data: 'amount', name: 'amount'},
                             {data: 'invoice', name: 'invoice'},
                             {data: 'payment_method', name: 'payment_method'},
-                            {data: 'payment_collector', name: 'payment_collector'},
+                            // {data: 'payment_collector', name: 'payment_collector'},
                             // {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                             {data: 'action', name: 'action'},
                         ]

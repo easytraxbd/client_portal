@@ -19,7 +19,7 @@
                     </a>
                     &nbsp;
                     <a href="/ticket/create" class="btn btn-info btn-icon-sm">
-                        <i class="flaticon2-plus"></i> Add New
+                        <i class="flaticon2-plus"></i> Create New Ticket
                     </a>
                 </div>
             </div>

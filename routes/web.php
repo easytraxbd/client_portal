@@ -23,6 +23,10 @@ Route::post('/login', 'Auth\ClientLoginController@login');
 //Route::post('/password/reset', 'Auth\ResetClientPasswordController@reset')->name('password.update');
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+Route::get('payment-draft/data','PaymentController@getDraftPaymentData');
+Route::get('payment-draft','PaymentController@draftPayment');
+
 Route::get('payment/data','PaymentController@getData');
 Route::resource('payment','PaymentController');
 

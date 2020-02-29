@@ -32,6 +32,9 @@
                     <li class="kt-menu__item {{ Request::is("payment") ? 'kt-menu__item--here' : '' }}">
                         <a href="/payment" class="kt-menu__link"><span class="kt-menu__link-text">Payment</span></a>
                     </li>
+                    <li class="kt-menu__item {{ Request::is("payment-draft") ? 'kt-menu__item--here' : '' }}">
+                        <a href="/payment-draft" class="kt-menu__link"><span class="kt-menu__link-text">Draft Payment</span></a>
+                    </li>
                     <li class="kt-menu__item {{ Request::is("invoice") ? 'kt-menu__item--here' : '' }}">
                         <a href="/invoice" class="kt-menu__link"><span class="kt-menu__link-text">Invoice</span></a>
                     </li>
