@@ -35,7 +35,7 @@
                         <thead>
                         <tr role="row">
                             <th>Invoice Number</th>
-                            <th>Is Recurring</th>
+                            <th>Auto Renewal</th>
                             <th>Total Amount</th>
                             <th>Due</th>
                             <th>Date</th>

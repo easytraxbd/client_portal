@@ -110,7 +110,7 @@
 				<i class="kt-font-brand flaticon2-line-chart"></i>
 			</span>
                         <h3 class="kt-portlet__head-title">
-                            Payments
+                            Received Payments
                         </h3>
                     </div>
                     <div class="kt-portlet__head-toolbar">
@@ -226,7 +226,7 @@
                                 <thead>
                                 <tr role="row">
                                     <th>Invoice Number</th>
-                                    <th>Is Recurring</th>
+                                    <th>Auto Renewal</th>
                                     <th>Total Amount</th>
                                     <th>Due</th>
                                     {{--                                    <th>Date</th>--}}
