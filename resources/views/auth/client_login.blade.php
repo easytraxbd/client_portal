@@ -64,13 +64,13 @@ License: You must have a valid license purchased only from themeforest(the above
                 <div class="kt-grid__item">
                     <a href="#" class="kt-login__logo">
 {{--                        <img src="assets/media/logos/logo-4.png">--}}
-                        <img alt="Logo" src="/images/easytrax/logos/easytrax_logo_white.png" class="kt-header__brand-logo-default" width="69px"/>
+                        <img alt="Logo" src="/images/easytrax/logos/easytrax_logo_white.png" class="kt-header__brand-logo-default" width="100px"/>
                     </a>
                 </div>
                 <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver">
                     <div class="kt-grid__item kt-grid__item--middle">
-                        <h3 class="kt-login__title">Welcome to Easytrax!</h3>
-                        <h4 class="kt-login__subtitle">The ultimate tracking service provider.</h4>
+                        <h3 class="kt-login__title">Welcome to Easytrax Customer Self Service Portal!</h3>
+                        <h4 class="kt-login__subtitle">The Ultimate Fleet Management Solution Provider.</h4>
                     </div>
                 </div>
                 <div class="kt-grid__item">
@@ -142,31 +142,31 @@ License: You must have a valid license purchased only from themeforest(the above
                         <!--end::Form-->
 
                         <!--begin::Divider-->
-                        <div class="kt-login__divider">
-                            <div class="kt-divider">
-                                <span></span>
-                                <span>OR</span>
-                                <span></span>
-                            </div>
-                        </div>
+{{--                        <div class="kt-login__divider">--}}
+{{--                            <div class="kt-divider">--}}
+{{--                                <span></span>--}}
+{{--                                <span>OR</span>--}}
+{{--                                <span></span>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
                         <!--end::Divider-->
 
                         <!--begin::Options-->
-                        <div class="kt-login__options">
-                            <a href="#" class="btn btn-primary kt-btn">
-                                <i class="fab fa-facebook-f"></i>
-                                Facebook
-                            </a>
-                            <a href="#" class="btn btn-info kt-btn">
-                                <i class="fab fa-twitter"></i>
-                                Twitter
-                            </a>
-                            <a href="#" class="btn btn-danger kt-btn">
-                                <i class="fab fa-google"></i>
-                                Google
-                            </a>
-                        </div>
+{{--                        <div class="kt-login__options">--}}
+{{--                            <a href="#" class="btn btn-primary kt-btn">--}}
+{{--                                <i class="fab fa-facebook-f"></i>--}}
+{{--                                Facebook--}}
+{{--                            </a>--}}
+{{--                            <a href="#" class="btn btn-info kt-btn">--}}
+{{--                                <i class="fab fa-twitter"></i>--}}
+{{--                                Twitter--}}
+{{--                            </a>--}}
+{{--                            <a href="#" class="btn btn-danger kt-btn">--}}
+{{--                                <i class="fab fa-google"></i>--}}
+{{--                                Google--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
 
                         <!--end::Options-->
                     </div>
