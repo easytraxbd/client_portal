@@ -115,7 +115,7 @@
                     </div>
                     <div class="kt-portlet__head-toolbar">
                         <div class="kt-portlet__head-wrapper">
-                            <a href="/" class="btn btn-info btn-icon-sm">
+                            <a href="https://crm.easytrax.com.bd/payment?clientId={{\Auth::user()->id}}" class="btn btn-info btn-icon-sm">
                                 <i class="flaticon2-plus"></i> Pay Now
                             </a>
                         </div>

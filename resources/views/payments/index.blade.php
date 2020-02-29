@@ -18,8 +18,8 @@
                         Back
                     </a>
                     &nbsp;
-                    <a href="/" class="btn btn-info btn-icon-sm">
-                        <i class="flaticon2-plus"></i> Add New
+                    <a href="https://crm.easytrax.com.bd/payment?clientId={{\Auth::user()->id}}" class="btn btn-info btn-icon-sm">
+                        <i class="flaticon2-plus"></i> Pay Now
                     </a>
                 </div>
             </div>
