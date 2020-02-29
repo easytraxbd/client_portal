@@ -6,7 +6,7 @@
             <a class="kt-header__brand-logo" href="?page=index">
 {{--                <img alt="Logo" src="/assets/media/logos/logo-4.png" class="kt-header__brand-logo-default" />--}}
 {{--                <img alt="Logo" src="/assets/media/logos/logo-4-sm.png" class="kt-header__brand-logo-sticky" />--}}
-                <img alt="Logo" src="/images/easytrax/logos/easytrax_logo_white.png" class="kt-header__brand-logo-default" width="69px"/>
+                <img alt="Logo" src="/images/easytrax/logos/easytrax_logo_white.png" class="kt-header__brand-logo-default" width="100px"/>
                 <img alt="Logo" src="/images/easytrax/logos/easytrax_logo_color_full.png" class="kt-header__brand-logo-sticky" width="47px"/>
             </a>
         </div>
@@ -63,7 +63,7 @@
                     <span class="kt-header__topbar-username">{{ ucfirst(Auth::user()->first_name ?? ' ')}}</span>
 {{--                    <span class="kt-header__topbar-icon"><b>S</b></span>--}}
                     @if(isset(Auth::user()->client_photo))
-                    <img alt="Client Profile" src="https://crm.easytrax.com.bd/uploads/client/client_photo/{{Auth::user()->client_photo}}" class="kt-header__brand-logo-default" height="40px" width="59px">
+                    <img alt="Client Profile" src="https://crm.easytrax.com.bd/uploads/client/client_photo/{{Auth::user()->client_photo}}" class="kt-header__brand-logo-default" height="59px" width="59px">
                     @endif
                     <img alt="Pic" src="/assets/media/users/300_21.jpg" class="kt-hidden" />
                 </div>
