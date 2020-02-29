@@ -14,6 +14,11 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" >
 {{--		<link rel="shortcut icon" href="/assets/media/logos/favicon.ico" />--}}
 		<link rel="shortcut icon" href="/images/easytrax/favicon.ico"/>
+        <style>
+            table.table-bordered.dataTable th, table.table-bordered.dataTable td {
+                font-size: 1rem;
+            }
+        </style>
 	</head>
 
 	<!-- end::Head -->
