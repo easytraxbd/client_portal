@@ -250,7 +250,7 @@ class PaymentController extends Controller
             })
             ->addColumn('action', function ($payment) {
                 $a = '<div class="container text-center">';
-                $a .= '<a href="' . url("payment") . '/' . $payment->id.'" title="View details" class="btn btn-sm btn-clean btn-icon btn-icon-md"><i class="la la-eye"></i></a>';
+                $a .= '<a href="' . url("payment-draft") . '/' . $payment->id.'" title="View details" class="btn btn-sm btn-clean btn-icon btn-icon-md"><i class="la la-eye"></i></a>';
                 $a .= '</div>';
                 return $a;
             })
@@ -342,10 +342,57 @@ class PaymentController extends Controller
      */
     public function show(Payment $payment)
     {
+        $payment->payment_date = Carbon::parse($payment->payment_date)->format('j M, Y');
+        if (isset($payment->amount_final)){$payment->total_amount = $payment->amount_final;}
+        else{$payment->total_amount = $payment->amount;}
+
+        if (isset($payment->payment_method)){
+            $payment_method = DB::table('coa')->find($payment->payment_method);
+            $payment->payment_method = $payment_method->coa_name;
+        }
+        $invoicePayments = DB::table('sales_invoice_payments')->where('payment_id', $payment->id)
+            ->orderBy('id', 'ASC')->get();
+        $invoiceArray = [];
+        foreach ($invoicePayments as $invoicePayment) {
+            $invoice = Invoice::find($invoicePayment->invoice_id);
+            $invoice->paid_to_invoice = $invoicePayment->paid_to_invoice;
+            $invoiceArray[] = $invoice;
+        }
+
         $data = [
             'title' => 'payment',
             'subHeader'=>'payment details',
             'payment'=> $payment,
+            'invoiceArray'=> $invoiceArray,
+        ];
+        return view('payments.show',$data);
+    }
+
+    public function showPaymentDraft($id)
+    {
+        $payment = DB::table('payment_drafts')->find($id);
+        $payment->payment_date = Carbon::parse($payment->payment_date)->format('j M, Y');
+        if (isset($payment->amount_final)){$payment->total_amount = $payment->amount_final;}
+        else{$payment->total_amount = $payment->amount;}
+
+        if (isset($payment->payment_method)){
+            $payment_method = DB::table('coa')->find($payment->payment_method);
+            $payment->payment_method = $payment_method->coa_name;
+        }
+        $invoicePayments = DB::table('sales_invoice_payments')->where('payment_id', $payment->id)
+            ->orderBy('id', 'ASC')->get();
+        $invoiceArray = [];
+        foreach ($invoicePayments as $invoicePayment) {
+            $invoice = Invoice::find($invoicePayment->invoice_id);
+            $invoice->paid_to_invoice = $invoicePayment->paid_to_invoice;
+            $invoiceArray[] = $invoice;
+        }
+
+        $data = [
+            'title' => 'Draft payment',
+            'subHeader'=>'Draft payment details',
+            'payment'=> $payment,
+            'invoiceArray'=> $invoiceArray,
         ];
         return view('payments.show',$data);
     }

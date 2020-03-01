@@ -6,7 +6,7 @@
         <div class="kt-portlet">
             <div class="kt-portlet__body kt-portlet__body--fit">
                 <div class="kt-invoice-1">
-                    <div class="kt-invoice__head" style="background-image: url('/assets/media/bg/bg-6.jpg');">
+                    <div class="kt-invoice__head" style="background-image: url('/images/easytrax/bg_invoice.png');">
                         <div class="kt-invoice__container">
                             <div class="kt-invoice__brand">
                                 <h1 class="kt-invoice__title">INVOICE</h1>

@@ -26,6 +26,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('payment-draft/data','PaymentController@getDraftPaymentData');
 Route::get('payment-draft','PaymentController@draftPayment');
+Route::get('payment-draft/{id}','PaymentController@showPaymentDraft');
 
 Route::get('payment/data','PaymentController@getData');
 Route::resource('payment','PaymentController');

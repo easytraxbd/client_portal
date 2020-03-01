@@ -6,12 +6,12 @@
         <div class="kt-portlet">
             <div class="kt-portlet__body kt-portlet__body--fit">
                 <div class="kt-invoice-1">
-                    <div class="kt-invoice__head" style="background-image: url('/assets/media/bg/bg-6.jpg');">
+                    <div class="kt-invoice__head" style="background-image: url('/images/easytrax/bg_invoice.png');">
                         <div class="kt-invoice__container">
                             <div class="kt-invoice__brand">
                                 <h1 class="kt-invoice__title">PAYMENT</h1>
                                 <div href="#" class="kt-invoice__logo">
-                                    <a href="#"><img src="/assets/media/company-logos/logo_client_white.png" width="165px"></a>
+                                    <a href="#"><img src="/images/easytrax/logos/easytrax_logo_white.png" width="165px"></a>
                                     <span class="kt-invoice__desc">
 																<span>House #385 (2nd Floor), Road #06, Mirpur DOHS</span>
 																<span>Dhaka-1216, Bangladesh</span>
@@ -20,16 +20,21 @@
                             </div>
                             <div class="kt-invoice__items">
                                 <div class="kt-invoice__item">
-                                    <span class="kt-invoice__subtitle">DATA</span>
-                                    <span class="kt-invoice__text">Dec 12, 2017</span>
+                                    <span class="kt-invoice__subtitle">DATE</span>
+                                    <span class="kt-invoice__text">{{$payment->payment_date}}</span>
                                 </div>
                                 <div class="kt-invoice__item">
-                                    <span class="kt-invoice__subtitle">INVOICE NO.</span>
-                                    <span class="kt-invoice__text">GS 000014</span>
+                                    <span class="kt-invoice__subtitle">PAYMENT ID.</span>
+                                    <span class="kt-invoice__text">{{$payment->id}}</span>
                                 </div>
+                                @if(isset($payment->payment_method))
                                 <div class="kt-invoice__item">
-                                    <span class="kt-invoice__subtitle">INVOICE TO.</span>
-                                    <span class="kt-invoice__text">Iris Watson, P.O. Box 283 8562 Fusce RD.<br>Fredrick Nebraska 20620</span>
+                                    <span class="kt-invoice__subtitle">PAYMENT METHOD.</span>
+                                    <span class="kt-invoice__text">{{$payment->payment_method}}</span>
+                                </div>@endif
+                                <div class="kt-invoice__item">
+                                    <span class="kt-invoice__subtitle">PAYMENT AMOUNT</span>
+                                    <span class="kt-invoice__text">৳ {{$payment->total_amount}}</span>
                                 </div>
                             </div>
                         </div>
@@ -40,31 +45,19 @@
                                 <table class="table">
                                     <thead>
                                     <tr>
-                                        <th>DESCRIPTION</th>
-                                        <th>HOURS</th>
-                                        <th>RATE</th>
-                                        <th>AMOUNT</th>
+                                        <th>INVOICE</th>
+                                        <th>INVOICE AMOUNT</th>
+                                        <th>PAID AMOUNT</th>
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    @foreach($invoiceArray as $invoice)
                                     <tr>
-                                        <td>Creative Design</td>
-                                        <td>80</td>
-                                        <td>$40.00</td>
-                                        <td>$3200.00</td>
+                                        <td><a href="/invoice/{{$invoice->id}}">{{$invoice->invoice_no}}</a></td>
+                                        <td>৳ {{$invoice->invoice_total}}</td>
+                                        <td>৳ {{$invoice->paid_to_invoice}}</td>
                                     </tr>
-                                    <tr>
-                                        <td>Front-End Development</td>
-                                        <td>120</td>
-                                        <td>$40.00</td>
-                                        <td>$4800.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Back-End Development</td>
-                                        <td>210</td>
-                                        <td>$60.00</td>
-                                        <td>$12600.00</td>
-                                    </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -73,24 +66,12 @@
                     <div class="kt-invoice__footer">
                         <div class="kt-invoice__container">
                             <div class="kt-invoice__bank">
-                                <div class="kt-invoice__title">BANK TRANSFER</div>
-                                <div class="kt-invoice__item">
-                                    <span class="kt-invoice__label">Account Name:</span>
-                                    <span class="kt-invoice__value">Barclays UK</span></span>
-                                </div>
-                                <div class="kt-invoice__item">
-                                    <span class="kt-invoice__label">Account Number:</span>
-                                    <span class="kt-invoice__value">1234567890934</span></span>
-                                </div>
-                                <div class="kt-invoice__item">
-                                    <span class="kt-invoice__label">Code:</span>
-                                    <span class="kt-invoice__value">BARC0032UK</span></span>
-                                </div>
+                                <div class="kt-invoice__title" style="display: none">BANK TRANSFER</div>
                             </div>
                             <div class="kt-invoice__total">
                                 <span class="kt-invoice__title">TOTAL AMOUNT</span>
-                                <span class="kt-invoice__price">$20.600.00</span>
-                                <span class="kt-invoice__notice">Taxes Included</span>
+                                <span class="kt-invoice__price">৳ {{$payment->total_amount}}</span>
+{{--                                <span class="kt-invoice__notice">Taxes Included</span>--}}
                             </div>
                         </div>
                     </div>
