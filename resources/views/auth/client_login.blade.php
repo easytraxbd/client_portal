@@ -64,7 +64,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <div class="kt-grid__item">
                     <a href="#" class="kt-login__logo">
 {{--                        <img src="assets/media/logos/logo-4.png">--}}
-                        <img alt="Logo" src="/images/easytrax/logos/easytrax_logo_white.png" class="kt-header__brand-logo-default" width="100px"/>
+                        <img alt="Logo" src="/images/easytrax/logos/easytrax_logo_white.png" class="kt-header__brand-logo-default" width="100px" height="53px"/>
                     </a>
                 </div>
                 <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver">

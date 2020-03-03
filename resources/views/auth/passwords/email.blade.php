@@ -63,7 +63,7 @@ License: You must have a valid license purchased only from themeforest(the above
             <div class="kt-grid__item kt-grid__item--order-tablet-and-mobile-2 kt-grid kt-grid--hor kt-login__aside" style="background-image: url(/images/easytrax/bg_login.jpg);">
                 <div class="kt-grid__item">
                     <a href="#" class="kt-login__logo">
-                        <img alt="Logo" src="/images/easytrax/logos/easytrax_logo_white.png" class="kt-header__brand-logo-default" width="100px"/>
+                        <img alt="Logo" src="/images/easytrax/logos/easytrax_logo_white.png" class="kt-header__brand-logo-default" width="100px" height="53px"/>
                     </a>
                 </div>
                 <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver">
