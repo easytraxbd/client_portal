@@ -37,7 +37,21 @@ class PaymentController extends Controller
     {
         $id = Auth::user()->id;
 //        $payment = Payment::select()->where('user_id',$id)->orderBy('id', 'desc');
-        $payment = Payment::select()->where('client_id',$id);
+        $payment2 = DB::table('payment_drafts')->select()->where('client_id',$id)->get();
+        foreach ($payment2 as $payment){
+            $payment->status = 0;
+        }
+
+        $payment1 = DB::table('payments')->select()->where('client_id',$id)->get();
+        foreach ($payment1 as $payment){
+            $payment->status = 1;
+        }
+
+//        $payment = Payment::select()->where('client_id',$id);
+
+        $payment = array_merge($payment1->toArray(),$payment2->toArray());
+//        dd($payment);
+
         return Datatables::of($payment)
             ->escapeColumns([])
             ->addIndexColumn()
@@ -46,6 +60,14 @@ class PaymentController extends Controller
                     return Carbon::parse($payment->payment_date . ' ' . $payment->payment_time)->toDayDateTimeString();
                 } else {
                     return Carbon::parse($payment->payment_date . ' ' . Carbon::parse($payment->created_at)->toTimeString())->toDayDateTimeString();
+                }
+            })
+            ->editColumn('status', function ($payment) {
+                if ($payment->status == 1) {
+                    return '<span class="btn btn-bold btn-sm btn-font-sm  btn-label-success">Approved</span>';
+                }
+                if ($payment->status == 0){
+                    return '<span class="btn btn-bold btn-sm btn-font-sm  btn-label-warning">Draft</span>';
                 }
             })
             ->editColumn('amount', function ($payment) {
@@ -116,7 +138,12 @@ class PaymentController extends Controller
             })
             ->addColumn('action', function ($payment) {
                 $a = '<div class="container text-center">';
-                $a .= '<a href="' . url("payment") . '/' . $payment->id.'" title="View details" class="btn btn-sm btn-clean btn-icon btn-icon-md"><i class="la la-eye"></i></a>';
+                if ($payment->status == 1){
+                    $a .= '<a href="' . url("payment") . '/' . $payment->id.'" title="View details" class="btn btn-sm btn-clean btn-icon btn-icon-md"><i class="la la-eye"></i></a>';
+                }
+                if ($payment->status == 0){
+                    $a .= '<a href="' . url("payment-draft") . '/' . $payment->id.'" title="View details" class="btn btn-sm btn-clean btn-icon btn-icon-md"><i class="la la-eye"></i></a>';
+                }
                 $a .= '</div>';
                 return $a;
             })
