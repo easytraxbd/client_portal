@@ -67,7 +67,7 @@ class PaymentController extends Controller
                     return '<span class="btn btn-bold btn-sm btn-font-sm  btn-label-success">Approved</span>';
                 }
                 if ($payment->status == 0){
-                    return '<span class="btn btn-bold btn-sm btn-font-sm  btn-label-warning">Draft</span>';
+                    return '<span class="btn btn-bold btn-sm btn-font-sm  btn-label-warning">Pending</span>';
                 }
             })
             ->editColumn('amount', function ($payment) {
