@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Client;
+use App\Services\TelegramService;
+use App\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -15,8 +17,10 @@ class ProfileController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    protected $telegramService;
+    public function __construct(TelegramService $telegramService)
     {
+        $this->telegramService = $telegramService;
         $this->middleware('auth');
     }
 
@@ -77,5 +81,85 @@ class ProfileController extends Controller
         }
         $errorArray["password"] = "Password didn't match";
         return back()->withErrors($errorArray);
+    }
+
+    public function update(Request $request){
+        $data = [
+            'birth_date' => $request->birth_date,
+            'marital_status' => $request->marital_status,
+            'marriage_anniversary' => $request->marriage_anniversary,
+        ];
+        $id = Auth::user()->id;
+        DB::table('clients')->where('id',$id)->update($data);
+        return back()->with('success','update info successfully');
+    }
+    public function updateByTicket(Request $request){
+        $id = Auth::user()->id;
+        $description = '';
+        $client = DB::table('clients')->find($id);
+        if ($client->name != $request->name){
+            $description .= 'Name: '.$request->name.'<br>';
+        }
+        if ($client->company_name != $request->company_name){
+            $description .= 'Company Name: '.$request->company_name.'<br>';
+        }
+        if ($client->work_phone != $request->work_phone){
+            $description .= 'Contact Number: '.$request->work_phone.'<br>';
+        }
+        if ($client->alt_phone != $request->alt_phone){
+            $description .= 'Alternative Contact Number : '.$request->alt_phone.'<br>';
+        }
+        if ($client->email != $request->email){
+            $description .= 'Email : '.$request->email.'<br>';
+        }
+        if ($client->nid_number != $request->nid_number){
+            $description .= 'NID : '.$request->nid_number.'<br>';
+        }
+        if ($client->platform_username != $request->platform_username){
+            $description .= 'Platform User ID : '.$request->platform_username.'<br>';
+        }
+        if ($client->home_address != $request->home_address){
+            $description .= 'Address : '.$request->home_address.'<br>';
+        }
+        if ( $description == ''){
+            return redirect()->back()->with('error','Nothing to change!');
+        }
+
+        $data = [
+            'title' => 'Profile Update Request',
+            'description' => $description,
+        ];
+        $data['status'] = 1;
+        $data['priority'] = 1;
+        $data['ticket_type_id'] = 226;
+        $data['client_id'] = $id;
+        $data['call_type'] = 2;
+        if (Ticket::create($data)){
+            $message = 'A new Ticket "'.$data["title"].'" has been created by'.Auth::user()->name.'
+Type: '.DB::table('ticket_types')->find( $data['ticket_type_id'])->title.'
+call_type: Request
+Priority: High
+Current Status: Open
+Description:'.$data["description"];
+            $this->sendTelegramNotification($message);
+            return back()->with('success','Ticket created successfully');
+        }
+        return redirect()->back()->with('error','Something went wrong');
+    }
+    public function sendTelegramNotification($text)
+    {
+        $text = urlencode($text);
+        $text = str_replace('<br>','%0A',$text);
+
+        $options = [
+            'chat_id' => \Config::get('telegram.channels.ticket_channel.channel_id'),
+            'text' => $text,
+            'bot_token' => \Config::get('telegram.bot_token'),
+        ];
+        $sourceInfo = [
+            'source_type' => 'tickets',
+            'source_type_id' => '',
+        ];
+        $this->telegramService->setNotificationQueue('sendMessage', $options, $sourceInfo);
     }
 }

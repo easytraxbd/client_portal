@@ -64,6 +64,7 @@
                     $('#payment-table').DataTable({
                         processing: true,
                         serverSide: true,
+                        order: [[ 2, "desc" ]],
                         ajax: '/payment/data',
                         columns: [
                             {data: 'id', name: 'id'},

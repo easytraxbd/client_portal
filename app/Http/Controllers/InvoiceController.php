@@ -35,7 +35,7 @@ class InvoiceController extends Controller
         $invoice = Invoice::where('client_id',$id)
 //            ->where('invoice_type', 0)
             ->where('is_recurring_setting', '!=', 1)
-              ->select();
+              ->select()->orderBy('id','desc');
         return Datatables::of($invoice)
             ->escapeColumns([])
             ->addIndexColumn()

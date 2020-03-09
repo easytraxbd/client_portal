@@ -115,9 +115,11 @@
                     </div>
                     <div class="kt-portlet__head-toolbar">
                         <div class="kt-portlet__head-wrapper">
+                            @if(isset($totalDue) && $totalDue > 0)
                             <a href="https://crm.easytrax.com.bd/payment?clientId={{\Auth::user()->id}}" class="btn btn-info btn-icon-sm">
                                 <i class="flaticon2-plus"></i> Pay Now
                             </a>
+                                @endif
                         </div>
                     </div>
                 </div>
@@ -311,7 +313,7 @@
             $('#payment-table').DataTable({
                 processing: true,
                 serverSide: true,
-                order: [[ 3, "desc" ]],
+                order: [[ 2, "desc" ]],
                 pageLength: 5,
                 ajax: '/payment/data',
                 columns: [
@@ -346,7 +348,7 @@
             $('#invoice-table').DataTable({
                 processing: true,
                 serverSide: true,
-                order: [[ 3, "desc" ]],
+                // order: [[ 3, "desc" ]],
                 pageLength: 5,
                 ajax: '/invoice/data',
                 columns: [
@@ -365,7 +367,7 @@
             $('#ticket-table').DataTable({
                 processing: true,
                 serverSide: true,
-                order: [[ 3, "desc" ]],
+                // order: [[ 3, "desc" ]],
                 pageLength: 5,
                 ajax: '/ticket/data',
                 columns: [

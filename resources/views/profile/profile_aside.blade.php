@@ -6,64 +6,6 @@
                 <h3 class="kt-portlet__head-title">
                 </h3>
             </div>
-            <div class="kt-portlet__head-toolbar">
-                <a href="#" class="btn btn-clean btn-sm btn-icon btn-icon-md" data-toggle="dropdown">
-                    <i class="flaticon-more-1"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right dropdown-menu-fit dropdown-menu-md">
-
-                    <!--begin::Nav-->
-                    <ul class="kt-nav">
-                        <li class="kt-nav__head">
-                            Export Options
-                            <span data-toggle="kt-tooltip" data-placement="right" title="Click to learn more...">
-																	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon kt-svg-icon--brand kt-svg-icon--md1">
-																		<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-																			<rect x="0" y="0" width="24" height="24" />
-																			<circle fill="#000000" opacity="0.3" cx="12" cy="12" r="10" />
-																			<rect fill="#000000" x="11" y="10" width="2" height="7" rx="1" />
-																			<rect fill="#000000" x="11" y="7" width="2" height="2" rx="1" />
-																		</g>
-																	</svg> </span>
-                        </li>
-                        <li class="kt-nav__separator"></li>
-                        <li class="kt-nav__item">
-                            <a href="#" class="kt-nav__link">
-                                <i class="kt-nav__link-icon flaticon2-drop"></i>
-                                <span class="kt-nav__link-text">Activity</span>
-                            </a>
-                        </li>
-                        <li class="kt-nav__item">
-                            <a href="#" class="kt-nav__link">
-                                <i class="kt-nav__link-icon flaticon2-calendar-8"></i>
-                                <span class="kt-nav__link-text">FAQ</span>
-                            </a>
-                        </li>
-                        <li class="kt-nav__item">
-                            <a href="#" class="kt-nav__link">
-                                <i class="kt-nav__link-icon flaticon2-telegram-logo"></i>
-                                <span class="kt-nav__link-text">Settings</span>
-                            </a>
-                        </li>
-                        <li class="kt-nav__item">
-                            <a href="#" class="kt-nav__link">
-                                <i class="kt-nav__link-icon flaticon2-new-email"></i>
-                                <span class="kt-nav__link-text">Support</span>
-                                <span class="kt-nav__link-badge">
-																		<span class="kt-badge kt-badge--success kt-badge--rounded">5</span>
-																	</span>
-                            </a>
-                        </li>
-                        <li class="kt-nav__separator"></li>
-                        <li class="kt-nav__foot">
-                            <a class="btn btn-label-danger btn-bold btn-sm" href="#">Upgrade plan</a>
-                            <a class="btn btn-clean btn-bold btn-sm" href="#" data-toggle="kt-tooltip" data-placement="right" title="Click to learn more...">Learn more</a>
-                        </li>
-                    </ul>
-
-                    <!--end::Nav-->
-                </div>
-            </div>
         </div>
         <div class="kt-portlet__body kt-portlet__body--fit-y">
 
@@ -71,7 +13,10 @@
             <div class="kt-widget kt-widget--user-profile-1">
                 <div class="kt-widget__head">
                     <div class="kt-widget__media">
-                        <img src="/assets/media/users/100_13.jpg" alt="image">
+                        @if(isset(Auth::user()->client_photo))
+                            <img alt="S" src="https://crm.easytrax.com.bd/uploads/client/client_photo/{{Auth::user()->client_photo}}" height="60px" width="60px">
+                        @endif
+{{--                        <img src="/assets/media/users/100_13.jpg" alt="image">--}}
                     </div>
                     <div class="kt-widget__content">
                         <div class="kt-widget__section">
@@ -83,26 +28,30 @@
 																	Head of Development
 																</span>
                         </div>
-                        <div class="kt-widget__action">
-                            <button type="button" class="btn btn-info btn-sm">chat</button>&nbsp;
-                            <button type="button" class="btn btn-success btn-sm">follow</button>
-                        </div>
+{{--                        <div class="kt-widget__action">--}}
+{{--                            <button type="button" class="btn btn-info btn-sm">chat</button>&nbsp;--}}
+{{--                            <button type="button" class="btn btn-success btn-sm">follow</button>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
                 <div class="kt-widget__body">
                     <div class="kt-widget__content">
+                        @if(isset(\Auth::user()->email))
                         <div class="kt-widget__info">
                             <span class="kt-widget__label">Email:</span>
-                            <a href="#" class="kt-widget__data">matt@fifestudios.com</a>
+                            <a href="#" class="kt-widget__data">{{\Auth::user()->email}}</a>
                         </div>
+                        @endif
                         <div class="kt-widget__info">
                             <span class="kt-widget__label">Phone:</span>
-                            <a href="#" class="kt-widget__data">44(76)34254578</a>
+                            <a href="#" class="kt-widget__data">{{\Auth::user()->work_phone}}</a>
                         </div>
-                        <div class="kt-widget__info">
-                            <span class="kt-widget__label">Location:</span>
-                            <span class="kt-widget__data">Melbourne</span>
-                        </div>
+{{--                            @if(isset(\Auth::user()->home_address))--}}
+{{--                        <div class="kt-widget__info">--}}
+{{--                            <span class="kt-widget__label">Location:</span>--}}
+{{--                            <span class="kt-widget__data">{{\Auth::user()->home_address}}</span>--}}
+{{--                        </div>--}}
+{{--                                @endif--}}
                     </div>
                     <div class="kt-widget__items">
                         <a href="/profile/overview" class="kt-widget__item {{ Request::is("profile/overview") ? 'kt-widget__item--active' : '' }}">
@@ -150,7 +99,7 @@
 																		Change Passwort
 																	</span>
 																</span>
-                            <span class="kt-badge kt-badge--unified-danger kt-badge--sm kt-badge--rounded kt-badge--bolder">5</span>
+{{--                            <span class="kt-badge kt-badge--unified-danger kt-badge--sm kt-badge--rounded kt-badge--bolder">5</span>--}}
                         </a>
 {{--                        <a href="custom/apps/user/profile-1/email-settings.html" class="kt-widget__item ">--}}
 {{--																<span class="kt-widget__section">--}}

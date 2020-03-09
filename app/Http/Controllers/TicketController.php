@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\TelegramService;
 use App\Ticket;
 use App\TicketComment;
 use Carbon\Carbon;
@@ -14,8 +15,10 @@ use Yajra\DataTables\DataTables;
 class TicketController extends Controller
 {
     protected $erpUrl = 'http://crm.easytrax.com.bd/';
-    public function __construct()
+    protected $telegramService;
+    public function __construct(TelegramService $telegramService)
     {
+        $this->telegramService = $telegramService;
         $this->erpUrl;
         $this->middleware('auth');
     }
@@ -36,7 +39,7 @@ class TicketController extends Controller
     public function getData()
     {
         $id = Auth::user()->id;
-        $ticket = Ticket::select()->where('client_id',$id);
+        $ticket = Ticket::select()->where('client_id',$id)->orderBy('id','desc');
         return Datatables::of($ticket)
             ->escapeColumns([])
             ->addIndexColumn()
@@ -142,6 +145,12 @@ class TicketController extends Controller
         $data['ticket_type_id'] = 226;
         $data['client_id'] = Auth::user()->id;
         if (Ticket::create($data)){
+$message = 'A new Ticket "'.$data["title"].'" has been created by'.Auth::user()->name.'
+Type: '.DB::table('ticket_types')->find( $data['ticket_type_id'])->title.'
+Priority: High
+Current Status: Open
+Description:'.$data["description"];
+            $this->sendTelegramNotification($message);
             return redirect('ticket')->with('success','Ticket created successfully');
         }
         return redirect()->back()->with('error','Something went wrong');
@@ -213,4 +222,20 @@ class TicketController extends Controller
     {
         //
     }
+
+    public function sendTelegramNotification($text)
+    {
+        $text = urlencode($text);
+        $options = [
+            'chat_id' => \Config::get('telegram.channels.ticket_channel.channel_id'),
+            'text' => $text,
+            'bot_token' => \Config::get('telegram.bot_token'),
+        ];
+        $sourceInfo = [
+            'source_type' => 'tickets',
+            'source_type_id' => '',
+        ];
+        $this->telegramService->setNotificationQueue('sendMessage', $options, $sourceInfo);
+    }
+
 }
