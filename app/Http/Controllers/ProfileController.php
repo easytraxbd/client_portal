@@ -135,7 +135,7 @@ class ProfileController extends Controller
         $data['client_id'] = $id;
         $data['call_type'] = 2;
         if (Ticket::create($data)){
-            $message = 'A new Ticket "'.$data["title"].'" has been created by'.Auth::user()->name.'
+            $message = 'A new Ticket "'.$data["title"].'" has been created by '.Auth::user()->name.'.
 Type: '.DB::table('ticket_types')->find( $data['ticket_type_id'])->title.'
 call_type: Request
 Priority: High
@@ -149,7 +149,8 @@ Description:'.$data["description"];
     public function sendTelegramNotification($text)
     {
         $text = urlencode($text);
-        $text = str_replace('<br>','%0A',$text);
+        //urlencode('<br>')='%3Cbr%3E'
+        $text = str_replace('%3Cbr%3E','%0A',$text);
 
         $options = [
             'chat_id' => \Config::get('telegram.channels.ticket_channel.channel_id'),

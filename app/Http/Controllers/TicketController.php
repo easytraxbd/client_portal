@@ -145,7 +145,7 @@ class TicketController extends Controller
         $data['ticket_type_id'] = 226;
         $data['client_id'] = Auth::user()->id;
         if (Ticket::create($data)){
-$message = 'A new Ticket "'.$data["title"].'" has been created by'.Auth::user()->name.'
+$message = 'A new Ticket "'.$data["title"].'" has been created by '.Auth::user()->name.'.
 Type: '.DB::table('ticket_types')->find( $data['ticket_type_id'])->title.'
 Priority: High
 Current Status: Open
