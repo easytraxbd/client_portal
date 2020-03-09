@@ -134,16 +134,23 @@ class ProfileController extends Controller
         $data['ticket_type_id'] = 226;
         $data['client_id'] = $id;
         $data['call_type'] = 2;
-        if (Ticket::create($data)){
-            $message = 'A new Ticket "'.$data["title"].'" has been created by '.Auth::user()->name.'.
+        $ticket = Ticket::create($data);
+        if (isset($ticket->id)){
 
-Type: '.DB::table('ticket_types')->find( $data['ticket_type_id'])->title.'
-Call Type: Request
-Priority: High
-Current Status: Open
+$message = 'Hello Team,
 
-Requested info,
-'.$data["description"];
+A customer need assistance. Please respond urgently.
+
+Client info:
+ID: '.$id.'
+Name: '.Auth::user()->name.'
+
+Change Requested,
+'.$data["description"].'
+
+Ticket Link: https://crm.easytrax.com.bd/tickets/'.$ticket->id.'
+Profile Link: https://crm.easytrax.com.bd/crm/clients/'.$id.'
+Profile Edit Link: https://crm.easytrax.com.bd/crm/clients/'.$id.'/edit';
             $this->sendTelegramNotification($message);
             return back()->with('success','Ticket created successfully');
         }

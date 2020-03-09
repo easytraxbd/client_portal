@@ -2,41 +2,9 @@
 
 return [
     'channels' => [
-        'invoice_channel' => [
-            'channel_id' => '-1001444116536',
-            'channel_username' => 'EasytraxInvoices',
-        ],
-        'payment_channel' => [
-            'channel_id' => '-1001236813390',
-            'channel_username' => 'EasytraxPayments',
-        ],
         'ticket_channel' => [
-            'channel_id' => '-1001447754631',
-            'channel_username' => 'EasytraxTickets',
-        ],
-        'telegram_crm_scheduled_job_channel' => [
-            'channel_id' => '-1001424002337',
-            'channel_username' => 'EasytraxCRMScheduledJobs',
-        ],
-        'accounts_channel' => [
-            'channel_id' => '-1001373064125',
-            'channel_username' => 'EasytraxAccounts',
-        ],
-        'quotation_channel' => [
-            'channel_id' => '-1001328599393',
-            'channel_username' => 'EasytraxQuotations',
-        ],
-        'inventory_channel' => [
-            'channel_id' => '-1001360025983',
-            'channel_username' => 'EasytraxInventory',
-        ],
-        'erp_release_notes_channel' => [
-            'channel_id' => '-1001245638464',
-            'channel_username' => 'ErpReleaseNotes',
-        ],
-        'registration_channel' => [
-            'channel_id' => '-1001415774707',
-            'channel_username' => 'EasytraxInventory',
+            'channel_id' => '-1001490035381',
+            'channel_username' => 'EasytraxSelfCareTickets',
         ],
     ],
 
