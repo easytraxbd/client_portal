@@ -137,19 +137,22 @@ class ProfileController extends Controller
         $ticket = Ticket::create($data);
         if (isset($ticket->id)){
 
-$message = 'Hello Team,
+$message = 'Customer "'.Auth::user()->name.'" has requested to update Profile Information.
 
-A customer need assistance. Please respond urgently.
 
-Client info:
-ID: '.$id.'
-Name: '.Auth::user()->name.'
+Customer Name: '.Auth::user()->name.'
+Customer ID: '.$id.'
+Ticket Creation Date & Time :'.$ticket->created_at.'
 
-Change Requested,
+Change Requested Fields:
+
 '.$data["description"].'
 
+
 Ticket Link: https://crm.easytrax.com.bd/tickets/'.$ticket->id.'
+
 Profile Link: https://crm.easytrax.com.bd/crm/clients/'.$id.'
+
 Profile Edit Link: https://crm.easytrax.com.bd/crm/clients/'.$id.'/edit';
             $this->sendTelegramNotification($message);
             return back()->with('success','Ticket created successfully');
