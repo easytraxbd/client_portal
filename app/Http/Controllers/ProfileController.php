@@ -136,11 +136,14 @@ class ProfileController extends Controller
         $data['call_type'] = 2;
         if (Ticket::create($data)){
             $message = 'A new Ticket "'.$data["title"].'" has been created by '.Auth::user()->name.'.
+
 Type: '.DB::table('ticket_types')->find( $data['ticket_type_id'])->title.'
-call_type: Request
+Call Type: Request
 Priority: High
 Current Status: Open
-Description:'.$data["description"];
+
+Requested info,
+'.$data["description"];
             $this->sendTelegramNotification($message);
             return back()->with('success','Ticket created successfully');
         }
