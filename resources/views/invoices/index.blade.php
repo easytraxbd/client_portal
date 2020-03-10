@@ -17,10 +17,10 @@
                         <i class="la la-long-arrow-left"></i>
                         Back
                     </a>
-                    &nbsp;
-                    <a href="/" class="btn btn-info btn-icon-sm">
-                        <i class="flaticon2-plus"></i> Add New
-                    </a>
+{{--                    &nbsp;--}}
+{{--                    <a href="/" class="btn btn-info btn-icon-sm">--}}
+{{--                        <i class="flaticon2-plus"></i> Add New--}}
+{{--                    </a>--}}
                 </div>
             </div>
         </div>

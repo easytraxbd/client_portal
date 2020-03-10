@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Client;
 use App\Services\TelegramService;
 use App\Ticket;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -134,6 +135,8 @@ class ProfileController extends Controller
         $data['ticket_type_id'] = 226;
         $data['client_id'] = $id;
         $data['call_type'] = 2;
+        $data['ticket_complain_source_id'] = 35;
+        $data['date'] = Carbon::now();
         $ticket = Ticket::create($data);
         if (isset($ticket->id)){
 
@@ -142,7 +145,7 @@ $message = 'Customer "'.Auth::user()->name.'" has requested to update Profile In
 
 Customer Name: '.Auth::user()->name.'
 Customer ID: '.$id.'
-Ticket Creation Date & Time :'.$ticket->created_at.'
+Ticket Creation Date & Time :'.Carbon::parse($ticket->created_at)->toDayDateTimeString().'
 
 Change Requested Fields:
 
