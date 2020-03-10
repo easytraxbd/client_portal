@@ -29,7 +29,7 @@ class ClientLoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = 'home';
+    protected $redirectTo = 'dashboard';
 
     /**
      * Create a new controller instance.
@@ -60,7 +60,7 @@ class ClientLoginController extends Controller
             return $this->sendLockoutResponse($request);
         }
         if (Auth::guard('client')->attempt(['work_phone' => $work_phone, 'password' => $request->password],$request->remember)){
-            return redirect()->intended(route('home'));
+            return redirect()->intended(route('dashboard'));
         }
         $this->incrementLoginAttempts($request);
         //check if phone number exist in database

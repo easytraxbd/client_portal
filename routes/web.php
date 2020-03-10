@@ -15,13 +15,14 @@
 //    return view('welcome');
 //});
 Route::get('/', 'DashboardController@index')->name('dashboard');
+Route::get('/home', 'DashboardController@index')->name('home');
 
 Auth::routes();
 Route::get('/login', 'Auth\ClientLoginController@loginForm')->name('login');
 Route::post('/login', 'Auth\ClientLoginController@login');
 //Route::get('/password/reset/{token?}', 'Auth\ResetClientPasswordController@showResetForm')->name('password.reset');
 //Route::post('/password/reset', 'Auth\ResetClientPasswordController@reset')->name('password.update');
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get('payment-draft/data','PaymentController@getDraftPaymentData');
