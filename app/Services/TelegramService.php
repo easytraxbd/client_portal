@@ -8,6 +8,7 @@ use Carbon\Carbon;
 
 class TelegramService
 {
+
     public function setNotificationQueue($methodName, $options, $sourceInfo = [])
     {
         $newNotificationQueue = new TelegramNotificationQueue();

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Client;
 use App\Services\TelegramService;
+use App\Services\TicketService;
 use App\Ticket;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -18,10 +19,10 @@ class ProfileController extends Controller
      *
      * @return void
      */
-    protected $telegramService;
-    public function __construct(TelegramService $telegramService)
+    protected $ticketService;
+    public function __construct(TicketService $ticketService)
     {
-        $this->telegramService = $telegramService;
+        $this->ticketService = $ticketService;
         $this->middleware('auth');
     }
 
@@ -152,26 +153,10 @@ Change Requested Fields:
 Ticket Link: https://crm.easytrax.com.bd/tickets/'.$ticket->id.'
 Profile Link: https://crm.easytrax.com.bd/crm/clients/'.$id.'
 Profile Edit Link: https://crm.easytrax.com.bd/crm/clients/'.$id.'/edit';
-            $this->sendTelegramNotification($message);
+            $this->ticketService->sendTelegramNotification($message);
             return back()->with('success','Ticket created successfully');
         }
         return redirect()->back()->with('error','Something went wrong');
     }
-    public function sendTelegramNotification($text)
-    {
-        $text = urlencode($text);
-        //urlencode('<br>')='%3Cbr%3E'
-        $text = str_replace('%3Cbr%3E','%0A',$text);
 
-        $options = [
-            'chat_id' => \Config::get('telegram.channels.ticket_channel.channel_id'),
-            'text' => $text,
-            'bot_token' => \Config::get('telegram.bot_token'),
-        ];
-        $sourceInfo = [
-            'source_type' => 'tickets',
-            'source_type_id' => '',
-        ];
-        $this->telegramService->setNotificationQueue('sendMessage', $options, $sourceInfo);
-    }
 }
