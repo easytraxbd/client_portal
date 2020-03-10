@@ -124,9 +124,11 @@ class TicketController extends Controller
      */
     public function create()
     {
+        $ticketTypes = DB::table('ticket_types')->where('parent_id',0)->pluck('title','id')->toArray();
         $data = [
             'title' => 'Ticket',
-            'subHeader'=>'Ticket Creation'
+            'subHeader'=>'Ticket Creation',
+            'ticketTypes'=> $ticketTypes,
         ];
         return view('ticket.create',$data);
     }
@@ -147,7 +149,6 @@ class TicketController extends Controller
         $data = $request->all();
         $data['status'] = 1;
         $data['priority'] = 1;
-        $data['ticket_type_id'] = 226;
         $data['client_id'] = Auth::user()->id;
         $data['ticket_complain_source_id'] = 35;
         $data['date'] = Carbon::now();

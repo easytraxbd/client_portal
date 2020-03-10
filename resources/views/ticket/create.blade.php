@@ -17,24 +17,22 @@
             @csrf
             <div class="kt-portlet__body">
                 <div class="form-group row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-8">
                         <label>Ticket Title:</label>
                         <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" placeholder="Enter ticket title" required autofocus>
                         @error('title')
                         <span class="form-text text-muted"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
-{{--                    <div class="col-lg-4">--}}
-{{--                        <label class="">Ticket Type:</label>--}}
-{{--                        <select class="form-control" name="billing_card_exp_month">--}}
-{{--                            <option value="">Select</option>--}}
-{{--                            <option value="01">01</option>--}}
-{{--                            <option value="02">02</option>--}}
-{{--                            <option value="03">03</option>--}}
-{{--                            <option value="04">04</option>--}}
-{{--                        </select>--}}
+                    <div class="col-lg-4">
+                        <label class="">Ticket Type:</label>
+                        <select class="form-control" name="ticket_type_id" required>
+                            @foreach($ticketTypes as $ticketTypeId => $ticketTypeName)
+                            <option value="{{$ticketTypeId}}" @if($ticketTypeId == '226') selected @endif>{{$ticketTypeName}}</option>
+                            @endforeach
+                        </select>
 {{--                        <span class="form-text text-muted">Please enter your email</span>--}}
-{{--                    </div>--}}
+                    </div>
                 </div>
 {{--                <div class="form-group row">--}}
 {{--                    <div class="col-lg-4">--}}

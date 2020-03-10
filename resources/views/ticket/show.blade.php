@@ -18,7 +18,7 @@
                         Back to Ticket
                     </a>
                     &nbsp;
-                    <a href="/" class="btn btn-info btn-icon-sm">
+                    <a href="/ticket/create" class="btn btn-info btn-icon-sm">
                         <i class="flaticon2-plus"></i> Add New
                     </a>
                 </div>
