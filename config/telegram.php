@@ -3,7 +3,7 @@
 return [
     'channels' => [
         'ticket_channel' => [
-            'channel_id' => '-1001490035381',
+            'channel_id' => '-1001465516984',
             'channel_username' => 'EasytraxSelfCareTickets',
         ],
     ],
