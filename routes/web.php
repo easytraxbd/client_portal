@@ -46,4 +46,11 @@ Route::post('profile/change-password','ProfileController@changePassword');
 Route::post('profile/update-basic-info','ProfileController@updateByTicket')->name('profile.ticket');
 Route::post('profile/update-other-info','ProfileController@update')->name('profile.update');
 
+
+Route::get('vehicle/data','VehicleController@getData');
+Route::resource('vehicle','VehicleController');
+
+Route::get('offer/data','OfferController@getData');
+Route::resource('offer','OfferController');
+
 //Route::get('/logout', 'Auth\ClientLoginController@logout')->name('client.logout');

@@ -8,7 +8,7 @@
 				<i class="kt-font-brand flaticon2-line-chart"></i>
 			</span>
                 <h3 class="kt-portlet__head-title">
-                    Vehicles
+                    Offers
                 </h3>
             </div>
             <div class="kt-portlet__head-toolbar">
@@ -34,10 +34,12 @@
                            role="grid" aria-describedby="example1_info">
                         <thead>
                         <tr role="row">
-                            <th>Vehicle Type</th>
-                            <th>Model</th>
-                            <th>Reg Number</th>
-                            <th>Reg Date</th>
+                            <th>Title</th>
+                            <th>Coupon Code</th>
+                            <th>Discount</th>
+                            <th>Validity</th>
+                            <th>Active?</th>
+                            <th>Used?</th>
 {{--                            <th>Action</th>--}}
                         </tr>
                         </thead>
@@ -62,13 +64,15 @@
                     $('#invoice-table').DataTable({
                         processing: true,
                         serverSide: true,
-                        ajax: '/vehicle/data',
+                        ajax: '/offer/data',
                         columns: [
                             // {data: 'id', name: 'id'},
-                            {data: 'vehicle_type', name: 'vehicle_type'},
-                            {data: 'car_model', name: 'car_model'},
-                            {data: 'car_reg_number', name: 'car_reg_number'},
-                            {data: 'car_reg_date', name: 'car_reg_date'},
+                            {data: 'name', name: 'name'},
+                            {data: 'coupon_code', name: 'coupon_code'},
+                            {data: 'discount', name: 'discount'},
+                            {data: 'validity', name: 'validity'},
+                            {data: 'active', name: 'active'},
+                            {data: 'is_used', name: 'is_used'},
                             // {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                             // {data: 'action', name: 'action'},
                         ]
