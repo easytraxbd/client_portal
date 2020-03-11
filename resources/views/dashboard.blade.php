@@ -106,9 +106,9 @@
             <div class="kt-portlet kt-portlet--mobile">
                 <div class="kt-portlet__head kt-portlet__head--lg">
                     <div class="kt-portlet__head-label">
-			<span class="kt-portlet__head-icon">
-				<i class="kt-font-brand flaticon2-line-chart"></i>
-			</span>
+{{--			<span class="kt-portlet__head-icon">--}}
+{{--				<i class="kt-font-brand flaticon2-line-chart"></i>--}}
+{{--			</span>--}}
                         <h3 class="kt-portlet__head-title">
                             Payments
                         </h3>
@@ -154,64 +154,14 @@
             </div>
             <!--end:: payment-->
         </div>
-{{--        <div class="col-lg-6 col-xl-6 order-lg-1 order-xl-1">--}}
-{{--            <!--begin:: payment-->--}}
-{{--            <div class="kt-portlet kt-portlet--mobile">--}}
-{{--                <div class="kt-portlet__head kt-portlet__head--lg">--}}
-{{--                    <div class="kt-portlet__head-label">--}}
-{{--			<span class="kt-portlet__head-icon">--}}
-{{--				<i class="kt-font-brand flaticon2-line-chart"></i>--}}
-{{--			</span>--}}
-{{--                        <h3 class="kt-portlet__head-title">--}}
-{{--                            Draft Payments--}}
-{{--                        </h3>--}}
-{{--                    </div>--}}
-{{--                    <div class="kt-portlet__head-toolbar">--}}
-{{--                        <div class="kt-portlet__head-wrapper">--}}
-{{--                            <a href="https://crm.easytrax.com.bd/payment?clientId={{\Auth::user()->id}}" class="btn btn-info btn-icon-sm">--}}
-{{--                                <i class="flaticon2-plus"></i> Pay Now--}}
-{{--                            </a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <br>--}}
-{{--                <div class="kt-portlet__body kt-portlet__body--fit">--}}
-{{--                    <!--begin: Datatable -->--}}
-{{--                    <div class="kt-datatable kt-datatable--default kt-datatable--brand kt-datatable--loaded"--}}
-{{--                         id="local_data"--}}
-{{--                         style="">--}}
-{{--                        <div class="col-md-12">--}}
-{{--                            <table id="draft-payment-table" class="table table-bordered dataTable table-responsive-sm"--}}
-{{--                                   role="grid" aria-describedby="example1_info">--}}
-{{--                                <thead>--}}
-{{--                                <tr role="row">--}}
-{{--                                    <th>ID</th>--}}
-{{--                                    <th>Payment Date</th>--}}
-{{--                                    <th>Amount</th>--}}
-{{--                                    --}}{{--                                    <th>Invoice</th>--}}
-{{--                                    <th>Payment Method</th>--}}
-{{--                                    --}}{{--                                    <th>Payment Collector</th>--}}
-{{--                                    <th>Action</th>--}}
-{{--                                </tr>--}}
-{{--                                </thead>--}}
-{{--                                <tbody>--}}
-{{--                                </tbody>--}}
-{{--                            </table>--}}
-{{--                        </div>--}}
-{{--                        <!--end: Datatable -->--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <!--end:: payment-->--}}
-{{--        </div>--}}
         <div class="col-lg-6 col-xl-6 order-lg-1 order-xl-1">
             <!--begin:: invoice-->
             <div class="kt-portlet kt-portlet--mobile">
                 <div class="kt-portlet__head kt-portlet__head--lg">
                     <div class="kt-portlet__head-label">
-			<span class="kt-portlet__head-icon">
-				<i class="kt-font-brand flaticon2-line-chart"></i>
-			</span>
+{{--			<span class="kt-portlet__head-icon">--}}
+{{--				<i class="kt-font-brand flaticon2-line-chart"></i>--}}
+{{--			</span>--}}
                         <h3 class="kt-portlet__head-title">
                             Invoices
                         </h3>
@@ -251,9 +201,9 @@
             <div class="kt-portlet kt-portlet--mobile">
                 <div class="kt-portlet__head kt-portlet__head--lg">
                     <div class="kt-portlet__head-label">
-			<span class="kt-portlet__head-icon">
-				<i class="kt-font-brand flaticon2-line-chart"></i>
-			</span>
+{{--			<span class="kt-portlet__head-icon">--}}
+{{--				<i class="kt-font-brand flaticon2-line-chart"></i>--}}
+{{--			</span>--}}
                         <h3 class="kt-portlet__head-title">
                             Tickets
                         </h3>
@@ -296,6 +246,66 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="col-lg-6 col-xl-6 order-lg-1 order-xl-1">
+            <div class="kt-portlet kt-portlet--mobile">
+                <div class="kt-portlet__head kt-portlet__head--lg">
+                    <div class="kt-portlet__head-label">
+{{--			<span class="kt-portlet__head-icon">--}}
+{{--				<i class="kt-font-brand flaticon2-line-chart"></i>--}}
+{{--			</span>--}}
+                        <h3 class="kt-portlet__head-title">
+                            FAQ
+                        </h3>
+                    </div>
+                </div>
+                <br>
+                <div class="kt-portlet__body kt-portlet__body--fit">
+                    <!--begin: Datatable -->
+                    <div class="kt-datatable kt-datatable--default kt-datatable--brand kt-datatable--loaded"
+                         id="local_data"
+                         style="">
+                        <div class="col-md-12">
+                            <div class="kt-notification kt-notification--fit">
+                                <a href="#demo" class="kt-notification__item" data-toggle="collapse">
+                                    <div class="kt-notification__item-details">
+                                        <div class="kt-notification__item-title">
+                                            Do I need to bring my vehicle for installation?
+                                        </div>
+                                        <div id="demo" class="collapse">
+                                            Absolutely not ! Our experienced installation team will visit you at your preferred location on your preferred time to install the device on your vehicle. We want our customer to start the journey with us at their convenience.
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#demo1" class="kt-notification__item" data-toggle="collapse">
+                                    <div class="kt-notification__item-details">
+                                        <div class="kt-notification__item-title">
+                                            How much time does it take for installation?
+                                        </div>
+                                        <div id="demo1" class="collapse">
+                                            Generally it takes 20-30 minutes for installing one device on your vehicle. Based on different model time may vary.
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#demo2" class="kt-notification__item" data-toggle="collapse">
+                                    <div class="kt-notification__item-details">
+                                        <div class="kt-notification__item-title">
+                                            Will my Vehicle give any trouble after installing?
+                                        </div>
+                                        <div id="demo2" class="collapse">
+                                            Our experienced team will check the vehicle before starting to install the VTS and once finished they will again. If you want you can also check before they leave.
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!--end: Datatable -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12 col-xl-12 order-lg-1 order-xl-1">
+            <img src="/images/easytrax/discount.jpg" alt="" width="100%">
         </div>
     </div>
     {{--    @include('partials.dashboard_demo_content')--}}
