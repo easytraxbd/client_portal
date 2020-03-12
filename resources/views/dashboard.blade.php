@@ -267,33 +267,134 @@
                          style="">
                         <div class="col-md-12">
                             <div class="kt-notification kt-notification--fit">
+
+                                <a href="#demo3" class="kt-notification__item" data-toggle="collapse">
+                                    <div class="kt-notification__item-details">
+                                        <div class="kt-notification__item-title">
+                                            Vehicle Showing Wrong Location ?
+                                        </div>
+                                        <div id="demo3" class="collapse">
+                                            Ans : No GPS company in the world can ensure 100% accuracy of device location in some conditions. These conditions are if vehicle is parked in a garage, underground parking or there are lots of high raised buildings in an area where GPS Signal fluctuates. Device location might not show the exact position. But if while the vehicle is running and location is not showing perfectly you can contact out hotline for a solution                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#demo4" class="kt-notification__item" data-toggle="collapse">
+                                    <div class="kt-notification__item-details">
+                                        <div class="kt-notification__item-title">
+                                            Vehicle Offline ?
+                                        </div>
+                                        <div id="demo4" class="collapse">
+                                            Ans : As our service is dependent on the mobile operators sometimes you might find device offline for sometime which is totally out of our control. But if the device is offline for over 6-12 hour then you should contact our support only. There are lots of pockets and due to GPRS network capacity device might show offine. 10-60 mins offline is not an issue from our end, requesting not to panic and wait for some time to recover.
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#demo5" class="kt-notification__item" data-toggle="collapse">
+                                    <div class="kt-notification__item-details">
+                                        <div class="kt-notification__item-title">
+                                            Vehicle Shows moving but Parked ?
+                                        </div>
+                                        <div id="demo5" class="collapse">
+                                            Ans : This is also a limitation of GPS Tracking solution. In some cases when vehicle is parked and GPS signal is weak vehicle might show moving even while parked as GPS signal fluctuates like GSM network. In this case you have to check ignition status to verify vehicle status                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#demo6" class="kt-notification__item" data-toggle="collapse">
+                                    <div class="kt-notification__item-details">
+                                        <div class="kt-notification__item-title">
+                                            Mileage incorrect ?                                        </div>
+                                        <div id="demo6" class="collapse">
+                                            Ans : We cannot ensure 100% accurate mileage reports as lots of factors are related to mileage. Mileage reports might vary upto (+-)5-15% in some cases. This is also a technical limitation for this industry.                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#demo7" class="kt-notification__item" data-toggle="collapse">
+                                    <div class="kt-notification__item-details">
+                                        <div class="kt-notification__item-title">
+                                            Not getting Push Alerts on Mobile App ?                                        </div>
+                                        <div id="demo7" class="collapse">
+                                            Ans : Real time push alerts is a paid service and in some cases we cannot ensure real time push alerts due to server capacity or congestion and other factors which might lead to delay push alerts or in some cases no push alerts. We will always try to ensure this service but can’t guarantee always.
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#demo8" class="kt-notification__item" data-toggle="collapse">
+                                    <div class="kt-notification__item-details">
+                                        <div class="kt-notification__item-title">
+                                            Missing Event alerts on App ?
+                                        </div>
+                                        <div id="demo8" class="collapse">
+                                            Ans : In some cases some alert events might be missed due to server capacity and congestion in our server. Most of them might be with ignition on off alerts as its the most triggered alerts in our system.
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#demo9" class="kt-notification__item" data-toggle="collapse">
+                                    <div class="kt-notification__item-details">
+                                        <div class="kt-notification__item-title">
+                                            Vehicle Engine not getting Started ?
+                                        </div>
+                                        <div id="demo9" class="collapse">
+                                            Ans : In some cases we get complaints that vehicle is not starting and blame GPS device for this. But actually there are some other vehicle related issues where your vehicle might not start. Please check the below to confirm the issue :
+                                            <ul>
+                                                <li>Fuse box and check whether any fuse has been disabled</li>
+                                                <li>Check battery status, your battery might be drained</li>
+                                                <li>Check electric wires connected with ignition or fuel pump</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#demo10" class="kt-notification__item" data-toggle="collapse">
+                                    <div class="kt-notification__item-details">
+                                        <div class="kt-notification__item-title">
+                                            Vehicle Showing Expired in App?
+                                        </div>
+                                        <div id="demo10" class="collapse">
+                                            Ans : You need to pay your monthly bills to renew your device. Please call our hotline to check outstanding due or Pay directly through our Direct Digital Payment Link : https://crm.easytrax.com.bd/payment (Bkash, Debit/Credit/Visa/Master/Amex Cards)
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#demo11" class="kt-notification__item" data-toggle="collapse">
+                                    <div class="kt-notification__item-details">
+                                        <div class="kt-notification__item-title">
+                                            Seeing Straight Lines in Playback History ?
+                                        </div>
+                                        <div id="demo11" class="collapse">
+                                            Ans : You might see straight lines in playback reports when 1st vehicles starts in the morning. GPS signal takes up to 3-5 minutes in some cases to activate after vehicle starts moving. So you might see straight lines after long parking. But if this shows in all trips then please contact directly with our support engineer at 09606667788
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#demo12" class="kt-notification__item" data-toggle="collapse">
+                                    <div class="kt-notification__item-details">
+                                        <div class="kt-notification__item-title">
+                                            Vehicle Showing Expired on App?
+                                        </div>
+                                        <div id="demo12" class="collapse">
+                                            Ans : You need to pay your monthly bills to renew your device. Please call our hotline to check outstanding due or Pay directly through our Direct Digital Payment Link : https://crm.easytrax.com.bd/payment (Bkash, Debit/Credit/Visa/Master/Amex Cards)
+                                        </div>
+                                    </div>
+                                </a>
                                 <a href="#demo" class="kt-notification__item" data-toggle="collapse">
                                     <div class="kt-notification__item-details">
                                         <div class="kt-notification__item-title">
-                                            Do I need to bring my vehicle for installation?
+                                            Do I need to bring my vehicle for installation ?
                                         </div>
                                         <div id="demo" class="collapse">
-                                            Absolutely not ! Our experienced installation team will visit you at your preferred location on your preferred time to install the device on your vehicle. We want our customer to start the journey with us at their convenience.
+                                            Ans : Absolutely not ! Our experienced installation team will visit you at your preferred location on your preferred time to install the device on your vehicle. We want our customer to start the journey with us at their convenience.
                                         </div>
                                     </div>
                                 </a>
                                 <a href="#demo1" class="kt-notification__item" data-toggle="collapse">
                                     <div class="kt-notification__item-details">
                                         <div class="kt-notification__item-title">
-                                            How much time does it take for installation?
+                                            How much time does it take for installation ?
                                         </div>
                                         <div id="demo1" class="collapse">
-                                            Generally it takes 20-30 minutes for installing one device on your vehicle. Based on different model time may vary.
+                                            Ans : Generally it takes 20-30 minutes for installing one device on your vehicle. Based on different model time may vary.
                                         </div>
                                     </div>
                                 </a>
                                 <a href="#demo2" class="kt-notification__item" data-toggle="collapse">
                                     <div class="kt-notification__item-details">
                                         <div class="kt-notification__item-title">
-                                            Will my Vehicle give any trouble after installing?
+                                            Will my Vehicle give any trouble after installing ?
                                         </div>
                                         <div id="demo2" class="collapse">
-                                            Our experienced team will check the vehicle before starting to install the VTS and once finished they will again. If you want you can also check before they leave.
+                                            Ans : Our experienced team will check the vehicle before starting to install the VTS and once finished they will again. If you want you can also check before they leave.
                                         </div>
                                     </div>
                                 </a>
@@ -305,10 +406,12 @@
             </div>
         </div>
         <div class="col-lg-12 col-xl-12 order-lg-1 order-xl-1">
-            <img src="/images/easytrax/discount.jpg" alt="" width="100%">
+            <img src="/images/easytrax/offer.png" alt="" width="100%">
+        </div>
+        <div class="col-lg-12 col-xl-12 order-lg-1 order-xl-1">
+            <img src="/images/easytrax/SSL Commerz Pay With logo All Size-01.png" alt="" width="100%">
         </div>
     </div>
-    {{--    @include('partials.dashboard_demo_content')--}}
 @endsection
 @section('script')
     {{--    <script src="{{ asset('js/dashboard.js') }}"></script>--}}
