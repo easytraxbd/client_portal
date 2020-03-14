@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Payment;
+use App\Services\FaqService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -10,14 +11,16 @@ use Illuminate\Support\Facades\Hash;
 
 class DashboardController extends Controller
 {
+    protected $faqService;
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(FaqService $faqService)
     {
         $this->middleware('auth:client');
+        $this->faqService = $faqService;
     }
 
     /**
@@ -53,7 +56,6 @@ class DashboardController extends Controller
         if (isset($totalInvoiceAmount) && isset($totalInvoiceDue) && $totalInvoiceDue>0){
             $totalDuePercentage = ($totalInvoiceAmount/$totalInvoiceDue)*100;
         }
-
         $data = [
             'title'=>"Dashboard",
             'totalPaymentAmount'=>$totalPaymentAmount,
@@ -63,6 +65,7 @@ class DashboardController extends Controller
             'balance'=>$balance,
             'totalDue'=>$totalInvoiceDue,
             'totalDuePercentage'=>$totalDuePercentage,
+            'faqArray' => $this->faqService->faqArray(9),
         ];
         return view('dashboard',$data);
     }

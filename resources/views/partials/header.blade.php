@@ -47,6 +47,9 @@
                     <li class="kt-menu__item {{ Request::is("offer") ? 'kt-menu__item--here' : '' }}">
                         <a href="/offer" class="kt-menu__link"><span class="kt-menu__link-text">Offer</span></a>
                     </li>
+                    <li class="kt-menu__item {{ Request::is("faq") ? 'kt-menu__item--here' : '' }}">
+                        <a href="/faq" class="kt-menu__link"><span class="kt-menu__link-text">FAQ</span></a>
+                    </li>
                 </ul>
             </div>
         </div>
