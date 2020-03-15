@@ -60,6 +60,28 @@
                                 <th scope="row">Status</th>
                                 <td>{!! $ticket->status !!}</td>
                             </tr>
+                            <tr>
+                                <th scope="row">Date and Time</th>
+                                <td>{!! $ticket->date !!}</td>
+                            </tr>
+                            @if(isset($assigned_user_name))
+                                <tr>
+                                    <th scope="row">Assigned Employee</th>
+                                    <td>{!! $assigned_user_name !!}</td>
+                                </tr>
+                            @endif
+                            @if(isset($ticket_complain_source))
+                                <tr>
+                                    <th scope="row">Source</th>
+                                    <td>{!! $ticket_complain_source !!}</td>
+                                </tr>
+                            @endif
+                            @if(isset($vehicles))
+                                <tr>
+                                    <th scope="row">Vehicle</th>
+                                    <td>{!! $vehicles !!}</td>
+                                </tr>
+                            @endif
                             </tbody>
                         </table>
                     </div>

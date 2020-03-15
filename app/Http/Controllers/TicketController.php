@@ -44,18 +44,6 @@ class TicketController extends Controller
         return Datatables::of($ticket)
             ->escapeColumns([])
             ->addIndexColumn()
-            ->editColumn('date', function ($ticket) {
-                if (isset($ticket->created_at)) {
-                    return Carbon::parse($ticket->created_at)->toDayDateTimeString();
-                } else {
-                    return Carbon::parse($ticket->date)->toDayDateTimeString();
-                }
-//                if (isset($ticket->date)) {
-//                    return Carbon::parse($ticket->date)->toDayDateTimeString();
-//                } else {
-//                    return Carbon::parse($ticket->created_at)->toDayDateTimeString();
-//                }
-            })
             ->addColumn('type', function ($ticket) {
                 if (isset($ticket->ticket_type_id)) {
                     $type = DB::table('ticket_types')->find($ticket->ticket_type_id)->title;
@@ -185,6 +173,25 @@ Ticket Link: https://crm.easytrax.com.bd/tickets/'.$ticket->id;
      */
     public function show(Ticket $ticket)
     {
+        $assigned_user_name = null;
+        if (isset($ticket->assigned_user_id)){
+            $assigned_user = DB::table('users')->find($ticket->assigned_user_id);
+            $assigned_user_name = $assigned_user->first_name.' '.$assigned_user->last_name;
+        }
+        $vehicles = null;
+        if (isset($ticket->other_data) && $ticket->other_data != '' && $ticket->other_data != []){
+            if(isset($ticket->other_data['vehicles']) && $ticket->other_data['vehicles'] != []){
+                $vehicles = '';
+                foreach ($ticket->other_data['vehicles'] as $vehicleID){
+                    $vehicle = DB::table('vehicles')->find($vehicleID);
+                    $vehicles .= $vehicle->car_reg_number."(".$vehicle->car_model.")";
+                }
+            }
+        }
+        $ticket_complain_source = null;
+        if (isset($ticket->ticket_complain_source_id)){
+            $ticket_complain_source = DB::table('ticket_complain_sources')->find($ticket->ticket_complain_source_id)->source_complain_title;
+        }
         $ticketTypeName = $this->getTypeName($ticket->ticket_type_id);
         $ticketSubTypeName = $this->getTypeName($ticket->ticket_sub_type_id);
         $commentsOfEmployee = TicketComment::with('user')->where('ticket_id',$ticket->id)->where('comment_for',2)->whereNull('client_id')->get();
@@ -197,6 +204,9 @@ Ticket Link: https://crm.easytrax.com.bd/tickets/'.$ticket->id;
             'ticketSubTypeName'=>$ticketSubTypeName,
             'commentsOfEmployee' => $commentsOfEmployee,
             'commentsOfClient' => $commentsOfClient,
+            'assigned_user_name' => $assigned_user_name,
+            'vehicles' => $vehicles,
+            'ticket_complain_source' => $ticket_complain_source,
         ];
         return view('ticket.show',$data);
     }

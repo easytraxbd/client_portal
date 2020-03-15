@@ -2,12 +2,15 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Ticket extends Model
 {
     protected $guarded = ['id'];
-
+    protected $casts = [
+        'other_data' => 'array',
+    ];
     public function getStatusAttribute()
     {
         if ($this->attributes['status'] == 2) {
@@ -51,4 +54,16 @@ class Ticket extends Model
             return '<span class="kt-badge kt-badge--info kt-badge--inline kt-badge--pill">N/A</span>';
         }
     }
+
+    public function getDateAttribute(){
+        if (isset($this->attributes['date'])) {
+            $date = Carbon::parse($this->attributes['date'])->isoFormat('ddd, MMM Do YYYY');
+            $time = Carbon::parse($this->attributes['created_at'])->isoFormat('h:mm A');;
+            return $date.' '.$time;
+        } else {
+            return Carbon::parse($this->attributes['created_at'])->toDayDateTimeString();
+        }
+    }
+
+
 }
