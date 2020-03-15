@@ -34,14 +34,17 @@
 
 		<!-- begin:: Header Mobile -->
 		<div id="kt_header_mobile" class="kt-header-mobile  kt-header-mobile--fixed ">
+            <div class="kt-header-mobile__toolbar">
+                <button class="kt-header-mobile__toolbar-toggler" id="kt_header_mobile_toggler"><span></span></button>
+            </div>
 			<div class="kt-header-mobile__logo">
 				<a href="index.html">
 {{--					<img alt="Logo" src="/assets/media/logos/logo-4-sm.png" />--}}
-                    <img alt="Logo" src="/images/easytrax/logos/easytrax_logo_color_full.png" width="47px"/>
+                    <img alt="Logo" src="/images/easytrax/logos/easytrax_logo_color_full.png" width="80px"/>
 				</a>
 			</div>
 			<div class="kt-header-mobile__toolbar">
-				<button class="kt-header-mobile__toolbar-toggler" id="kt_header_mobile_toggler"><span></span></button>
+
 				<button class="kt-header-mobile__toolbar-topbar-toggler" id="kt_header_mobile_topbar_toggler"><i class="flaticon-more-1"></i></button>
 			</div>
 		</div>

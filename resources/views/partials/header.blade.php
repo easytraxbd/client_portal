@@ -7,7 +7,7 @@
 {{--                <img alt="Logo" src="/assets/media/logos/logo-4.png" class="kt-header__brand-logo-default" />--}}
 {{--                <img alt="Logo" src="/assets/media/logos/logo-4-sm.png" class="kt-header__brand-logo-sticky" />--}}
                 <img alt="Logo" src="/images/easytrax/logos/easytrax_logo_white.png" class="kt-header__brand-logo-default" width="100px"/>
-                <img alt="Logo" src="/images/easytrax/logos/easytrax_logo_color_full.png" class="kt-header__brand-logo-sticky" width="47px"/>
+                <img alt="Logo" src="/images/easytrax/logos/easytrax_logo_color_full.png" class="kt-header__brand-logo-sticky" width="80px"/>
             </a>
         </div>
 
