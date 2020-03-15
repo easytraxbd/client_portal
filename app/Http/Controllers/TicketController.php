@@ -173,6 +173,10 @@ Ticket Link: https://crm.easytrax.com.bd/tickets/'.$ticket->id;
      */
     public function show(Ticket $ticket)
     {
+        $id = Auth::user()->id;
+        if ($ticket->client_id != $id){
+            return "Permission Denied";
+        }
         $assigned_user_name = null;
         if (isset($ticket->assigned_user_id)){
             $assigned_user = DB::table('users')->find($ticket->assigned_user_id);
