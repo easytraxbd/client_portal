@@ -41,7 +41,7 @@
                             <th>Date</th>
                             <th>Call Type</th>
                             <th>Status</th>
-                            <th>Priority</th>
+{{--                            <th>Priority</th>--}}
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -75,7 +75,7 @@
                             {data: 'date', name: 'date'},
                             {data: 'call_type', name: 'call_type'},
                             {data: 'status', name: 'status'},
-                            {data: 'priority', name: 'priority'},
+                            // {data: 'priority', name: 'priority'},
                             // {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                             {data: 'action', name: 'action'},
                         ]
