@@ -35,10 +35,11 @@
                         <thead>
                         <tr role="row">
                             <th>Invoice Number</th>
+                            <th>Date</th>
                             <th>Auto Renewal</th>
                             <th>Total Amount</th>
                             <th>Due</th>
-                            <th>Date</th>
+                            <th>Due Date</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -68,10 +69,12 @@
                         columns: [
                             // {data: 'id', name: 'id'},
                             {data: 'invoice_no', name: 'invoice_no'},
+                            {data: 'date', name: 'date'},
                             {data: 'is_recurring', name: 'is_recurring'},
                             {data: 'invoice_total', name: 'invoice_total'},
                             {data: 'invoice_total_due', name: 'invoice_total_due'},
-                            {data: 'date', name: 'date'},
+                            {data: 'payment_due_date', name: 'payment_due_date'},
+
                             {data: 'status', name: 'status'},
                             // {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                             {data: 'action', name: 'action'},

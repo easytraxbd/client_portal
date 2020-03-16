@@ -101,7 +101,7 @@
                                         </h4>
 {{--                                        <span class="kt-widget24__desc">Joined New User</span>--}}
                                     </div>
-                                    <span class="kt-widget24__stats kt-font-success">276</span>
+                                    <span class="kt-widget24__stats kt-font-success">0</span>
                                 </div>
                             </div>
 

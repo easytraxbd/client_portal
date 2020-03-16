@@ -42,6 +42,9 @@ class InvoiceController extends Controller
             ->editColumn('date', function ($invoice) {
                 return Carbon::parse($invoice->date)->format('j M, Y g:i a');
             })
+            ->editColumn('payment_due_date', function ($invoice) {
+                return Carbon::parse($invoice->payment_due_date)->format('j M, Y g:i a');
+            })
 //            ->editColumn('payment_status', function ($invoice) {
 //                return $this->payment_status_label($invoice->payment_status);
 //            })
@@ -164,6 +167,14 @@ class InvoiceController extends Controller
     {
         $invoice->payment_status = $this->payment_status_label($invoice->payment_status);
         $invoiceDetails = DB::table('sales_invoice_details')->where('invoice_id',$invoice->id)->get()->toArray();
+        $recurringInvoiceDetails = null;
+        if ($invoice->invoice_type == 0){
+            $recurringInvoiceDetails = DB::table('sales_recurring_invoice_settings')->where('sales_invoice_id',$invoice->id)->first();
+            $numberOfMonth = $recurringInvoiceDetails->frequency;
+            $endDate = Carbon::parse($invoice->date)->addMonths($numberOfMonth)->subDays(1)->format('j M, Y');
+            $invoice->number_of_month = $numberOfMonth;
+            $invoice->end_date = $endDate;
+        }
         $invoiceDetailsArray=[];
         foreach($invoiceDetails as $invoiceDetail){
             $invoiceDetailsArray[]=[
@@ -183,6 +194,7 @@ class InvoiceController extends Controller
             'subHeader'=>'invoice Details',
             'invoice'=>$invoice,
             'invoiceDetailsArray'=>$invoiceDetailsArray,
+            'recurringInvoiceDetails'=>$recurringInvoiceDetails,
         ];
 
         return view('invoices.show',$data);

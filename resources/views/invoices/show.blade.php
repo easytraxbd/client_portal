@@ -20,8 +20,16 @@
                             </div>
                             <div class="kt-invoice__items">
                                 <div class="kt-invoice__item">
-                                    <span class="kt-invoice__subtitle">DATA</span>
-                                    <span class="kt-invoice__text">{{\Carbon\Carbon::parse($invoice->date)->format("F j, Y")}}</span>
+                                    <span class="kt-invoice__subtitle">INFO</span>
+                                    <span class="kt-invoice__text">Invoice Date: {{\Carbon\Carbon::parse($invoice->date)->format("F j, Y")}}</span>
+                                    <span class="kt-invoice__text">Service Start Date: {{\Carbon\Carbon::parse($invoice->service_start_date)->format("F j, Y")}}</span>
+                                    @if(isset($invoice->number_of_month))
+                                        <span class="kt-invoice__text">Duration: {{$invoice->number_of_month}} month(s)</span>
+                                        @endif
+                                    @if(isset($invoice->end_date))
+                                        <span class="kt-invoice__text">End Date:: {{$invoice->end_date}}</span>
+                                        @endif
+                                    <span class="kt-invoice__text">Payment Due Date: {{\Carbon\Carbon::parse($invoice->payment_due_date)->format("F j, Y")}}</span>
                                 </div>
                                 <div class="kt-invoice__item">
                                     <span class="kt-invoice__subtitle">INVOICE NO.</span>
@@ -61,6 +69,7 @@
 {{--                                        <td>{{$invoiceDetail['item']->price}}</td>--}}
                                         <td>{{$invoiceDetail['price']}}</td>
                                         <td>{{$invoiceDetail['vat_value']}}%</td>
+{{--                                        @if()--}}
                                         <td>{{$invoiceDetail['number_of_months']}}</td>
 {{--                                        <td>{{$invoiceDetail['price']}}</td>--}}
                                     </tr>
