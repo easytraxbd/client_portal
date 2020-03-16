@@ -377,7 +377,7 @@ class PaymentController extends Controller
             $payment_method = DB::table('coa')->find($payment->payment_method);
             $payment->payment_method = $payment_method->coa_name;
         }
-        $invoicePayments = DB::table('sales_invoice_payments')->where('payment_id', $payment->id)
+        $invoicePayments = DB::table('sales_invoice_payments')->where('payment_id', $payment->id)->whereNotNull('invoice_id')
             ->orderBy('id', 'ASC')->get();
         $invoiceArray = [];
         foreach ($invoicePayments as $invoicePayment) {
@@ -385,7 +385,6 @@ class PaymentController extends Controller
             $invoice->paid_to_invoice = $invoicePayment->paid_to_invoice;
             $invoiceArray[] = $invoice;
         }
-
         $data = [
             'title' => 'payment',
             'subHeader'=>'payment details',

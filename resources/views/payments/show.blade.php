@@ -46,6 +46,7 @@
                                     <thead>
                                     <tr>
                                         <th>INVOICE</th>
+                                        <th>STATUS</th>
                                         <th>INVOICE AMOUNT</th>
                                         <th>PAID AMOUNT</th>
                                     </tr>
@@ -54,6 +55,7 @@
                                     @foreach($invoiceArray as $invoice)
                                     <tr>
                                         <td><a href="/invoice/{{$invoice->id}}">{{$invoice->invoice_no}}</a></td>
+                                        <td>{!! $invoice->status !!}</td>
                                         <td>৳ {{$invoice->invoice_total}}</td>
                                         <td>৳ {{$invoice->paid_to_invoice}}</td>
                                     </tr>

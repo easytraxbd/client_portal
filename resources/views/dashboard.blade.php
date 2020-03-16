@@ -22,7 +22,7 @@
                             <div class="kt-widget24">
                                 <div class="kt-widget24__details">
                                     <div class="kt-widget24__info">
-                                        <h4 class="kt-widget24__title">Balance</h4>
+                                        <h4 class="kt-widget24__title">Advance Payment</h4>
 {{--                                        <span class="kt-widget24__desc">All Customs Value</span>--}}
                                     </div>
                                     <span class="kt-widget24__stats kt-font-brand">৳{{$balance}}</span>
@@ -366,7 +366,7 @@
                     {data: 'invoice_total', name: 'invoice_total'},
                     {data: 'invoice_total_due', name: 'invoice_total_due'},
                     // {data: 'date', name: 'date'},
-                    {data: 'payment_status', name: 'payment_status'},
+                    {data: 'status', name: 'status'},
                     // {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                     {data: 'action', name: 'action'},
                 ]

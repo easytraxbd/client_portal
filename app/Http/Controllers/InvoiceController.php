@@ -42,9 +42,9 @@ class InvoiceController extends Controller
             ->editColumn('date', function ($invoice) {
                 return Carbon::parse($invoice->date)->format('j M, Y g:i a');
             })
-            ->editColumn('payment_status', function ($invoice) {
-                return $this->payment_status_label($invoice->payment_status);
-            })
+//            ->editColumn('payment_status', function ($invoice) {
+//                return $this->payment_status_label($invoice->payment_status);
+//            })
             ->editColumn('invoice_total', function ($invoice) {
                 return '<span class="kt-font-info kt-font-bold">৳ '.$invoice->invoice_total.'</span>';
             })

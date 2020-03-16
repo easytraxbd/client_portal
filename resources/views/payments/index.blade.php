@@ -39,6 +39,7 @@
                             <th>Amount</th>
                             <th>Invoice</th>
                             <th>Payment Method</th>
+                            <th>Status</th>
                             <th>Payment Collector</th>
                             <th>Action</th>
                         </tr>
@@ -72,6 +73,7 @@
                             {data: 'amount', name: 'amount'},
                             {data: 'invoice', name: 'invoice'},
                             {data: 'payment_method', name: 'payment_method'},
+                            {data: 'status', name: 'status'},
                             {data: 'payment_collector', name: 'payment_collector'},
                             // {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                             {data: 'action', name: 'action'},
