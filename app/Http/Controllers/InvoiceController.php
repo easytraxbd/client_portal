@@ -64,6 +64,9 @@ class InvoiceController extends Controller
 
             ->addColumn('action', function ($invoice) {
                 $a = '<div class="container text-center">';
+                if ($invoice->payment_status != 3){
+                    $a .= '<a href="https://crm.easytrax.com.bd/payment?clientId='.Auth::user()->id.'" target="_blank" title="Pay now" class="btn btn-sm btn-clean btn-icon btn-icon-md"><i class="far fa-credit-card"></i></a>';
+                }
                 $a .= '<a href="' . url("invoice") . '/' . $invoice->id.'" title="View details" class="btn btn-sm btn-clean btn-icon btn-icon-md"><i class="la la-eye"></i></a>';
                 $a .= '</div>';
                 return $a;
