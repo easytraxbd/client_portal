@@ -17,6 +17,7 @@
         <style>
             table.table-bordered.dataTable th, table.table-bordered.dataTable td {
                 font-size: 1rem;
+                text-align: center;
             }
         </style>
 	</head>
