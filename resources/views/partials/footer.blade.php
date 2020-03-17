@@ -50,6 +50,82 @@
 {{--            </div>--}}
 {{--        </div>--}}
 {{--    </div>--}}
+
+    <div class="kt-footer__top">
+        <div class="kt-container ">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="kt-footer__section">
+                        <h3 class="kt-footer__title">Corporate Office</h3>
+                        <div class="kt-footer__content">
+                            <h4><span><i class="fas fa-map-marker-alt h3"></i></span>  House #385 (2nd Floor), Road #06, Mirpur DOHS, Dhaka-1216, Bangladesh</h4>
+                            <br>
+                            <a href="tel:+8809606667788">
+                                <h4><span><i class="fas fa-phone"></i></span>  +8809606667788</h4>
+                            </a>
+                            <a href="tel:+88028081060">
+                                <h4><span><i class="fas fa-print"></i></span>  +88028081060</h4>
+                            </a>
+<br>
+                            <div>
+                                <a href="https://t.me/EasytraxBot" target="_blank"><i class="fab fa-telegram h1"></i></a>&nbsp;&nbsp;
+                                <a href="https://api.whatsapp.com/send?phone=8801709888903&text=Hello%2c%20I%20am%20interested%20in%20your%20products%2c%20please%20share%20features%20and%20pricing&source=&data=" target="_blank"><i class="fab fa-whatsapp h1"></i></a>&nbsp;&nbsp;
+                                <a href="mailto:info@easytrax.com.bd"><i class="fas fa-envelope h1"></i></a>&nbsp;&nbsp;
+                                <a href="https://www.facebook.com/easytrax" target="_blank"><i class="fab fa-facebook h1"></i></a>&nbsp;&nbsp;
+{{--                                <a href="#"><i class="fab fa-twitter h1"></i></a>&nbsp;&nbsp;--}}
+{{--                                <a href="#"><i class="fab fa-google h1"></i></a>&nbsp;&nbsp;--}}
+                                <a href="https://www.youtube.com/channel/UC1aSv0jmwbYyzv2rYFTnVDw" target="_blank"><i class="fab fa-youtube h1"></i></a>&nbsp;&nbsp;
+                                <a href="https://www.linkedin.com/company/easytrax" target="_blank"><i class="fab fa-linkedin h1"></i></a>&nbsp;&nbsp;
+{{--                                <a href="#"><i class="fab fa-instagram h1"></i></a>&nbsp;&nbsp;--}}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="kt-footer__section">
+                        <h3 class="kt-footer__title">Useful Contacts</h3>
+                        <div class="kt-footer__content">
+                                <a href="tel:+8801709888913">
+                                    <h4><span><i class="fas fa-phone"></i></span>  Corporate Sales  : +8801709888913</h4>
+                                </a>
+                                <br>
+                                <a href="tel:+8801709888909">
+                                    <h4><span><i class="fas fa-phone"></i></span>  Sales : +8801709888909</h4>
+                                </a>
+                            <br>
+                            <a href="tel:+8801709888930">
+                                <h4><span><i class="fas fa-phone"></i></span>  Regional Sales : +8801709888930</h4>
+                            </a>
+                            <br>
+                            <a href="tel:+8809606667788">
+                                <h4><span><i class="fas fa-phone"></i></span>  Customer Support : +8809606667788 </h4>
+                            </a><pre style="color: white">(9am-11pm)</pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="kt-footer__section">
+
+                        <div class="kt-footer__content">
+                            <div class="kt-footer__nav">
+                                <div class="text-center">
+                                    <img src="/images/easytrax/BTRC_logo-3-3-min.png">
+                                    <p class="text-center"> We are BTRC Approved</p>
+
+                                </div>
+                                <div class="text-center">
+                                    <img src="/images/easytrax/VTS-PAB-Vehicle-Tracking-Service-Providers-Association-Bangladesh-min.png">
+                                    <p class="text-center">Member of VTS Providers Associations of Bangladesh</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="kt-footer__bottom">
         <div class="kt-container ">
             <div class="kt-footer__wrapper">
