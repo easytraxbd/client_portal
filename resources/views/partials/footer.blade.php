@@ -65,7 +65,7 @@
                 </div>
                 <div class="kt-footer__menu">
 {{--                    <a href="http://keenthemes.com/metronic" target="_blank">Purchase Lisence</a>--}}
-{{--                    <a href="http://keenthemes.com/metronic" target="_blank">Team</a>--}}
+                    <a href="https://www.easytrax.com.bd/privacy-policy" target="_blank">Privacy Policy</a>
                     <a href="https://www.easytrax.com.bd/contact/" target="_blank">Contact</a>
                 </div>
             </div>

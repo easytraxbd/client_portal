@@ -301,10 +301,14 @@
             </div>
         </div>
         <div class="col-lg-12 col-xl-12 order-lg-1 order-xl-1">
+            <a href="https://www.easytrax.com.bd/payment-discounts" target="_blank">
             <img src="/images/easytrax/offer.png" alt="" width="100%">
+            </a>
         </div>
         <div class="col-lg-12 col-xl-12 order-lg-1 order-xl-1">
+            <a href="https://www.easytrax.com.bd/payment-discounts" target="_blank">
             <img src="/images/easytrax/SSL Commerz Pay With logo All Size-01.png" alt="" width="100%">
+            </a>
         </div>
     </div>
 @endsection
