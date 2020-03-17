@@ -38,7 +38,7 @@
                             <th>Model</th>
                             <th>Reg Number</th>
                             <th>Reg Date</th>
-{{--                            <th>Action</th>--}}
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -70,7 +70,7 @@
                             {data: 'car_reg_number', name: 'car_reg_number'},
                             {data: 'car_reg_date', name: 'car_reg_date'},
                             // {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-                            // {data: 'action', name: 'action'},
+                            {data: 'action', name: 'action'},
                         ]
                     });
 

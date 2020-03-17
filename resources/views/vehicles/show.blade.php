@@ -1,119 +1,102 @@
 @extends('layouts.metronic')
 
 @section('content')
-    <link href="{{ asset('css/invoice.css') }}" rel="stylesheet" type="text/css" >
-    <div class="kt-container  kt-grid__item kt-grid__item--fluid">
-        <div class="kt-portlet">
-            <div class="kt-portlet__body kt-portlet__body--fit">
-                <div class="kt-invoice-1">
-                    <div class="kt-invoice__head" style="background-image: url('/images/easytrax/bg_invoice.png');">
-                        <div class="kt-invoice__container">
-                            <div class="kt-invoice__brand">
-                                <h1 class="kt-invoice__title">INVOICE</h1>
-                                <div href="#" class="kt-invoice__logo">
-                                    <a href="#"><img src="/images/easytrax/logos/easytrax_logo_white.png" width="165px"></a>
-                                    <span class="kt-invoice__desc">
-																<span>House #385 (2nd Floor), Road #06, Mirpur DOHS</span>
-																<span>Dhaka-1216, Bangladesh</span>
-															</span>
-                                </div>
-                            </div>
-                            <div class="kt-invoice__items">
-                                <div class="kt-invoice__item">
-                                    <span class="kt-invoice__subtitle">DATA</span>
-                                    <span class="kt-invoice__text">{{\Carbon\Carbon::parse($invoice->date)->format("F j, Y")}}</span>
-                                </div>
-                                <div class="kt-invoice__item">
-                                    <span class="kt-invoice__subtitle">INVOICE NO.</span>
-                                    <span class="kt-invoice__text">{{$invoice->invoice_no}}</span>
-                                </div>
-                                <div class="kt-invoice__item">
-                                    <span class="kt-invoice__subtitle">INVOICE TO.</span>
-                                    <span class="kt-invoice__text">{{$invoice->client->name}}</span>
-                                    <span class="kt-invoice__text">{{$invoice->client->work_phone}}</span>
-                                    <span class="kt-invoice__text">{{$invoice->client->email}}</span>
-                                    <span class="kt-invoice__text">{{$invoice->client->home_address}}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="kt-invoice__body">
-                        <div class="kt-invoice__container">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                    <tr>
-                                        <th>ITEMS</th>
-{{--                                        <th>DESCRIPTION</th>--}}
-                                        <th>QUANTITY</th>
-                                        <th>UNIT PRICE</th>
-                                        <th>VAT(%)</th>
-                                        <th>MONTHS</th>
-{{--                                        <th>AMOUNT</th>--}}
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    @foreach($invoiceDetailsArray as $invoiceDetail)
-                                    <tr>
-                                        <td>{{$invoiceDetail['item']->title}}</td>
-{{--                                        <td>{{$item->description}}</td>--}}
-                                        <td>{{$invoiceDetail['quantity']}}</td>
-{{--                                        <td>{{$invoiceDetail['item']->price}}</td>--}}
-                                        <td>{{$invoiceDetail['price']}}</td>
-                                        <td>{{$invoiceDetail['vat_value']}}%</td>
-                                        <td>{{$invoiceDetail['number_of_months']}}</td>
-{{--                                        <td>{{$invoiceDetail['price']}}</td>--}}
-                                    </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="kt-invoice__footer">
-                        <div class="kt-invoice__container">
-                            <div class="kt-invoice__total">
-                                <span class="kt-invoice__title">STATUS</span>
-                                <span>{!! $invoice->payment_status !!}</span>
-{{--                                <span class="kt-invoice__notice">Taxes Included</span>--}}
-                            </div>
-                            <div class="kt-invoice__bank">
-
-                                <div class="kt-invoice__item">
-                                    <span class="kt-invoice__label">Total Amount:</span>
-                                    <span class="kt-invoice__value">{{$invoice->total_amount}}</span></span>
-                                </div>
-                                <div class="kt-invoice__item">
-                                    <span class="kt-invoice__label">Discount:</span>
-                                    <span class="kt-invoice__value">{{$invoice->total_discount}}</span></span>
-                                </div>
-                                <div class="kt-invoice__item">
-                                    <span class="kt-invoice__label">Invoice Total:</span>
-                                    <span class="kt-invoice__value">{{$invoice->invoice_total}}</span></span>
-                                </div>
-                                <div class="kt-invoice__item">
-                                    <span class="kt-invoice__label">Invoice paid:</span>
-                                    <span class="kt-invoice__value">{{ $invoice->invoice_total -  $invoice->invoice_total_due}}</span></span>
-                                </div>
-                                <div class="kt-invoice__item">
-                                    <span class="kt-invoice__label">Invoice Due:</span>
-                                    <span class="kt-invoice__value">{{ $invoice->invoice_total_due}}</span></span>
-                                </div>
-                                <div class="kt-invoice__item">
-                                    <span class="kt-invoice__label">Status:</span>
-                                    <span class="kt-invoice__value">{!! $invoice->payment_status !!}</span></span>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="kt-invoice__actions">
-                        <div class="kt-invoice__container">
-                            <button type="button" class="btn btn-label-brand btn-bold" onclick="window.print();">Download Invoice</button>
-                            <button type="button" class="btn btn-brand btn-bold" onclick="window.print();">Print Invoice</button>
-                        </div>
-                    </div>
+    <div class="kt-portlet kt-portlet--mobile">
+        <div class="kt-portlet__head kt-portlet__head--lg">
+            <div class="kt-portlet__head-label">
+                <h3 class="kt-portlet__head-title">
+                    Vehicle Details
+                </h3>
+            </div>
+            <div class="kt-portlet__head-toolbar">
+                <div class="kt-portlet__head-wrapper">
+                    <a href="/vehicle" class="btn btn-clean btn-icon-sm">
+                        <i class="la la-long-arrow-left"></i>
+                        Back
+                    </a>
                 </div>
+            </div>
+        </div>
+        <br>
+        <div class="kt-portlet__body kt-portlet__body--fit">
+            <!--begin: Datatable -->
+            <div class="kt-datatable kt-datatable--default kt-datatable--brand kt-datatable--loaded" id="local_data"
+                 style="">
+                <div class="col-md-12">
+                    <table class="table table-bordered">
+                        <thead>
+{{--                        <tr>--}}
+{{--                            <th>heading1</th>--}}
+{{--                            <th>heading2</th>--}}
+{{--                        </tr>--}}
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Registration Number</td>
+                            <td>{{$vehicle->car_reg_number}}</td>
+                        </tr>
+                        <tr>
+                            <td>Vehicle Model</td>
+                            <td>{{$vehicle->car_model}}</td>
+                        </tr>
+{{--                        <tr>--}}
+{{--                            <td>Manufacturing Year</td>--}}
+{{--                            <td>{{$vehicle->}}</td>--}}
+{{--                        </tr>--}}
+                        <tr>
+                            <td>Frame Number</td>
+                            <td>{{$vehicle->car_frame_number}}</td>
+                        </tr>
+                        <tr>
+                            <td>Engine No</td>
+                            <td>{{$vehicle->car_engine_number}}</td>
+                        </tr>
+                        <tr>
+                            <td>Vehicle Type</td>
+                            @if(isset($vehicle->vehicle_type))
+                            <td>{{ucfirst($vehicle->vehicle_type)}}</td>
+                                @endif
+                        </tr>
+{{--                        <tr>--}}
+{{--                            <td>Vehicle Seat Capacity</td>--}}
+{{--                            <td>{{$vehicle->}}</td>--}}
+{{--                        </tr>--}}
+                        <tr>
+                            <td>Registration Date</td>
+                            <td>{{$vehicle->car_reg_date}}</td>
+                        </tr>
+{{--                        <tr>--}}
+{{--                            <td>Device Warranty Expiry Date</td>--}}
+{{--                            <td>{{$vehicle->}}</td>--}}
+{{--                        </tr>--}}
+                        <tr>
+                            <td>Insurance Company</td>
+                            <td>{{$vehicle->insurance_company}}</td>
+                        </tr>
+                        <tr>
+                            <td>Insurance Issue Date</td>
+                            <td>{{$vehicle->insurance_issue_date}}</td>
+                        </tr>
+                        <tr>
+                            <td>Insurance Expiry Date</td>
+                            <td>{{$vehicle->insurance_expiry_date}}</td>
+                        </tr>
+                        <tr>
+                            <td>Tax Token Number</td>
+                            <td>{{$vehicle->tax_token_number}}</td>
+                        </tr>
+                        <tr>
+                            <td>Tax Token Issue Date</td>
+                            <td>{{$vehicle->tax_token_issue_date}}</td>
+                        </tr>
+{{--                        <tr>--}}
+{{--                            <td>Route Permit Expiry Date</td>--}}
+{{--                            <td>{{$vehicle->}}</td>--}}
+{{--                        </tr>--}}
+                        </tbody>
+                    </table>
+                </div>
+                <!--end: Datatable -->
             </div>
         </div>
     </div>
