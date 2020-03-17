@@ -191,7 +191,7 @@
                                     <th>Invoice Number</th>
 {{--                                    <th>Auto Renewal</th>--}}
                                     <th>Total Amount</th>
-                                    <th>Due</th>
+                                    <th>Due Amount</th>
                                     <th>Due Date</th>
                                     <th>Status</th>
                                     <th>Action</th>
