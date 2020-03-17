@@ -189,10 +189,10 @@
                                 <thead>
                                 <tr role="row">
                                     <th>Invoice Number</th>
-                                    <th>Auto Renewal</th>
+{{--                                    <th>Auto Renewal</th>--}}
                                     <th>Total Amount</th>
                                     <th>Due</th>
-                                    {{--                                    <th>Date</th>--}}
+                                    <th>Due Date</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -242,7 +242,7 @@
                                     <th>Type</th>
                                     {{--                                    <th>Subtype</th>--}}
                                     {{--                                    <th>Date</th>--}}
-                                    <th>Call Type</th>
+{{--                                    <th>Call Type</th>--}}
                                     <th>Status</th>
                                     {{--                                    <th>Priority</th>--}}
                                     <th>Action</th>
@@ -362,9 +362,11 @@
                 columns: [
                     // {data: 'id', name: 'id'},
                     {data: 'invoice_no', name: 'invoice_no'},
-                    {data: 'is_recurring', name: 'is_recurring'},
+                    // {data: 'is_recurring', name: 'is_recurring'},
                     {data: 'invoice_total', name: 'invoice_total'},
                     {data: 'invoice_total_due', name: 'invoice_total_due'},
+                    {data: 'payment_due_date', name: 'payment_due_date'},
+
                     // {data: 'date', name: 'date'},
                     {data: 'status', name: 'status'},
                     // {data: 'DT_RowIndex', name: 'DT_RowIndex'},
@@ -384,7 +386,7 @@
                     {data: 'type', name: 'type'},
                     // {data: 'sub_type', name: 'sub_type'},
                     // {data: 'date', name: 'date'},
-                    {data: 'call_type', name: 'call_type'},
+                    // {data: 'call_type', name: 'call_type'},
                     {data: 'status', name: 'status'},
                     // {data: 'priority', name: 'priority'},
                     // {data: 'DT_RowIndex', name: 'DT_RowIndex'},
