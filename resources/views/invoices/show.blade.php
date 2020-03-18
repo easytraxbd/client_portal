@@ -128,8 +128,8 @@
                     </div>
                     <div class="kt-invoice__actions">
                         <div class="kt-invoice__container">
-                            <button type="button" class="btn btn-label-brand btn-bold" onclick="window.print();">Download Invoice</button>
-                            <button type="button" class="btn btn-brand btn-bold" onclick="window.print();">Print Invoice</button>
+                            <button type="button" class="btn btn-label-brand btn-bold" onclick="printWithoutChat()">Download Invoice</button>
+                            <button type="button" class="btn btn-brand btn-bold" onclick="printWithoutChat()">Print Invoice</button>
                         </div>
                     </div>
                 </div>
@@ -138,4 +138,11 @@
     </div>
     @endsection
     @section('script')
+        <script>
+            function printWithoutChat(){
+                Tawk_API.hideWidget();
+                window.print();
+                Tawk_API.showWidget();
+            }
+        </script>
 @endsection

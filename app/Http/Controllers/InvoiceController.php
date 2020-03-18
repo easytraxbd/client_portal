@@ -169,9 +169,13 @@ class InvoiceController extends Controller
         $invoiceDetails = DB::table('sales_invoice_details')->where('invoice_id',$invoice->id)->get()->toArray();
         $recurringInvoiceDetails = null;
         if ($invoice->invoice_type == 0){
+            $numberOfMonth = null;
+            $endDate = null;
             $recurringInvoiceDetails = DB::table('sales_recurring_invoice_settings')->where('sales_invoice_id',$invoice->id)->first();
-            $numberOfMonth = $recurringInvoiceDetails->frequency;
-            $endDate = Carbon::parse($invoice->date)->addMonths($numberOfMonth)->subDays(1)->format('j M, Y');
+            if(isset($recurringInvoiceDetails->frequency)){
+                $numberOfMonth = $recurringInvoiceDetails->frequency;
+                $endDate = Carbon::parse($invoice->date)->addMonths($numberOfMonth)->subDays(1)->format('j M, Y');
+            }
             $invoice->number_of_month = $numberOfMonth;
             $invoice->end_date = $endDate;
         }

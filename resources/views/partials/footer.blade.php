@@ -93,18 +93,18 @@
                     <div class="kt-footer__section">
                         <h3 class="kt-footer__title">Useful Contacts</h3>
                         <div class="kt-footer__content">
-                                <a href="tel:+8801709888913">
-                                    <h5><span><i class="fas fa-phone"></i></span>  Corporate Sales  : +8801709888913</h5>
-                                </a>
-                                <br>
+{{--                                <a href="tel:+8801709888913">--}}
+{{--                                    <h5><span><i class="fas fa-phone"></i></span>  Corporate Sales  : +8801709888913</h5>--}}
+{{--                                </a>--}}
+{{--                                <br>--}}
                                 <a href="tel:+8801709888909">
                                     <h5><span><i class="fas fa-phone"></i></span>  Sales : +8801709888909</h5>
                                 </a>
                             <br>
-                            <a href="tel:+8801709888930">
-                                <h5><span><i class="fas fa-phone"></i></span>  Regional Sales : +8801709888930</h5>
-                            </a>
-                            <br>
+{{--                            <a href="tel:+8801709888930">--}}
+{{--                                <h5><span><i class="fas fa-phone"></i></span>  Regional Sales : +8801709888930</h5>--}}
+{{--                            </a>--}}
+{{--                            <br>--}}
                             <a href="tel:+8809606667788">
                                 <h5><span><i class="fas fa-phone"></i></span>  Customer Support : +8809606667788 </h5>
                             </a><span style="color: white">(9:00 am - 11:00 pm)</span>

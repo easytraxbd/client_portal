@@ -10,6 +10,9 @@
             padding-top: 5px;
             padding-bottom: 5px;
         }
+        .checked {
+            color: orange;
+        }
     </style>
     <div class="row">
         <div class="col-lg-12 col-xl-12 order-lg-1 order-xl-1">
@@ -309,6 +312,45 @@
             <a href="https://www.easytrax.com.bd/payment-discounts" target="_blank">
             <img src="/images/easytrax/SSL Commerz Pay With logo All Size-01.png" alt="" width="100%">
             </a>
+            <br>
+        </div>
+        <div class="col-lg-12 col-xl-12 order-lg-1 order-xl-1 text-center" style="background-color: white">
+            <br>
+            <br>
+            <a href="https://g.page/easytrax/review?mt" target="_blank">
+                <div class="container" style="height: 180px; width: 100%;">
+                    <h4>Please rate your experience</h4>
+                    <br>
+                    <span class="fa fa-star checked h1"></span>
+                    <span class="fa fa-star checked h1"></span>
+                    <span class="fa fa-star checked h1"></span>
+                    <span class="fa fa-star checked h1"></span>
+                    <span class="fa fa-star checked h1"></span>
+                </div>
+            </a>
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="https://tawk.to/chat/58307fdbfccdfa3ec838b0e2/default" target="_blank">
+                        <img src="/images/easytrax/Group 49.png" alt="" width="100%">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="https://t.me/joinchat/AYNtSg82zgf9r_LoXhpR1g" target="_blank">
+                        <img src="/images/easytrax/Group 50.png" alt="" width="100%">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="https://wa.me/8801709888903?text=Hello,%20I%20am%20interested%20in%20your%20products,%20please%20share%20features%20and%20pricing" target="_blank">
+                        <img src="/images/easytrax/Group 51.png" alt="" width="100%">
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="tel:09606667788" target="_blank">
+                        <img src="/images/easytrax/Group 52.png" alt="" width="100%">
+                    </a>
+                </div>
+            </div>
+            <br>
         </div>
     </div>
 @endsection
