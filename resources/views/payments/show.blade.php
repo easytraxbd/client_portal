@@ -2,16 +2,26 @@
 
 @section('content')
     <link href="{{ asset('css/invoice.css') }}" rel="stylesheet" type="text/css" >
+    <style>
+        .kt-invoice__title,
+        .kt-invoice__subtitle,
+        .kt-invoice__desc,
+        .kt-invoice__text{
+            color: black !important;
+        }
+    </style>
     <div class="kt-container  kt-grid__item kt-grid__item--fluid">
         <div class="kt-portlet">
             <div class="kt-portlet__body kt-portlet__body--fit">
                 <div class="kt-invoice-1">
-                    <div class="kt-invoice__head" style="background-image: url('/images/easytrax/bg_invoice.png');">
+                    <div class="kt-invoice__head">
+{{--                    <div class="kt-invoice__head" style="background-image: url('/images/easytrax/bg_invoice.png');">--}}
                         <div class="kt-invoice__container">
                             <div class="kt-invoice__brand">
                                 <h1 class="kt-invoice__title">PAYMENT</h1>
                                 <div href="#" class="kt-invoice__logo">
-                                    <a href="#"><img src="/images/easytrax/logos/easytrax_logo_white.png" width="165px"></a>
+{{--                                    <a href="#"><img src="/images/easytrax/logos/easytrax_logo_white.png" width="165px"></a>--}}
+                                    <a href="#"><img src="/images/easytrax/logos/easytrax_logo_color_full.png" width="165px"></a>
                                     <span class="kt-invoice__desc">
 																<span>House #385 (2nd Floor), Road #06, Mirpur DOHS</span>
 																<span>Dhaka-1216, Bangladesh</span>

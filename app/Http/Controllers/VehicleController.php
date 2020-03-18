@@ -81,7 +81,7 @@ class VehicleController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Invoice  $vehicle
+     * @param  \App\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -99,33 +99,37 @@ class VehicleController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Invoice  $vehicle
+     * @param  \App\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
      */
-    public function edit(Invoice $vehicle)
+    public function edit($id)
     {
-        //
+        $vehicle = DB::table('vehicles')->find($id);
+        $data = [
+            'vehicle' => $vehicle
+        ];
+        return view('vehicles.edit',$data);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Invoice  $vehicle
+     * @param  \App\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Invoice $vehicle)
+    public function update(Request $request)
     {
-        //
+        $vehicle = DB::table('vehicles')->where('id',$request->id)->update([$request->all()]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Invoice  $vehicle
+     * @param  \App\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Invoice $vehicle)
+    public function destroy(Vehicle $vehicle)
     {
         //
     }

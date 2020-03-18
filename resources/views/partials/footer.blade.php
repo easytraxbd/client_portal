@@ -1,3 +1,10 @@
+<style>
+    .kt-footer.kt-footer--extended .kt-footer__top {
+        padding-top: 30px;
+        padding-bottom: 0px;
+    }
+</style>
+
 <div class="kt-footer  kt-footer--extended  kt-grid__item" id="kt_footer" style="background-image: url('assets/media/bg/bg-2.jpg');">
 {{--    <div class="kt-footer__top">--}}
 {{--        <div class="kt-container ">--}}
@@ -58,19 +65,19 @@
                     <div class="kt-footer__section">
                         <h3 class="kt-footer__title">Corporate Office</h3>
                         <div class="kt-footer__content">
-                            <h4><span><i class="fas fa-map-marker-alt h3"></i></span>  House #385 (2nd Floor), Road #06, Mirpur DOHS, Dhaka-1216, Bangladesh</h4>
+                            <h5><span><i class="fas fa-map-marker-alt h4"></i></span>  House #385 (2nd Floor), Road #06, Mirpur DOHS, Dhaka-1216, Bangladesh</h5>
                             <br>
                             <a href="tel:+8809606667788">
-                                <h4><span><i class="fas fa-phone"></i></span>  +8809606667788</h4>
+                                <h5><span><i class="fas fa-phone"></i></span>  +8809606667788</h5>
                             </a>
                             <a href="tel:+88028081060">
-                                <h4><span><i class="fas fa-print"></i></span>  +88028081060</h4>
+                                <h5><span><i class="fas fa-print"></i></span>  +88028081060</h5>
                             </a>
 <br>
                             <div>
                                 <a href="https://t.me/EasytraxBot" target="_blank"><i class="fab fa-telegram h1"></i></a>&nbsp;&nbsp;
                                 <a href="https://api.whatsapp.com/send?phone=8801709888903&text=Hello%2c%20I%20am%20interested%20in%20your%20products%2c%20please%20share%20features%20and%20pricing&source=&data=" target="_blank"><i class="fab fa-whatsapp h1"></i></a>&nbsp;&nbsp;
-                                <a href="mailto:info@easytrax.com.bd"><i class="fas fa-envelope h1"></i></a>&nbsp;&nbsp;
+                                <a href="mailto:support@easytrax.com.bd"><i class="fas fa-envelope h1"></i></a>&nbsp;&nbsp;
                                 <a href="https://www.facebook.com/easytrax" target="_blank"><i class="fab fa-facebook h1"></i></a>&nbsp;&nbsp;
 {{--                                <a href="#"><i class="fab fa-twitter h1"></i></a>&nbsp;&nbsp;--}}
 {{--                                <a href="#"><i class="fab fa-google h1"></i></a>&nbsp;&nbsp;--}}
@@ -87,20 +94,20 @@
                         <h3 class="kt-footer__title">Useful Contacts</h3>
                         <div class="kt-footer__content">
                                 <a href="tel:+8801709888913">
-                                    <h4><span><i class="fas fa-phone"></i></span>  Corporate Sales  : +8801709888913</h4>
+                                    <h5><span><i class="fas fa-phone"></i></span>  Corporate Sales  : +8801709888913</h5>
                                 </a>
                                 <br>
                                 <a href="tel:+8801709888909">
-                                    <h4><span><i class="fas fa-phone"></i></span>  Sales : +8801709888909</h4>
+                                    <h5><span><i class="fas fa-phone"></i></span>  Sales : +8801709888909</h5>
                                 </a>
                             <br>
                             <a href="tel:+8801709888930">
-                                <h4><span><i class="fas fa-phone"></i></span>  Regional Sales : +8801709888930</h4>
+                                <h5><span><i class="fas fa-phone"></i></span>  Regional Sales : +8801709888930</h5>
                             </a>
                             <br>
                             <a href="tel:+8809606667788">
-                                <h4><span><i class="fas fa-phone"></i></span>  Customer Support : +8809606667788 </h4>
-                            </a><pre style="color: white">(9am-11pm)</pre>
+                                <h5><span><i class="fas fa-phone"></i></span>  Customer Support : +8809606667788 </h5>
+                            </a><span style="color: white">(9:00 am - 11:00 pm)</span>
                         </div>
                     </div>
                 </div>
@@ -140,9 +147,9 @@
                     </div>
                 </div>
                 <div class="kt-footer__menu">
-{{--                    <a href="http://keenthemes.com/metronic" target="_blank">Purchase Lisence</a>--}}
-                    <a href="https://www.easytrax.com.bd/privacy-policy" target="_blank">Privacy Policy</a>
                     <a href="https://www.easytrax.com.bd/contact/" target="_blank">Contact</a>
+                    <a href="https://www.easytrax.com.bd/privacy-policy" target="_blank">Privacy Policy</a>
+                    <a href="https://www.easytrax.com.bd/terms-conditions" target="_blank">Terms & Conditions</a>
                 </div>
             </div>
         </div>
