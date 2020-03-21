@@ -62,7 +62,7 @@
         <div class="kt-container ">
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="kt-footer__section">
+                    <div class="kt-footer__section text-center">
                         <h3 class="kt-footer__title">Corporate Office</h3>
                         <div class="kt-footer__content">
                             <h5><span><i class="fas fa-map-marker-alt h4"></i></span>  House #385 (2nd Floor), Road #06, Mirpur DOHS, Dhaka-1216, Bangladesh</h5>
@@ -90,7 +90,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="kt-footer__section">
+                    <div class="kt-footer__section text-center">
                         <h3 class="kt-footer__title">Useful Contacts</h3>
                         <div class="kt-footer__content">
 {{--                                <a href="tel:+8801709888913">--}}
@@ -112,7 +112,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="kt-footer__section">
+                    <div class="kt-footer__section text-center">
 
                         <div class="kt-footer__content">
                             <div class="kt-footer__nav">
