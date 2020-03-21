@@ -53,7 +53,7 @@ Route::resource('vehicle','VehicleController');
 Route::get('offer/data','OfferController@getData');
 Route::resource('offer','OfferController');
 
-//Route::get('faq/data','FaqController@getData');
 Route::resource('faq','FaqController');
+Route::resource('notice','NoticeController');
 
 //Route::get('/logout', 'Auth\ClientLoginController@logout')->name('client.logout');
