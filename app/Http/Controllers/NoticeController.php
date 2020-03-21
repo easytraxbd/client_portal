@@ -30,7 +30,7 @@ class NoticeController extends Controller
 
         $data = [
             'title' => 'Notice',
-            'subHeader'=>'Notice list',
+            'subHeader'=>'Notice Board',
             'noticeArray' => $noticeArray,
         ];
         return view('notices.index',$data);

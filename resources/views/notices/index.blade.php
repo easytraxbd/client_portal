@@ -8,11 +8,11 @@
                 <div class="kt-portlet__body kt-portlet__body--fluid">
                     <div class="kt-widget26">
                         <div class="kt-widget26__content">
-                            <span class="kt-widget26__number">21-03-2020</span>
-                            <span class="kt-widget26__desc"> {{$notice['question']}}</span>
+                            <span class="kt-widget26__number">{{$notice['date']}}</span>
+                            <span class="kt-widget26__desc"> {{$notice['title']}}</span>
                         </div>
                         <div>
-                            {!! $notice['ans'] !!}
+                            {!! $notice['body'] !!}
                         </div>
                     </div>
                 </div>
