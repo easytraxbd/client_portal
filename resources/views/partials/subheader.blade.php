@@ -14,6 +14,12 @@
                     {{ucfirst($subHeader ?? $subTitle ?? "index")}} </a>
                     @endif
             </div>
+
+        </div>
+        <div class="col-md-10">
+            <a href="/notice">
+                <marquee behavior="scroll" direction="left" scrollamount="5" style="color: white">Easytrax Operations Update due to rapid spread of COVID-19 across the world !!</marquee>
+            </a>
         </div>
 {{--        <div class="kt-subheader__toolbar">--}}
 {{--            <div class="kt-subheader__wrapper">--}}
@@ -34,5 +40,6 @@
 {{--                </div>--}}
 {{--            </div>--}}
 {{--        </div>--}}
+
     </div>
 </div>

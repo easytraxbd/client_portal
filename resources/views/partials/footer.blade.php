@@ -65,13 +65,13 @@
                     <div class="kt-footer__section text-center">
                         <h3 class="kt-footer__title">Corporate Office</h3>
                         <div class="kt-footer__content">
-                            <h5><span><i class="fas fa-map-marker-alt h4"></i></span>  House #385 (2nd Floor), Road #06, Mirpur DOHS, Dhaka-1216, Bangladesh</h5>
+                            <p style="color: white"><span><i class="fas fa-map-marker-alt h4"></i></span>  House #385 (2nd Floor), Road #06, Mirpur DOHS, Dhaka-1216, Bangladesh</p>
                             <br>
-                            <a href="tel:+8809606667788">
-                                <h5><span><i class="fas fa-phone"></i></span>  +8809606667788</h5>
+                            <a href="tel:+8809606667788" style="color: white">
+                                <p><span><i class="fas fa-phone"></i></span>  +8809606667788</p>
                             </a>
-                            <a href="tel:+88028081060">
-                                <h5><span><i class="fas fa-print"></i></span>  +88028081060</h5>
+                            <a href="tel:+88028081060" style="color: white">
+                                <p><span><i class="fas fa-print"></i></span>  +88028081060</p>
                             </a>
 <br>
                             <div>
@@ -96,17 +96,14 @@
 {{--                                <a href="tel:+8801709888913">--}}
 {{--                                    <h5><span><i class="fas fa-phone"></i></span>  Corporate Sales  : +8801709888913</h5>--}}
 {{--                                </a>--}}
-{{--                                <br>--}}
-                                <a href="tel:+8801709888909">
-                                    <h5><span><i class="fas fa-phone"></i></span>  Sales : +8801709888909</h5>
+                                <a href="tel:+8801709888909" style="color: white">
+                                    <p><span><i class="fas fa-phone"></i></span>  Sales : +8801709888909</p>
                                 </a>
-                            <br>
 {{--                            <a href="tel:+8801709888930">--}}
 {{--                                <h5><span><i class="fas fa-phone"></i></span>  Regional Sales : +8801709888930</h5>--}}
 {{--                            </a>--}}
-{{--                            <br>--}}
-                            <a href="tel:+8809606667788">
-                                <h5><span><i class="fas fa-phone"></i></span>  Customer Support : +8809606667788 </h5>
+                            <a href="tel:+8809606667788" style="color: white">
+                                <p><span><i class="fas fa-phone"></i></span>  Customer Support : +8809606667788 </p>
                             </a><span style="color: white">(9:00 am - 11:00 pm)</span>
                         </div>
                     </div>
@@ -118,12 +115,12 @@
                             <div class="kt-footer__nav">
                                 <div class="text-center">
                                     <img src="/images/easytrax/BTRC_logo-3-3-min.png">
-                                    <p class="text-center"> We are BTRC Approved</p>
+                                    <p class="text-center" style="color: white"> We are BTRC Approved</p>
 
                                 </div>
                                 <div class="text-center">
                                     <img src="/images/easytrax/VTS-PAB-Vehicle-Tracking-Service-Providers-Association-Bangladesh-min.png">
-                                    <p class="text-center">Member of VTS Providers Associations of Bangladesh</p>
+                                    <p class="text-center" style="color: white">Member of VTS Providers Associations of Bangladesh</p>
                                 </div>
                             </div>
                         </div>
