@@ -65,14 +65,13 @@ class NoticeController extends Controller
      */
     public function show($id)
     {
-        $offer = DB::table('offers')->find($id);
-        dd($offer);
+        $notice =$this->noticeService->noticeArray($id,null);
         $data = [
-            'title' => 'offer',
-            'subHeader'=>'offers Details',
-            'offer'=>$offer,
+            'title' => 'Notice',
+            'subHeader'=>'Notice Details',
+            'notice'=> $notice,
         ];
-        return view('offers.show',$data);
+        return view('notices.show',$data);
     }
 
     /**

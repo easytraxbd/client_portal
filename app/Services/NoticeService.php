@@ -5,7 +5,7 @@ namespace App\Services;
 
 class NoticeService
 {
-    public function noticeArray($limit=null)
+    public function noticeArray($noticeNumber=null,$limit=null)
     {
 
         $noticeArray = [
@@ -25,6 +25,14 @@ class NoticeService
     ];
         if ($limit !=null){
             $noticeArray = array_slice($noticeArray, 0, $limit, true);
+        }
+
+        if ($noticeNumber!=null){
+            foreach ($noticeArray as $notice){
+                if ($notice['notice_number']==$noticeNumber){
+                    return $notice;
+                }
+            }
         }
 
         return $noticeArray;

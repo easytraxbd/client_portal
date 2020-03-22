@@ -17,7 +17,7 @@
 
         </div>
         <div class="col-md-10">
-            <a href="/notice">
+            <a href="/notice/1">
                 <marquee behavior="scroll" direction="left" scrollamount="5" style="color: white">Easytrax Operations Update due to rapid spread of COVID-19 across the world !!</marquee>
             </a>
         </div>
