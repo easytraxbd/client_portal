@@ -5,7 +5,7 @@
         @foreach($noticeArray as $notice)
         <div class="col-md-6">
             <a href="notice/{{$notice['notice_number']}}">
-            <div class="card">
+            <div class="card" style="color: black">
 {{--                <img class="card-img-top" src="..." alt="Card image cap">--}}
                 <div class="card-body">
                     <h5 class="card-title">{{$notice['date']}}</h5>
