@@ -54,7 +54,7 @@ class PaymentController extends Controller
 
         return Datatables::of($payment)
             ->escapeColumns([])
-            ->addIndexColumn()
+//            ->addIndexColumn()
             ->editColumn('payment_date', function ($payment) {
                 if (isset($payment->payment_time)) {
                     return Carbon::parse($payment->payment_date . ' ' . $payment->payment_time)->toDayDateTimeString();
@@ -70,17 +70,30 @@ class PaymentController extends Controller
                     return '<span class="btn btn-bold btn-sm btn-font-sm  btn-label-warning">Pending</span>';
                 }
             })
-            ->editColumn('amount', function ($payment) {
+//            ->editColumn('amount', function ($payment) {
+//                if (!isset($payment->amount_final) OR $payment->amount_final == null OR $payment->discount_amount == 0 OR $payment->discount_amount == null) {
+//                    return $payment->amount;
+//                } else {
+//                    return '<span style="white-space: nowrap;">Final: ' . $payment->amount_final .
+//                        '</span><br><span style="white-space: nowrap;">Source: ' . $payment->amount .
+//                        '</span><br><span style="white-space: nowrap;">Discount Percentage: ' . $payment->discount_percentage .
+//                        '%</span><br><span style="white-space: nowrap;">Discount Amount: ' . $payment->discount_amount .
+//                        '</span>';
+//                }
+//            })
+            ->editColumn('amount_final', function ($payment) {
                 if (!isset($payment->amount_final) OR $payment->amount_final == null OR $payment->discount_amount == 0 OR $payment->discount_amount == null) {
-                    return $payment->amount;
+                    return '<span class="kt-font-success kt-font-bold">৳ '.$payment->amount.'</span>';
                 } else {
-                    return '<span style="white-space: nowrap;">Final: ' . $payment->amount_final .
-                        '</span><br><span style="white-space: nowrap;">Source: ' . $payment->amount .
-                        '</span><br><span style="white-space: nowrap;">Discount Percentage: ' . $payment->discount_percentage .
-                        '%</span><br><span style="white-space: nowrap;">Discount Amount: ' . $payment->discount_amount .
-                        '</span>';
+//                    return '<span style="white-space: nowrap;">Final: ' . $payment->amount_final .
+//                        '</span><br><span style="white-space: nowrap;">Source: ' . $payment->amount .
+//                        '</span><br><span style="white-space: nowrap;">Discount Percentage: ' . $payment->discount_percentage .
+//                        '%</span><br><span style="white-space: nowrap;">Discount Amount: ' . $payment->discount_amount .
+//                        '</span>';
+                    return '<span class="kt-font-success kt-font-bold">৳ '.$payment->amount_final.'</span>';
                 }
             })
+
             ->editColumn('invoice', function ($payment) {
                 $invoicePayments = DB::table('sales_invoice_payments')->where('payment_id', $payment->id)
                     ->orderBy('id', 'ASC')->get();
@@ -135,6 +148,12 @@ class PaymentController extends Controller
             })
             ->editColumn('amount', function ($payment) {
                 return '<span class="kt-font-success kt-font-bold">৳ '.$payment->amount.'</span>';
+            })
+            ->editColumn('discount_amount', function ($payment) {
+                if (isset($payment->discount_amount)){
+                    return '<span class="kt-font-success kt-font-bold">৳ '.$payment->discount_amount.'</span>';
+                }
+                return "N/A";
             })
             ->addColumn('action', function ($payment) {
                 $a = '<div class="container text-center">';

@@ -60,7 +60,7 @@
                         </div>
                     </li>
                     <li class="kt-menu__item {{ Request::is("notice") ? 'kt-menu__item--here' : '' }}">
-                        <a href="/notice" class="kt-menu__link"><span class="kt-menu__link-text">Notice</span></a>
+                        <a href="/notice" class="kt-menu__link"><span class="kt-menu__link-text">Notice Board</span></a>
                     </li>
                     <li class="kt-menu__item {{ Request::is("faq") ? 'kt-menu__item--here' : '' }}">
                         <a href="/faq" class="kt-menu__link"><span class="kt-menu__link-text">FAQ</span></a>

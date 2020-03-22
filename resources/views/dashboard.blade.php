@@ -149,7 +149,7 @@
                                 <tr role="row">
                                     <th>ID</th>
                                     <th>Payment Date</th>
-                                    <th>Amount</th>
+                                    <th>Paid Amount</th>
                                     {{--                                    <th>Invoice</th>--}}
                                     <th>Payment Method</th>
                                     <th>Status</th>
@@ -328,28 +328,28 @@
                     <span class="fa fa-star checked h1"></span>
                 </div>
             </a>
-            <div class="row">
-                <div class="col-md-3">
-                    <a href="https://tawk.to/chat/58307fdbfccdfa3ec838b0e2/default" target="_blank">
-                        <img src="/images/easytrax/Group 49.png" alt="" width="100%">
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="https://t.me/joinchat/AYNtSg82zgf9r_LoXhpR1g" target="_blank">
-                        <img src="/images/easytrax/Group 50.png" alt="" width="100%">
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="https://wa.me/8801709888903?text=Hello,%20I%20am%20interested%20in%20your%20products,%20please%20share%20features%20and%20pricing" target="_blank">
-                        <img src="/images/easytrax/Group 51.png" alt="" width="100%">
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="tel:09606667788" target="_blank">
-                        <img src="/images/easytrax/Group 52.png" alt="" width="100%">
-                    </a>
-                </div>
-            </div>
+{{--            <div class="row">--}}
+{{--                <div class="col-md-3">--}}
+{{--                    <a href="https://tawk.to/chat/58307fdbfccdfa3ec838b0e2/default" target="_blank">--}}
+{{--                        <img src="/images/easytrax/Group 49.png" alt="" width="100%">--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--                <div class="col-md-3">--}}
+{{--                    <a href="https://t.me/joinchat/AYNtSg82zgf9r_LoXhpR1g" target="_blank">--}}
+{{--                        <img src="/images/easytrax/Group 50.png" alt="" width="100%">--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--                <div class="col-md-3">--}}
+{{--                    <a href="https://wa.me/8801709888903?text=Hello,%20I%20am%20interested%20in%20your%20products,%20please%20share%20features%20and%20pricing" target="_blank">--}}
+{{--                        <img src="/images/easytrax/Group 51.png" alt="" width="100%">--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--                <div class="col-md-3">--}}
+{{--                    <a href="tel:09606667788" target="_blank">--}}
+{{--                        <img src="/images/easytrax/Group 52.png" alt="" width="100%">--}}
+{{--                    </a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
             <br>
         </div>
     </div>
@@ -367,13 +367,13 @@
             $('#payment-table').DataTable({
                 processing: true,
                 serverSide: true,
-                order: [[ 2, "desc" ]],
+                order: [[ 0, "desc" ]],
                 pageLength: 5,
                 ajax: '/payment/data',
                 columns: [
                     {data: 'id', name: 'id'},
                     {data: 'payment_date', name: 'payment_date'},
-                    {data: 'amount', name: 'amount'},
+                    {data: 'amount_final', name: 'amount_final'},
                     // {data: 'invoice', name: 'invoice'},
                     {data: 'payment_method', name: 'payment_method'},
                     {data: 'status', name: 'status'},
