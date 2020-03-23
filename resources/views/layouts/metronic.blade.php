@@ -2,7 +2,17 @@
 
 	<!-- begin::Head -->
 	<head>
-		<base href="">
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-143995078-2"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-143995078-2');
+        </script>
+
+        <base href="">
 		<meta charset="utf-8" />
 		<title>{{ucfirst($title ?? "Client Portal")}} | {{ config('app.name', 'Easytrax') }}</title>
 		<meta name="description" content="Latest updates and statistic charts">

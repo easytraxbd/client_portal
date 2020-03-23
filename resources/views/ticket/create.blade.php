@@ -17,14 +17,14 @@
             @csrf
             <div class="kt-portlet__body">
                 <div class="form-group row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-12">
                         <label>Ticket Title:</label>
                         <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" placeholder="Enter ticket title" required autofocus>
                         @error('title')
                         <span class="form-text text-muted"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-4" style="display: none">
                         <label class="">Ticket Type:</label>
                         <select class="form-control" name="ticket_type_id" required>
                             @foreach($ticketTypes as $ticketTypeId => $ticketTypeName)

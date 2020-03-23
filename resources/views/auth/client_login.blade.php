@@ -15,6 +15,16 @@ License: You must have a valid license purchased only from themeforest(the above
 
 <!-- begin::Head -->
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-143995078-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-143995078-2');
+    </script>
+
     <base href="../../../">
     <meta charset="utf-8" />
     <title>Easytrax Self Care Portal | Login</title>
