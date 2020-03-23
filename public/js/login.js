@@ -81,15 +81,15 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/assets/js/pages/custom/login/login-1.js":
-/*!***********************************************************!*\
-  !*** ./resources/assets/js/pages/custom/login/login-1.js ***!
-  \***********************************************************/
+/***/ "./resources/demo4/src/assets/js/pages/custom/login/login-1.js":
+/*!*********************************************************************!*\
+  !*** ./resources/demo4/src/assets/js/pages/custom/login/login-1.js ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -166,38 +166,14 @@ jQuery(document).ready(function () {
 
 /***/ }),
 
-/***/ "./resources/assets/sass/pages/invoices/invoice-1.scss":
-/*!*************************************************************!*\
-  !*** ./resources/assets/sass/pages/invoices/invoice-1.scss ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ "./resources/assets/sass/pages/login/login-1.scss":
-/*!********************************************************!*\
-  !*** ./resources/assets/sass/pages/login/login-1.scss ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 0:
-/*!************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/assets/js/pages/custom/login/login-1.js ./resources/assets/sass/pages/login/login-1.scss ./resources/assets/sass/pages/invoices/invoice-1.scss ***!
-  \************************************************************************************************************************************************************************/
+/***/ 1:
+/*!***************************************************************************!*\
+  !*** multi ./resources/demo4/src/assets/js/pages/custom/login/login-1.js ***!
+  \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\wamp\www\client_portal\resources\assets\js\pages\custom\login\login-1.js */"./resources/assets/js/pages/custom/login/login-1.js");
-__webpack_require__(/*! C:\wamp\www\client_portal\resources\assets\sass\pages\login\login-1.scss */"./resources/assets/sass/pages/login/login-1.scss");
-module.exports = __webpack_require__(/*! C:\wamp\www\client_portal\resources\assets\sass\pages\invoices\invoice-1.scss */"./resources/assets/sass/pages/invoices/invoice-1.scss");
+module.exports = __webpack_require__(/*! C:\wamp\www\client_portal\resources\demo4\src\assets\js\pages\custom\login\login-1.js */"./resources/demo4/src/assets/js/pages/custom/login/login-1.js");
 
 
 /***/ })

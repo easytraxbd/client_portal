@@ -24,7 +24,6 @@ License: You must have a valid license purchased only from themeforest(the above
 
         gtag('config', 'UA-143995078-2');
     </script>
-
     <base href="../../../">
     <meta charset="utf-8" />
     <title>Easytrax Self Care Portal | Login</title>
@@ -37,14 +36,12 @@ License: You must have a valid license purchased only from themeforest(the above
     <!--end::Fonts -->
 
     <!--begin::Page Custom Styles(used by this page) -->
-    <link href="{{ asset('css/login.css') }}" rel="stylesheet" type="text/css">
-{{--    <link href="././demo4/src/assets/css/pages/login/login-1.css" rel="stylesheet" type="text/css" />--}}
+    <link href="{{ asset('css/login2.css') }}" rel="stylesheet" type="text/css">
+{{--    <link href="resources/demo4/src/assets/sass/pages/login/login-2.scss" rel="stylesheet" type="text/css" />--}}
 
     <!--end::Page Custom Styles -->
 
     <!--begin::Global Theme Styles(used by all pages) -->
-{{--    <link href="././demo4/src/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />--}}
-{{--    <link href="././demo4/src/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />--}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" >
 
     <!--end::Global Theme Styles -->
@@ -58,7 +55,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- end::Head -->
 
 <!-- begin::Body -->
-<body style="background-image: url(assets/media/demos/demo4/header.jpg); background-position: center top; background-size: 100% 350px;" class="kt-page--loading-enabled kt-page--loading kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header--minimize-menu kt-header-mobile--fixed kt-subheader--enabled kt-subheader--transparent kt-page--loading">
+<body style="background-image: url(/assets/media/demos/demo4/header.jpg); background-position: center top; background-size: 100% 350px;" class="kt-page--loading-enabled kt-page--loading kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header--minimize-menu kt-header-mobile--fixed kt-subheader--enabled kt-subheader--transparent kt-page--loading">
 
 <!-- begin::Page loader -->
 
@@ -66,102 +63,106 @@ License: You must have a valid license purchased only from themeforest(the above
 
 <!-- begin:: Page -->
 <div class="kt-grid kt-grid--ver kt-grid--root kt-page">
-    <div class="kt-grid kt-grid--hor kt-grid--root  kt-login kt-login--v1" id="kt_login">
-        <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--desktop kt-grid--ver-desktop kt-grid--hor-tablet-and-mobile">
-
-            <!--begin::Aside-->
-            <div class="kt-grid__item kt-grid__item--order-tablet-and-mobile-2 kt-grid kt-grid--hor kt-login__aside" style="background-image: url(/images/easytrax/bg_login.jpg);">
-                <div class="kt-grid__item">
-                    <a href="#" class="kt-login__logo">
-{{--                        <img src="assets/media/logos/logo-4.png">--}}
-                        <img alt="Logo" src="/images/easytrax/logos/easytrax_logo_white.png" class="kt-header__brand-logo-default" width="100px" height="53px"/>
-                    </a>
-                </div>
-                <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver">
-                    <div class="kt-grid__item kt-grid__item--middle">
-                        <h3 class="kt-login__title">Welcome to Easytrax!</h3>
-{{--                        <h3 class="kt-login__title">Welcome to Easytrax Customer Self Service Portal!</h3>--}}
-                        <h4 class="kt-login__subtitle">The Ultimate Fleet Management Solution Provider.</h4>
+    <div class="kt-grid kt-grid--hor kt-grid--root kt-login kt-login--v2 kt-login--signin" id="kt_login">
+        <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" style="background-image: url(/assets/media/bg/bg-1.jpg);">
+            <div class="kt-grid__item kt-grid__item--fluid kt-login__wrapper">
+                <div class="kt-login__container">
+                    <div class="kt-login__logo">
+                        <a href="#">
+                            <img src="/images/easytrax/logos/easytrax_logo_white.png" width="150px" height="80px">
+                        </a>
                     </div>
-                </div>
-                <div class="kt-grid__item">
-                    <div class="kt-login__info">
-                        <div class="kt-login__copyright">
-                            &copy 2020 Easytrax
+                    <div class="kt-login__signin">
+                        <div class="kt-login__head">
+                            <h3 class="kt-login__title">Sign In</h3>
                         </div>
-                        <div class="kt-login__menu">
-                                <a href="https://www.easytrax.com.bd/contact/" target="_blank">Contact</a>
-                                <a href="https://www.easytrax.com.bd/privacy-policy" target="_blank">Privacy Policy</a>
-                                <a href="https://www.easytrax.com.bd/terms-conditions" target="_blank">Terms & Conditions</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!--begin::Aside-->
-
-            <!--begin::Content-->
-            <div class="kt-grid__item kt-grid__item--fluid  kt-grid__item--order-tablet-and-mobile-1  kt-login__wrapper">
-
-
-
-                <!--begin::Body-->
-                <div class="kt-login__body" style="margin-top: 0rem;">
-
-                    <!--begin::Signin-->
-                    <div class="kt-login__form">
-                        <div class="kt-login__title">
-                            <h3>Sign In</h3>
-                        </div>
-                        <!--begin::Form-->
-                        <form class="kt-form" method="POST" action="{{url('/')}}/login" novalidate="novalidate" id="kt_login_form">
+                        <form class="kt-form" action="{{url('/login')}}" method="POST">
                             @csrf
-                            <div class="form-group">
-{{--                                <input class="form-control" type="text" placeholder="Username" name="name" autocomplete="off">--}}
+                            <div class="input-group">
                                 <input class="form-control @error('work_phone') is-invalid @enderror" type="text" placeholder="017XXXXXXXX" name="work_phone" value="{{ old('work_phone') }}" autocomplete="on" required autofocus>
                                 @error('work_phone')<span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>@enderror
-
+{{--                                <input class="form-control" type="text" placeholder="Email" name="email" autocomplete="off">--}}
                             </div>
-                            <div class="form-group">
-
+                            <div class="input-group">
                                 <input class="form-control @error('password') is-invalid @enderror" type="password" placeholder="Password" name="password"
                                        autocomplete="on" required autofocus>
                                 @error('password')<span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>@enderror
+{{--                                <input class="form-control" type="password" placeholder="Password" name="password">--}}
                             </div>
-{{--                            <br>--}}
-                            <label class="kt-checkbox kt-checkbox--bold kt-checkbox--brand" style="display: none">
-                                <input type="checkbox" name="remember" id="remember" checked> Remember Me
-                                <span></span>
-                            </label>
-                            <!--begin::Action-->
+                            <div class="row kt-login__extra">
+                                <div class="col">
+                                    <label class="kt-checkbox">
+                                        <input type="checkbox" name="remember"> Remember me
+                                        <span></span>
+                                    </label>
+                                </div>
+                                <div class="col kt-align-right">
+{{--                                    <a href="javascript:;" id="kt_login_forgot" class="kt-link kt-login__link">Forget Password ?</a>--}}
+                                    <a href="{{ route('password.request') }}" id="kt_login_forgot" class="kt-link kt-login__link">Forget Password ?</a>
+                                </div>
+                            </div>
                             <div class="kt-login__actions">
-                                <a href="{{ route('password.request') }}" >
-                                    Forgot Password ?
-                                </a>
-                                <input id="kt_login_signin_submit" type="submit" class="btn btn-primary btn-elevate kt-login__btn-primary" value="Sign In">
-{{--                                <button id="kt_login_signin_submit" class="btn btn-primary btn-elevate kt-login__btn-primary">Sign In</button>--}}
+                                <button type="submit" id="kt_login_signin_submit" class="btn btn-pill kt-login__btn-primary">Sign In</button>
                             </div>
-
-                            <!--end::Action-->
                         </form>
-
-                        <!--end::Form-->
                     </div>
-
-                    <!--end::Signin-->
+                    <div class="kt-login__signup">
+                        <div class="kt-login__head">
+                            <h3 class="kt-login__title">Sign Up</h3>
+                            <div class="kt-login__desc">Enter your details to create your account:</div>
+                        </div>
+                        <form class="kt-login__form kt-form" action="">
+                            <div class="input-group">
+                                <input class="form-control" type="text" placeholder="Fullname" name="fullname">
+                            </div>
+                            <div class="input-group">
+                                <input class="form-control" type="text" placeholder="Email" name="email" autocomplete="off">
+                            </div>
+                            <div class="input-group">
+                                <input class="form-control" type="password" placeholder="Password" name="password">
+                            </div>
+                            <div class="input-group">
+                                <input class="form-control" type="password" placeholder="Confirm Password" name="rpassword">
+                            </div>
+                            <div class="row kt-login__extra">
+                                <div class="col kt-align-left">
+                                    <label class="kt-checkbox">
+                                        <input type="checkbox" name="agree">I Agree the <a href="#" class="kt-link kt-login__link kt-font-bold">terms and conditions</a>.
+                                        <span></span>
+                                    </label>
+                                    <span class="form-text text-muted"></span>
+                                </div>
+                            </div>
+                            <div class="kt-login__actions">
+                                <button id="kt_login_signup_submit" class="btn btn-pill kt-login__btn-primary">Sign Up</button>&nbsp;&nbsp;
+                                <button id="kt_login_signup_cancel" class="btn btn-pill kt-login__btn-secondary">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="kt-login__forgot">
+                        <div class="kt-login__head">
+                            <h3 class="kt-login__title">Forgotten Password ?</h3>
+                            <div class="kt-login__desc">Enter your email to reset your password:</div>
+                        </div>
+                        <form class="kt-form" action="">
+                            <div class="input-group">
+                                <input class="form-control" type="text" placeholder="Email" name="email" id="kt_email" autocomplete="off">
+                            </div>
+                            <div class="kt-login__actions">
+                                <button id="kt_login_forgot_submit" class="btn btn-pill kt-login__btn-primary">Request</button>&nbsp;&nbsp;
+                                <button id="kt_login_forgot_cancel" class="btn btn-pill kt-login__btn-secondary">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="kt-login__account">
+								<span class="kt-login__account-msg">
+									Don't have an account yet ?
+								</span>&nbsp;&nbsp;
+                        <a href="http://reg.easytrax.com.bd" id="kt_login_signup" class="kt-link kt-link--light kt-login__account-link">Sign Up</a>
+{{--                        <a href="javascript:;" id="kt_login_signup" class="kt-link kt-link--light kt-login__account-link">Sign Up</a>--}}
+                    </div>
                 </div>
-
-                <!--end::Body-->
-                <!--begin::Head-->
-                <div class="kt-login__head">
-                    <span class="kt-login__signup-label">Don't have an account yet?</span>&nbsp;&nbsp;
-                    <a href="http://reg.easytrax.com.bd">Sign Up!</a>
-                </div>
-
-                <!--end::Head-->
             </div>
-
-            <!--end::Content-->
         </div>
     </div>
 </div>
@@ -193,14 +194,13 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- end::Global Config -->
 
 <!--begin::Global Theme Bundle(used by all pages) -->
-{{--<script src="assets/plugins/global/plugins.bundle.js" type="text/javascript"></script>--}}
-{{--<script src="assets/js/scripts.bundle.js" type="text/javascript"></script>--}}
-{{--<script src="{{ asset('js/app.js') }}"></script>--}}
+<script src="{{ asset('js/app.js') }}"></script>
+
 <!--end::Global Theme Bundle -->
 
 <!--begin::Page Scripts(used by this page) -->
-{{--<script src="assets/js/pages/custom/login/login-1.js" type="text/javascript"></script>--}}
-{{--<script src="{{ asset('js/login.js') }}"></script>--}}
+{{--<script src="/assets/js/pages/custom/login/login-general.js" type="text/javascript"></script>--}}
+
 <!--end::Page Scripts -->
 </body>
 
