@@ -103,10 +103,16 @@ License: You must have a valid license purchased only from themeforest(the above
             <!--begin::Content-->
             <div class="kt-grid__item kt-grid__item--fluid  kt-grid__item--order-tablet-and-mobile-1  kt-login__wrapper">
 
+                <!--begin::Head-->
+                <div class="kt-login__head">
+                    <span class="kt-login__signup-label">Don't have an account yet?</span>&nbsp;&nbsp;
+                    <a href="http://reg.easytrax.com.bd" class="kt-link kt-login__signup-link">Sign Up!</a>
+                </div>
 
+                <!--end::Head-->
 
                 <!--begin::Body-->
-                <div class="kt-login__body" style="margin-top: 0rem;">
+                <div class="kt-login__body">
 
                     <!--begin::Signin-->
                     <div class="kt-login__form">
@@ -128,9 +134,9 @@ License: You must have a valid license purchased only from themeforest(the above
                                        autocomplete="on" required autofocus>
                                 @error('password')<span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>@enderror
                             </div>
-{{--                            <br>--}}
-                            <label class="kt-checkbox kt-checkbox--bold kt-checkbox--brand" style="display: none">
-                                <input type="checkbox" name="remember" id="remember" checked> Remember Me
+                            <br>
+                            <label class="kt-checkbox kt-checkbox--bold kt-checkbox--brand">
+                                <input type="checkbox" name="remember" id="remember"> Remember Me
                                 <span></span>
                             </label>
                             <!--begin::Action-->
@@ -152,13 +158,6 @@ License: You must have a valid license purchased only from themeforest(the above
                 </div>
 
                 <!--end::Body-->
-                <!--begin::Head-->
-                <div class="kt-login__head">
-                    <span class="kt-login__signup-label">Don't have an account yet?</span>&nbsp;&nbsp;
-                    <a href="http://reg.easytrax.com.bd" class="kt-link kt-login__signup-link">Sign Up!</a>
-                </div>
-
-                <!--end::Head-->
             </div>
 
             <!--end::Content-->
