@@ -2,19 +2,16 @@
 
 @section('content')
     <div class="row row-full-height">
-        @foreach($noticeArray as $notice)
-        <div class="col-md-6">
-            <a href="notice/{{$notice['notice_number']}}">
-            <div class="card" style="color: black">
+        <div class="col-md-12">
+            <div class="card">
 {{--                <img class="card-img-top" src="..." alt="Card image cap">--}}
                 <div class="card-body">
                     <h5 class="card-title">{{$notice['date']}}</h5>
-                    <p class="card-text">{{$notice['title']}}</p>
+                    <p class="card-subtitle">{{$notice['title']}}</p>
+                    <p class="card-text">{!! $notice['body'] !!}</p>
                 </div>
             </div>
-            </a>
         </div>
-            @endforeach
     </div>
     @endsection
     @section('script')

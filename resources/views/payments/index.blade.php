@@ -36,7 +36,9 @@
                         <tr role="row">
                             <th>Payment ID</th>
                             <th>Payment Date</th>
-                            <th>Amount</th>
+                            <th>Paid Amount</th>
+                            <th>Discount</th>
+                            <th>Total Amount</th>
                             <th>Invoice</th>
                             <th>Payment Method</th>
                             <th>Status</th>
@@ -65,11 +67,13 @@
                     $('#payment-table').DataTable({
                         processing: true,
                         serverSide: true,
-                        order: [[ 2, "desc" ]],
+                        order: [[ 0, "desc" ]],
                         ajax: '/payment/data',
                         columns: [
                             {data: 'id', name: 'id'},
                             {data: 'payment_date', name: 'payment_date'},
+                            {data: 'amount_final', name: 'amount_final'},
+                            {data: 'discount_amount', name: 'discount_amount'},
                             {data: 'amount', name: 'amount'},
                             {data: 'invoice', name: 'invoice'},
                             {data: 'payment_method', name: 'payment_method'},
