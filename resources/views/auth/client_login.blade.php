@@ -114,7 +114,7 @@ License: You must have a valid license purchased only from themeforest(the above
                             @csrf
                             <div class="form-group">
 {{--                                <input class="form-control" type="text" placeholder="Username" name="name" autocomplete="off">--}}
-                                <input class="form-control @error('work_phone') is-invalid @enderror" type="text" placeholder="Mobile number" name="work_phone" value="{{ old('work_phone') }}" autocomplete="on" required autofocus>
+                                <input class="form-control @error('work_phone') is-invalid @enderror" type="text" placeholder="017XXXXXXXX" name="work_phone" value="{{ old('work_phone') }}" autocomplete="on" required autofocus>
                                 @error('work_phone')<span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>@enderror
 
                             </div>
@@ -142,35 +142,6 @@ License: You must have a valid license purchased only from themeforest(the above
                         </form>
 
                         <!--end::Form-->
-
-                        <!--begin::Divider-->
-{{--                        <div class="kt-login__divider">--}}
-{{--                            <div class="kt-divider">--}}
-{{--                                <span></span>--}}
-{{--                                <span>OR</span>--}}
-{{--                                <span></span>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-
-                        <!--end::Divider-->
-
-                        <!--begin::Options-->
-{{--                        <div class="kt-login__options">--}}
-{{--                            <a href="#" class="btn btn-primary kt-btn">--}}
-{{--                                <i class="fab fa-facebook-f"></i>--}}
-{{--                                Facebook--}}
-{{--                            </a>--}}
-{{--                            <a href="#" class="btn btn-info kt-btn">--}}
-{{--                                <i class="fab fa-twitter"></i>--}}
-{{--                                Twitter--}}
-{{--                            </a>--}}
-{{--                            <a href="#" class="btn btn-danger kt-btn">--}}
-{{--                                <i class="fab fa-google"></i>--}}
-{{--                                Google--}}
-{{--                            </a>--}}
-{{--                        </div>--}}
-
-                        <!--end::Options-->
                     </div>
 
                     <!--end::Signin-->
