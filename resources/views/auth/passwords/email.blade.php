@@ -68,7 +68,8 @@ License: You must have a valid license purchased only from themeforest(the above
                 </div>
                 <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver">
                     <div class="kt-grid__item kt-grid__item--middle">
-                        <h3 class="kt-login__title">Welcome to Easytrax Customer Self Service Portal!</h3>
+                        <h3 class="kt-login__title">Welcome to Easytrax!</h3>
+                        {{--                        <h3 class="kt-login__title">Welcome to Easytrax Customer Self Service Portal!</h3>--}}
                         <h4 class="kt-login__subtitle">The Ultimate Fleet Management Solution Provider.</h4>
                     </div>
                 </div>
@@ -78,7 +79,9 @@ License: You must have a valid license purchased only from themeforest(the above
                             &copy 2020 Easytrax
                         </div>
                         <div class="kt-login__menu">
-                            <a href="https://www.easytrax.com.bd/contact/" class="kt-link">Contact</a>
+                            <a href="https://www.easytrax.com.bd/contact/" target="_blank">Contact</a>
+                            <a href="https://www.easytrax.com.bd/privacy-policy" target="_blank">Privacy Policy</a>
+                            <a href="https://www.easytrax.com.bd/terms-conditions" target="_blank">Terms & Conditions</a>
                         </div>
                     </div>
                 </div>
@@ -89,16 +92,8 @@ License: You must have a valid license purchased only from themeforest(the above
             <!--begin::Content-->
             <div class="kt-grid__item kt-grid__item--fluid  kt-grid__item--order-tablet-and-mobile-1  kt-login__wrapper">
 
-                <!--begin::Head-->
-                <div class="kt-login__head">
-                    <span class="kt-login__signup-label">Don't have an account yet?</span>&nbsp;&nbsp;
-                    <a href="http://reg.easytrax.com.bd" class="kt-link kt-login__signup-link">Sign Up!</a>
-                </div>
-
-                <!--end::Head-->
-
                 <!--begin::Body-->
-                <div class="kt-login__body">
+                <div class="kt-login__body" style="margin-top: 0rem;">
 
                     <!--begin::Signin-->
                     <div class="kt-login__form">
@@ -124,7 +119,7 @@ License: You must have a valid license purchased only from themeforest(the above
                             </div>
                             <!--begin::Action-->
                             <div class="kt-login__actions">
-                                <a href="{{ route('login') }}" class="kt-link kt-login__link-forgot">
+                                <a href="{{ route('login') }}">
                                     Back to login ?
                                 </a>
                                 <input id="kt_login_signin_submit" type="submit" class="btn btn-primary btn-elevate kt-login__btn-primary" value=" {{ __('Send Password Reset Link') }}">
@@ -141,6 +136,14 @@ License: You must have a valid license purchased only from themeforest(the above
                 </div>
 
                 <!--end::Body-->
+
+                <!--begin::Head-->
+                <div class="kt-login__head">
+                    <span class="kt-login__signup-label">Don't have an account yet?</span>&nbsp;&nbsp;
+                    <a href="http://reg.easytrax.com.bd">Sign Up!</a>
+                </div>
+
+                <!--end::Head-->
             </div>
 
             <!--end::Content-->

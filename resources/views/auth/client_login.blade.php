@@ -135,7 +135,7 @@ License: You must have a valid license purchased only from themeforest(the above
                             </label>
                             <!--begin::Action-->
                             <div class="kt-login__actions">
-                                <a href="{{ route('password.request') }}" class="kt-link kt-login__link-forgot">
+                                <a href="{{ route('password.request') }}" >
                                     Forgot Password ?
                                 </a>
                                 <input id="kt_login_signin_submit" type="submit" class="btn btn-primary btn-elevate kt-login__btn-primary" value="Sign In">
@@ -155,7 +155,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <!--begin::Head-->
                 <div class="kt-login__head">
                     <span class="kt-login__signup-label">Don't have an account yet?</span>&nbsp;&nbsp;
-                    <a href="http://reg.easytrax.com.bd" class="kt-link kt-login__signup-link">Sign Up!</a>
+                    <a href="http://reg.easytrax.com.bd">Sign Up!</a>
                 </div>
 
                 <!--end::Head-->
@@ -195,7 +195,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--begin::Global Theme Bundle(used by all pages) -->
 {{--<script src="assets/plugins/global/plugins.bundle.js" type="text/javascript"></script>--}}
 {{--<script src="assets/js/scripts.bundle.js" type="text/javascript"></script>--}}
-<script src="{{ asset('js/app.js') }}"></script>
+{{--<script src="{{ asset('js/app.js') }}"></script>--}}
 <!--end::Global Theme Bundle -->
 
 <!--begin::Page Scripts(used by this page) -->
