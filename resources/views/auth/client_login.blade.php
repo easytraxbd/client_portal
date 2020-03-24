@@ -68,7 +68,7 @@ License: You must have a valid license purchased only from themeforest(the above
                 <div class="kt-login__container">
                     <div class="kt-login__logo">
                         <a href="#">
-                            <img src="/images/easytrax/logos/easytrax_logo_color_full.png" width="150px" height="80px">
+                            <img src="/images/easytrax/logos/easytrax_logo_color_full.png" width="150px" height="auto">
                         </a>
                     </div>
                     <div class="kt-login__signin">

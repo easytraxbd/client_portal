@@ -15,6 +15,15 @@ License: You must have a valid license purchased only from themeforest(the above
 
 <!-- begin::Head -->
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-143995078-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-143995078-2');
+    </script>
     <base href="../../../">
     <meta charset="utf-8" />
     <title>Easytrax | Reset password</title>
@@ -27,14 +36,11 @@ License: You must have a valid license purchased only from themeforest(the above
     <!--end::Fonts -->
 
     <!--begin::Page Custom Styles(used by this page) -->
-    <link href="{{ asset('css/login.css') }}" rel="stylesheet" type="text/css">
-{{--    <link href="././demo4/src/assets/css/pages/login/login-1.css" rel="stylesheet" type="text/css" />--}}
+    <link href="{{ asset('css/login3.css') }}" rel="stylesheet" type="text/css">
 
-<!--end::Page Custom Styles -->
+    <!--end::Page Custom Styles -->
 
     <!--begin::Global Theme Styles(used by all pages) -->
-    {{--    <link href="././demo4/src/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />--}}
-    {{--    <link href="././demo4/src/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />--}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" >
 
     <!--end::Global Theme Styles -->
@@ -56,97 +62,52 @@ License: You must have a valid license purchased only from themeforest(the above
 
 <!-- begin:: Page -->
 <div class="kt-grid kt-grid--ver kt-grid--root kt-page">
-    <div class="kt-grid kt-grid--hor kt-grid--root  kt-login kt-login--v1" id="kt_login">
-        <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--desktop kt-grid--ver-desktop kt-grid--hor-tablet-and-mobile">
-
-            <!--begin::Aside-->
-            <div class="kt-grid__item kt-grid__item--order-tablet-and-mobile-2 kt-grid kt-grid--hor kt-login__aside" style="background-image: url(/images/easytrax/bg_login.jpg);">
-                <div class="kt-grid__item">
-                    <a href="#" class="kt-login__logo">
-                        <img alt="Logo" src="/images/easytrax/logos/easytrax_logo_white.png" class="kt-header__brand-logo-default" width="100px" height="53px"/>
-                    </a>
-                </div>
-                <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--ver">
-                    <div class="kt-grid__item kt-grid__item--middle">
-                        <h3 class="kt-login__title">Welcome to Easytrax!</h3>
-                        {{--                        <h3 class="kt-login__title">Welcome to Easytrax Customer Self Service Portal!</h3>--}}
-                        <h4 class="kt-login__subtitle">The Ultimate Fleet Management Solution Provider.</h4>
+    <div class="kt-grid kt-grid--hor kt-grid--root  kt-login kt-login--v3 kt-login--signin" id="kt_login">
+        <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" style="background-image: url(assets/media/bg/bg-3.jpg);">
+            <div class="kt-grid__item kt-grid__item--fluid kt-login__wrapper">
+                <div class="kt-login__container">
+                    <div class="kt-login__logo">
+                        <a href="#">
+                            <img src="/images/easytrax/logos/easytrax_logo_color_full.png" width="150px" height="auto">
+                        </a>
                     </div>
-                </div>
-                <div class="kt-grid__item">
-                    <div class="kt-login__info">
-                        <div class="kt-login__copyright">
-                            &copy 2020 Easytrax
-                        </div>
-                        <div class="kt-login__menu">
-                            <a href="https://www.easytrax.com.bd/contact/" target="_blank">Contact</a>
-                            <a href="https://www.easytrax.com.bd/privacy-policy" target="_blank">Privacy Policy</a>
-                            <a href="https://www.easytrax.com.bd/terms-conditions" target="_blank">Terms & Conditions</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!--begin::Aside-->
-
-            <!--begin::Content-->
-            <div class="kt-grid__item kt-grid__item--fluid  kt-grid__item--order-tablet-and-mobile-1  kt-login__wrapper">
-
-                <!--begin::Body-->
-                <div class="kt-login__body" style="margin-top: 0rem;">
-
-                    <!--begin::Signin-->
-                    <div class="kt-login__form">
-                        <div class="kt-login__title">
-                            <h3>{{ __('Reset Password') }}</h3>
+                    <div class="kt-login__signin">
+                        <div class="kt-login__head">
+                            <h3 class="kt-login__title">Forgotten Password ?</h3>
+                            <div class="kt-login__desc">Enter your email to reset your password</div>
                         </div>
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('status') }}
                             </div>
-                    @endif
-                        <!--begin::Form-->
-                        <form class="kt-form" method="POST" action="{{ route('password.email') }}" novalidate="novalidate" id="kt_login_form">
+                        @endif
+                        <form class="kt-form" method="POST" action="{{ route('password.email') }}">
                             @csrf
-                            <div class="form-group">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="email" autofocus>
-
+                            <div class="input-group">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="emailaddress@example.com" autofocus>
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
-                            <!--begin::Action-->
+
+
                             <div class="kt-login__actions">
-                                <a href="{{ route('login') }}">
-                                    Back to login ?
-                                </a>
-                                <input id="kt_login_signin_submit" type="submit" class="btn btn-primary btn-elevate kt-login__btn-primary" value=" {{ __('Send Password Reset Link') }}">
-                                {{--                                <button id="kt_login_signin_submit" class="btn btn-primary btn-elevate kt-login__btn-primary">Sign In</button>--}}
+                                <button type="submit" id="kt_login_forgot_submit" class="btn btn-brand btn-elevate kt-login__btn-primary">Request</button>&nbsp;&nbsp;
+                                <button type="reset" id="kt_login_forgot_cancel" class="btn btn-light btn-elevate kt-login__btn-secondary">Cancel</button>
                             </div>
-
-                            <!--end::Action-->
                         </form>
-
-                        <!--end::Form-->
                     </div>
-
-                    <!--end::Signin-->
+                    <div class="kt-login__account">
+								<span class="kt-login__account-msg">
+									Don't have an account yet ?
+								</span>
+                        &nbsp;&nbsp;
+                        <a href="http://reg.easytrax.com.bd" id="kt_login_signup" class="kt-login__account-link">Sign Up!</a>
+                    </div>
                 </div>
-
-                <!--end::Body-->
-
-                <!--begin::Head-->
-                <div class="kt-login__head">
-                    <span class="kt-login__signup-label">Don't have an account yet?</span>&nbsp;&nbsp;
-                    <a href="http://reg.easytrax.com.bd">Sign Up!</a>
-                </div>
-
-                <!--end::Head-->
             </div>
-
-            <!--end::Content-->
         </div>
     </div>
 </div>
@@ -178,14 +139,13 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- end::Global Config -->
 
 <!--begin::Global Theme Bundle(used by all pages) -->
-{{--<script src="assets/plugins/global/plugins.bundle.js" type="text/javascript"></script>--}}
-{{--<script src="assets/js/scripts.bundle.js" type="text/javascript"></script>--}}
 <script src="{{ asset('js/app.js') }}"></script>
+
 <!--end::Global Theme Bundle -->
 
 <!--begin::Page Scripts(used by this page) -->
-{{--<script src="assets/js/pages/custom/login/login-1.js" type="text/javascript"></script>--}}
-{{--<script src="{{ asset('js/login.js') }}"></script>--}}
+{{--<script src="assets/js/pages/custom/login/login-general.js" type="text/javascript"></script>--}}
+
 <!--end::Page Scripts -->
 </body>
 
