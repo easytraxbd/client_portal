@@ -36,8 +36,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!--end::Fonts -->
 
     <!--begin::Page Custom Styles(used by this page) -->
-    <link href="{{ asset('css/login2.css') }}" rel="stylesheet" type="text/css">
-{{--    <link href="resources/demo4/src/assets/sass/pages/login/login-2.scss" rel="stylesheet" type="text/css" />--}}
+    <link href="{{ asset('css/login3.css') }}" rel="stylesheet" type="text/css">
 
     <!--end::Page Custom Styles -->
 
@@ -55,7 +54,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- end::Head -->
 
 <!-- begin::Body -->
-<body style="background-image: url(/assets/media/demos/demo4/header.jpg); background-position: center top; background-size: 100% 350px;" class="kt-page--loading-enabled kt-page--loading kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header--minimize-menu kt-header-mobile--fixed kt-subheader--enabled kt-subheader--transparent kt-page--loading">
+<body style="background-image: url(assets/media/demos/demo4/header.jpg); background-position: center top; background-size: 100% 350px;" class="kt-page--loading-enabled kt-page--loading kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header--minimize-menu kt-header-mobile--fixed kt-subheader--enabled kt-subheader--transparent kt-page--loading">
 
 <!-- begin::Page loader -->
 
@@ -63,18 +62,18 @@ License: You must have a valid license purchased only from themeforest(the above
 
 <!-- begin:: Page -->
 <div class="kt-grid kt-grid--ver kt-grid--root kt-page">
-    <div class="kt-grid kt-grid--hor kt-grid--root kt-login kt-login--v2 kt-login--signin" id="kt_login">
-        <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" style="background-image: url(/images/easytrax/bg_login2.png);">
+    <div class="kt-grid kt-grid--hor kt-grid--root  kt-login kt-login--v3 kt-login--signin" id="kt_login">
+        <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" style="background-image: url(assets/media/bg/bg-3.jpg);">
             <div class="kt-grid__item kt-grid__item--fluid kt-login__wrapper">
                 <div class="kt-login__container">
                     <div class="kt-login__logo">
                         <a href="#">
-                            <img src="/images/easytrax/logos/easytrax_logo_white.png" width="150px" height="80px">
+                            <img src="/images/easytrax/logos/easytrax_logo_color_full.png" width="150px" height="80px">
                         </a>
                     </div>
                     <div class="kt-login__signin">
                         <div class="kt-login__head">
-                            <h3 class="kt-login__title">Sign In</h3>
+                            <h3 class="kt-login__title">Sign In To Easytrax Self Care Portal</h3>
                         </div>
                         <form class="kt-form" action="{{url('/login')}}" method="POST">
                             @csrf
@@ -97,12 +96,12 @@ License: You must have a valid license purchased only from themeforest(the above
                                     </label>
                                 </div>
                                 <div class="col kt-align-right">
-{{--                                    <a href="javascript:;" id="kt_login_forgot" class="kt-link kt-login__link">Forget Password ?</a>--}}
-                                    <a href="{{ route('password.request') }}" id="kt_login_forgot" class="kt-link kt-login__link">Forget Password ?</a>
+{{--                                    <a href="javascript:;" id="kt_login_forgot" class="kt-login__link">Forget Password ?</a>--}}
+                                    <a href="{{ route('password.request') }}" id="kt_login_forgot" class="kt-login__link">Forget Password ?</a>
                                 </div>
                             </div>
                             <div class="kt-login__actions">
-                                <button type="submit" id="kt_login_signin_submit" class="btn btn-pill kt-login__btn-primary">Sign In</button>
+                                <button type="submit" id="kt_login_signin_submit" class="btn btn-brand btn-elevate kt-login__btn-primary">Sign In</button>
                             </div>
                         </form>
                     </div>
@@ -111,7 +110,7 @@ License: You must have a valid license purchased only from themeforest(the above
                             <h3 class="kt-login__title">Sign Up</h3>
                             <div class="kt-login__desc">Enter your details to create your account:</div>
                         </div>
-                        <form class="kt-login__form kt-form" action="">
+                        <form class="kt-form" action="">
                             <div class="input-group">
                                 <input class="form-control" type="text" placeholder="Fullname" name="fullname">
                             </div>
@@ -134,8 +133,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </div>
                             </div>
                             <div class="kt-login__actions">
-                                <button id="kt_login_signup_submit" class="btn btn-pill kt-login__btn-primary">Sign Up</button>&nbsp;&nbsp;
-                                <button id="kt_login_signup_cancel" class="btn btn-pill kt-login__btn-secondary">Cancel</button>
+                                <button id="kt_login_signup_submit" class="btn btn-brand btn-elevate kt-login__btn-primary">Sign Up</button>&nbsp;&nbsp;
+                                <button id="kt_login_signup_cancel" class="btn btn-light btn-elevate kt-login__btn-secondary">Cancel</button>
                             </div>
                         </form>
                     </div>
@@ -149,17 +148,18 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <input class="form-control" type="text" placeholder="Email" name="email" id="kt_email" autocomplete="off">
                             </div>
                             <div class="kt-login__actions">
-                                <button id="kt_login_forgot_submit" class="btn btn-pill kt-login__btn-primary">Request</button>&nbsp;&nbsp;
-                                <button id="kt_login_forgot_cancel" class="btn btn-pill kt-login__btn-secondary">Cancel</button>
+                                <button id="kt_login_forgot_submit" class="btn btn-brand btn-elevate kt-login__btn-primary">Request</button>&nbsp;&nbsp;
+                                <button id="kt_login_forgot_cancel" class="btn btn-light btn-elevate kt-login__btn-secondary">Cancel</button>
                             </div>
                         </form>
                     </div>
                     <div class="kt-login__account">
 								<span class="kt-login__account-msg">
 									Don't have an account yet ?
-								</span>&nbsp;&nbsp;
-                        <a href="http://reg.easytrax.com.bd" id="kt_login_signup" class="kt-link kt-link--light kt-login__account-link">Sign Up</a>
-{{--                        <a href="javascript:;" id="kt_login_signup" class="kt-link kt-link--light kt-login__account-link">Sign Up</a>--}}
+								</span>
+                        &nbsp;&nbsp;
+{{--                        <a href="javascript:;" id="kt_login_signup" class="kt-login__account-link">Sign Up!</a>--}}
+                        <a href="http://reg.easytrax.com.bd" id="kt_login_signup" class="kt-login__account-link">Sign Up!</a>
                     </div>
                 </div>
             </div>
@@ -199,7 +199,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--end::Global Theme Bundle -->
 
 <!--begin::Page Scripts(used by this page) -->
-{{--<script src="/assets/js/pages/custom/login/login-general.js" type="text/javascript"></script>--}}
+{{--<script src="assets/js/pages/custom/login/login-general.js" type="text/javascript"></script>--}}
 
 <!--end::Page Scripts -->
 </body>

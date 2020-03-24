@@ -16,8 +16,7 @@ mix.react('resources/js/app.js', 'public/js')
 
 //login page
 mix.react('resources/demo4/src/assets/js/pages/custom/login/login-1.js', 'public/js/login.js')
-   .sass('resources/demo4/src/assets/sass/pages/login/login-1.scss', 'public/css/login.css')
-   .sass('resources/demo4/src/assets/sass/pages/login/login-2.scss', 'public/css/login2.css');
+   .sass('resources/demo4/src/assets/sass/pages/login/login-3.scss', 'public/css/login3.css');
 //invoice
 mix.sass('resources/demo4/src/assets/sass/pages/invoices/invoice-1.scss', 'public/css/invoice.css');
 
