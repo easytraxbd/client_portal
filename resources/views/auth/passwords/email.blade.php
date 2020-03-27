@@ -26,7 +26,7 @@ License: You must have a valid license purchased only from themeforest(the above
     </script>
     <base href="../../../">
     <meta charset="utf-8" />
-    <title>Easytrax | Reset password</title>
+    <title>My Easytrax | Reset password</title>
     <meta name="description" content="Login page example">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
