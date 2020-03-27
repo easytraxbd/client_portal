@@ -14,7 +14,7 @@
 
         <base href="">
 		<meta charset="utf-8" />
-		<title>{{ucfirst($title ?? "Client Portal")}} | {{ config('app.name', 'Easytrax') }}</title>
+		<title>{{ucfirst($title ?? "Client Portal")}} | {{ config('app.name', 'My Easytrax') }}</title>
 		<meta name="description" content="Latest updates and statistic charts">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 

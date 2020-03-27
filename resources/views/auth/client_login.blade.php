@@ -26,7 +26,7 @@ License: You must have a valid license purchased only from themeforest(the above
     </script>
     <base href="../../../">
     <meta charset="utf-8" />
-    <title>Easytrax Self Care Portal | Login</title>
+    <title>My Easytrax | Login</title>
     <meta name="description" content="Login page example">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -73,7 +73,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     </div>
                     <div class="kt-login__signin">
                         <div class="kt-login__head">
-                            <h3 class="kt-login__title">Sign In To Easytrax Self Care Portal</h3>
+                            <h3 class="kt-login__title">Sign In To My Easytrax</h3>
                         </div>
                         <form class="kt-form" action="{{url('/login')}}" method="POST">
                             @csrf
