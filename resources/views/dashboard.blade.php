@@ -114,6 +114,21 @@
                 </div>
             </div>
         </div>
+        <div class="col-lg-12 col-xl-12 order-lg-1 order-xl-1">
+            <div class="row">
+                <div  class="col-md-6">
+                    <a href="https://www.easytrax.com.bd/payment-discounts" target="_blank">
+                        <img src="/images/easytrax/SSL Commerz Pay With logo All Size-04.png" alt="" width="100%">
+                    </a>
+                </div>
+                <div  class="col-md-6">
+                    <a href="https://www.easytrax.com.bd/crack-platoon-transport-service" target="_blank">
+                        <img src="/images/easytrax/artboard.png" alt="" width="100%">
+                    </a>
+                </div>
+            </div>
+            <br>
+        </div>
         <div class="col-lg-6 col-xl-6 order-lg-1 order-xl-1">
             <!--begin:: payment-->
             <div class="kt-portlet kt-portlet--mobile">
@@ -308,13 +323,8 @@
             <img src="/images/easytrax/offer.png" alt="" width="100%">
             </a>
         </div>
-        <div class="col-lg-12 col-xl-12 order-lg-1 order-xl-1">
-            <a href="https://www.easytrax.com.bd/payment-discounts" target="_blank">
-            <img src="/images/easytrax/SSL Commerz Pay With logo All Size-01.png" alt="" width="100%">
-            </a>
-            <br>
-        </div>
-        <div class="col-lg-12 col-xl-12 order-lg-1 order-xl-1 text-center" style="background-color: white">
+
+        <div class="col-lg-12 col-xl-12 order-lg-1 order-xl-1 text-center">
             <br>
             <br>
             <a href="https://g.page/easytrax/review?mt" target="_blank">

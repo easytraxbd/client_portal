@@ -10,6 +10,18 @@ class NoticeService
 
         $noticeArray = [
             [
+                'notice_number' => 5,
+                'date' => 'March 29, 2020',
+                'title' => 'Your vehicles can help doctors reach their hospitals on time!',
+                'body' => $this->vehiclesForDoctorsTransportNoticeBody,
+            ],
+            [
+                'notice_number' => 4,
+                'date' => 'March 28, 2020',
+                'title' => 'Doctors’ Free Transport in Lockdown Period',
+                'body' => $this->doctorsTransportNoticeBody,
+            ],
+            [
                 'notice_number' => 1,
                 'date' => 'March 18, 2020',
                 'title' => 'Easytrax Operations Update due to rapid spread of COVID-19 across the world !!',
@@ -42,6 +54,12 @@ class NoticeService
 
         return $noticeArray;
     }
+
+    protected $doctorsTransportNoticeBody = "<p>সারা দেশ লকডাউনে। কিন্তু ডাক্তার এবং সেবাদানকারীদের প্রতিদিন যেতে হচ্ছে কাজে। অনেকেরই প্রাইভেট গাড়ি বা মোটরসাইকেল নাই। বাস বা অন্য যানবাহন না থাকায় ভয়ঙ্কর সমস্যায় পড়তে হচ্ছে। করপোরেট হসপিটালগুলা বাদে সব হসপিটালের পক্ষে ট্রান্সপোর্ট ব্যবস্থা করা প্রায় অসম্ভব। আমরা চেষ্টা করছি আপাতত ঢাকার ডাক্তারদের জন্য এই লকডাউনে ট্রান্সপোর্টের ব্যবস্থা করার। ডিজিএইচএস আমাদের সাথে আছে।</p><p>শুরু করার জন্য আমাদের জানা দরকার কার কার প্রয়োজন। যারা ডাক্তার আছেন ঢাকায় কাজ করছেন, বা পরিচিত কেউ আছে যার দরকার, নিচের সার্ভে ফর্মটা ফিলআপ করে দিলে আমরা চেষ্টা করব ব্যবস্থা করার।
+
+</p><p class='text-center'>ফর্ম লিংকঃ <a href='https://forms.gle/qN5RY54Y6Z9RwH6D8'>https://forms.gle/qN5RY54Y6Z9RwH6D8</a></p><p class='text-center'>Reach out to us on Facebook :<br><a href='https://www.facebook.com/CrackPlatoomTransport'>https://www.facebook.com/CrackPlatoomTransport</a></p>";
+    protected $vehiclesForDoctorsTransportNoticeBody = "<p>সারা দেশ লকডাউনে। কিন্তু ডাক্তার এবং সেবাদানকারীদের প্রতিদিন যেতে হচ্ছে কাজে। অনেকেরই প্রাইভেট গাড়ি বা মোটরসাইকেল নাই। বাস বা অন্য যানবাহন না থাকায় ভয়ঙ্কর সমস্যায় পড়তে হচ্ছে। করপোরেট হসপিটালগুলা বাদে সব হসপিটালের পক্ষে ট্রান্সপোর্ট ব্যবস্থা করা প্রায় অসম্ভব। আমরা চেষ্টা করছি আপাতত ঢাকার ডাক্তারদের জন্য এই লকডাউনে ট্রান্সপোর্টের ব্যবস্থা করার। ডিজিএইচএস আমাদের সাথে আছে।</p><p>We need to know who can help us by giving vehicles for transporting doctors around the city. Please contribute by sharing your vehicle for a noble cause!</p>
+<p class='text-center'>ফর্ম লিংকঃ <a href='https://forms.gle/JVozfMtaVkJkzZJq6'>https://forms.gle/JVozfMtaVkJkzZJq6</a></p><p class='text-center'>Reach out to us on Facebook :<br><a href='https://www.facebook.com/CrackPlatoomTransport'>https://www.facebook.com/CrackPlatoomTransport</a></p>";
 
     protected $coronaNoticeBody = "<p>Dear Customers,</p>
 
