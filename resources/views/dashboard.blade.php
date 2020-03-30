@@ -117,13 +117,13 @@
         <div class="col-lg-12 col-xl-12 order-lg-1 order-xl-1">
             <div class="row">
                 <div  class="col-md-6">
-                    <a href="https://crm.easytrax.com.bd/payment?clientId={{\Auth::user()->id}}" target="_blank">
-                        <img src="/images/easytrax/canvas.png" alt="" width="100%">
+                    <a href="https://www.easytrax.com.bd/crack-platoon-transport-service" target="_blank">
+                        <img src="/images/easytrax/artboard.png" alt="" width="100%">
                     </a>
                 </div>
                 <div  class="col-md-6">
-                    <a href="https://www.easytrax.com.bd/crack-platoon-transport-service" target="_blank">
-                        <img src="/images/easytrax/artboard.png" alt="" width="100%">
+                    <a href="https://crm.easytrax.com.bd/payment?clientId={{\Auth::user()->id}}" target="_blank">
+                        <img src="/images/easytrax/canvas.png" alt="" width="100%">
                     </a>
                 </div>
             </div>
