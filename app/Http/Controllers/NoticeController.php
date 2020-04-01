@@ -26,7 +26,7 @@ class NoticeController extends Controller
      */
     public function index()
     {
-        $notice = DB::table('notices')->where('status',1)->orderByRaw('published_at DESC')->get();
+        $notice = DB::table('notices')->where('status',1)->where('published_for','clients')->orderByRaw('published_at DESC')->get();
         $data = [
             'title' => 'Notice',
             'subHeader'=>'Notice Board',
