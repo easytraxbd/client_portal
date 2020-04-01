@@ -2,17 +2,20 @@
 
 @section('content')
     <div class="row row-full-height">
-        <div class="col-md-12">
-            <div class="card">
+        @foreach($noticeArray as $notice)
+        <div class="col-md-6" style="padding-bottom: 20px">
+            <a href="notice/{{$notice['notice_number']}}">
+            <div class="card" style="color: black; height: 150px;">
 {{--                <img class="card-img-top" src="..." alt="Card image cap">--}}
                 <div class="card-body">
-                    <h5 class="card-title">{{\Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $notice->published_at)->toDayDateTimeString()}}</h5>
-                    <h5 class="card-subtitle">{{$notice->title}}</h5>
                     <br>
-                    <div class="card-text">{!! $notice->body !!}</div>
+                    <h4 class="card-title">{{$notice['date']}}</h4>
+                    <p class="card-text">{{$notice['title']}}</p>
                 </div>
             </div>
+            </a>
         </div>
+            @endforeach
     </div>
     @endsection
     @section('script')

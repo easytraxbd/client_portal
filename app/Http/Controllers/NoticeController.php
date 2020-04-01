@@ -26,15 +26,27 @@ class NoticeController extends Controller
      */
     public function index()
     {
-        $noticeArray = $this->noticeService->noticeArray();
-
+        $notice = DB::table('notices')->where('status',1)->orderByRaw('published_at DESC')->get();
         $data = [
             'title' => 'Notice',
             'subHeader'=>'Notice Board',
-            'noticeArray' => $noticeArray,
+            'noticeArray' => $notice,
         ];
         return view('notices.index',$data);
     }
+
+    //old
+//    public function index()
+//    {
+//        $noticeArray = $this->noticeService->noticeArray();
+//
+//        $data = [
+//            'title' => 'Notice',
+//            'subHeader'=>'Notice Board',
+//            'noticeArray' => $noticeArray,
+//        ];
+//        return view('notices.index',$data);
+//    }
 
     /**
      * Show the form for creating a new resource.
@@ -65,7 +77,7 @@ class NoticeController extends Controller
      */
     public function show($id)
     {
-        $notice =$this->noticeService->noticeArray($id,null);
+        $notice = DB::table('notices')->find($id);
         $data = [
             'title' => 'Notice',
             'subHeader'=>'Notice Details',
@@ -73,6 +85,18 @@ class NoticeController extends Controller
         ];
         return view('notices.show',$data);
     }
+
+    //old
+//    public function show($id)
+//    {
+//        $notice =$this->noticeService->noticeArray($id,null);
+//        $data = [
+//            'title' => 'Notice',
+//            'subHeader'=>'Notice Details',
+//            'notice'=> $notice,
+//        ];
+//        return view('notices.show',$data);
+//    }
 
     /**
      * Show the form for editing the specified resource.
