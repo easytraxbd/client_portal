@@ -31,8 +31,8 @@ class TicketController extends Controller
     public function index()
     {
         $data = [
-            'title' => 'Ticket',
-            'subHeader'=>'Ticket list'
+            'title' => 'Service Requests',
+            'subHeader'=>'Service Requests list'
         ];
         return view('ticket.index',$data);
     }
@@ -115,8 +115,8 @@ class TicketController extends Controller
     {
         $ticketTypes = DB::table('ticket_types')->where('parent_id',0)->pluck('title','id')->toArray();
         $data = [
-            'title' => 'Ticket',
-            'subHeader'=>'Ticket Creation',
+            'title' => 'Service Requests',
+            'subHeader'=>'Service Requests Creation',
             'ticketTypes'=> $ticketTypes,
         ];
         return view('ticket.create',$data);
@@ -160,7 +160,7 @@ Ticket Details : '.$data["description"].'
 Ticket Link: https://crm.easytrax.com.bd/tickets/'.$ticket->id;
 
             $this->ticketService->sendTelegramNotification($message);
-            return redirect('ticket')->with('success','Ticket created successfully');
+            return redirect('ticket')->with('success','Service Requests created successfully');
         }
         return redirect()->back()->with('error','Something went wrong');
     }
@@ -201,8 +201,8 @@ Ticket Link: https://crm.easytrax.com.bd/tickets/'.$ticket->id;
         $commentsOfEmployee = TicketComment::with('user')->where('ticket_id',$ticket->id)->where('comment_for',2)->whereNull('client_id')->get();
         $commentsOfClient = TicketComment::with('client')->where('ticket_id',$ticket->id)->where('comment_for',2)->whereNotNull('client_id')->get();
         $data = [
-            'title' => 'Ticket',
-            'subHeader'=>'Ticket Details',
+            'title' => 'Service Requests',
+            'subHeader'=>'Service Requests Details',
             'ticket'=>$ticket,
             'ticketTypeName'=>$ticketTypeName,
             'ticketSubTypeName'=>$ticketSubTypeName,

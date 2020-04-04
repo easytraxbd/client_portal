@@ -7,7 +7,7 @@
         <div class="kt-portlet__head">
             <div class="kt-portlet__head-label">
                 <h3 class="kt-portlet__head-title">
-                    Create New Ticket
+                    Create New Service Requests
                 </h3>
             </div>
         </div>
@@ -18,14 +18,14 @@
             <div class="kt-portlet__body">
                 <div class="form-group row">
                     <div class="col-lg-12">
-                        <label>Ticket Title:</label>
+                        <label>Service Requests Title:</label>
                         <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" placeholder="Enter ticket title" required autofocus>
                         @error('title')
                         <span class="form-text text-muted"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
                     <div class="col-lg-4" style="display: none">
-                        <label class="">Ticket Type:</label>
+                        <label class="">Service Requests Type:</label>
                         <select class="form-control" name="ticket_type_id" required>
                             @foreach($ticketTypes as $ticketTypeId => $ticketTypeName)
                             <option value="{{$ticketTypeId}}" @if($ticketTypeId == '226') selected @endif>{{$ticketTypeName}}</option>

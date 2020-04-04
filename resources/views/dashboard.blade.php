@@ -77,7 +77,7 @@
                                 <div class="kt-widget24__details">
                                     <div class="kt-widget24__info">
                                         <h4 class="kt-widget24__title">
-                                            Total due
+                                            Total Due
                                         </h4>
 {{--                                        <span class="kt-widget24__desc">--}}
 {{--																Fresh Order Amount--}}
@@ -100,7 +100,7 @@
                                 <div class="kt-widget24__details">
                                     <div class="kt-widget24__info">
                                         <h4 class="kt-widget24__title">
-                                            Reward point
+                                            Reward Points
                                         </h4>
 {{--                                        <span class="kt-widget24__desc">Joined New User</span>--}}
                                     </div>
@@ -233,13 +233,13 @@
 {{--				<i class="kt-font-brand flaticon2-line-chart"></i>--}}
 {{--			</span>--}}
                         <h3 class="kt-portlet__head-title">
-                            Tickets
+                            Service Requests
                         </h3>
                     </div>
                     <div class="kt-portlet__head-toolbar">
                         <div class="kt-portlet__head-wrapper">
                             <a href="/ticket/create" class="btn btn-info btn-icon-sm">
-                                <i class="flaticon2-plus"></i> Create New Ticket
+                                <i class="flaticon2-plus"></i> Create New Service Requests
                             </a>
                         </div>
                     </div>

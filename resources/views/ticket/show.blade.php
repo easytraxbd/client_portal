@@ -8,14 +8,14 @@
 				<i class="kt-font-brand flaticon2-line-chart"></i>
 			</span>
                 <h3 class="kt-portlet__head-title">
-                    Ticket Details
+                    Service Requests Details
                 </h3>
             </div>
             <div class="kt-portlet__head-toolbar">
                 <div class="kt-portlet__head-wrapper">
                     <a href="{{route('ticket.index')}}" class="btn btn-clean btn-icon-sm">
                         <i class="la la-long-arrow-left"></i>
-                        Back to Ticket
+                        Back to Service Requests
                     </a>
                     &nbsp;
                     <a href="/ticket/create" class="btn btn-info btn-icon-sm">

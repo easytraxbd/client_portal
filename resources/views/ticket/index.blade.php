@@ -8,7 +8,7 @@
 				<i class="kt-font-brand flaticon2-line-chart"></i>
 			</span>
                 <h3 class="kt-portlet__head-title">
-                    Tickets
+                    Service Requests
                 </h3>
             </div>
             <div class="kt-portlet__head-toolbar">
@@ -19,7 +19,7 @@
                     </a>
                     &nbsp;
                     <a href="/ticket/create" class="btn btn-info btn-icon-sm">
-                        <i class="flaticon2-plus"></i> Create New Ticket
+                        <i class="flaticon2-plus"></i> Create New Service Requests
                     </a>
                 </div>
             </div>
