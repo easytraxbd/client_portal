@@ -18,14 +18,14 @@
             <div class="kt-portlet__body">
                 <div class="form-group row">
                     <div class="col-lg-12">
-                        <label>Service Requests Title:</label>
+                        <label>Service Request Title:</label>
                         <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" placeholder="Enter title" required autofocus>
                         @error('title')
                         <span class="form-text text-muted"><strong>{{ $message }}</strong></span>
                         @enderror
                     </div>
                     <div class="col-lg-4" style="display: none">
-                        <label class="">Service Requests Type:</label>
+                        <label class="">Service Request Type:</label>
                         <select class="form-control" name="ticket_type_id" required>
                             @foreach($ticketTypes as $ticketTypeId => $ticketTypeName)
                             <option value="{{$ticketTypeId}}" @if($ticketTypeId == '226') selected @endif>{{$ticketTypeName}}</option>
