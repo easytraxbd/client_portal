@@ -19,7 +19,7 @@
                 <div class="form-group row">
                     <div class="col-lg-12">
                         <label>Service Requests Title:</label>
-                        <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" placeholder="Enter ticket title" required autofocus>
+                        <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" placeholder="Enter title" required autofocus>
                         @error('title')
                         <span class="form-text text-muted"><strong>{{ $message }}</strong></span>
                         @enderror
