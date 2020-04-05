@@ -120,7 +120,7 @@
             <div class="row">
                 <div  class="col-md-6">
                     <a href="https://crm.easytrax.com.bd/payment?clientId={{\Auth::user()->id}}" target="_blank">
-                        <img src="/images/easytrax/donation.png" alt="" width="100%" height="100%">
+                        <img src="/images/easytrax/donation.png" alt="" width="100%">
                     </a>
                 </div>
                 <div  class="col-md-6">
