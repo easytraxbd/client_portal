@@ -7,7 +7,7 @@
         <div class="kt-portlet__head">
             <div class="kt-portlet__head-label">
                 <h3 class="kt-portlet__head-title">
-                    Create New Service Requests
+                    Create New Service Request
                 </h3>
             </div>
         </div>

@@ -114,6 +114,8 @@
                 </div>
             </div>
         </div>
+
+{{--        advertise section start --}}
         <div class="col-lg-12 col-xl-12 order-lg-1 order-xl-1">
             <div class="row">
                 <div  class="col-md-6">
@@ -129,25 +131,24 @@
             </div>
             <br>
         </div>
+        {{--        advertise section ends --}}
+
         <div class="col-lg-6 col-xl-6 order-lg-1 order-xl-1">
             <!--begin:: payment-->
             <div class="kt-portlet kt-portlet--mobile">
                 <div class="kt-portlet__head kt-portlet__head--lg">
                     <div class="kt-portlet__head-label">
-{{--			<span class="kt-portlet__head-icon">--}}
-{{--				<i class="kt-font-brand flaticon2-line-chart"></i>--}}
-{{--			</span>--}}
                         <h3 class="kt-portlet__head-title">
                             Payments
                         </h3>
                     </div>
                     <div class="kt-portlet__head-toolbar">
                         <div class="kt-portlet__head-wrapper">
-                            @if(isset($totalDue) && $totalDue > 0)
+{{--                            @if(isset($totalDue) && $totalDue > 0)--}}
                             <a href="https://crm.easytrax.com.bd/payment?clientId={{\Auth::user()->id}}" class="btn btn-info btn-icon-sm">
                                 <i class="flaticon2-plus"></i> Pay Now
                             </a>
-                                @endif
+{{--                                @endif--}}
                         </div>
                     </div>
                 </div>
@@ -239,7 +240,7 @@
                     <div class="kt-portlet__head-toolbar">
                         <div class="kt-portlet__head-wrapper">
                             <a href="/ticket/create" class="btn btn-info btn-icon-sm">
-                                <i class="flaticon2-plus"></i> Create New Service Requests
+                                <i class="flaticon2-plus"></i> New Service Requests
                             </a>
                         </div>
                     </div>

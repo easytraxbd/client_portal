@@ -39,7 +39,7 @@
                         <a href="/invoice" class="kt-menu__link"><span class="kt-menu__link-text">Invoice</span></a>
                     </li>
                     <li class="kt-menu__item {{ Request::is("ticket") ? 'kt-menu__item--here' : '' }}">
-                        <a href="/ticket" class="kt-menu__link"><span class="kt-menu__link-text">Ticket</span></a>
+                        <a href="/ticket" class="kt-menu__link"><span class="kt-menu__link-text">Service Request</span></a>
                     </li>
                     <li class="kt-menu__item {{ Request::is("vehicle") ? 'kt-menu__item--here' : '' }}">
                         <a href="/vehicle" class="kt-menu__link"><span class="kt-menu__link-text">Vehicle</span></a>

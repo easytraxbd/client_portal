@@ -19,7 +19,7 @@
                     </a>
                     &nbsp;
                     <a href="/ticket/create" class="btn btn-info btn-icon-sm">
-                        <i class="flaticon2-plus"></i> Create New Service Requests
+                        <i class="flaticon2-plus"></i> New Service Request
                     </a>
                 </div>
             </div>
