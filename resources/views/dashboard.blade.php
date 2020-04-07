@@ -124,8 +124,8 @@
                     </a>
                 </div>
                 <div  class="col-md-6">
-                    <a href="https://crm.easytrax.com.bd/payment?clientId={{\Auth::user()->id}}" target="_blank">
-                        <img src="/images/easytrax/canvas.png" alt="" width="100%">
+                    <a href="https://www.easytrax.com.bd/medical-equipments" target="_blank">
+                        <img src="/images/easytrax/mask and thermometer.png" alt="" width="100%">
                     </a>
                 </div>
             </div>
