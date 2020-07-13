@@ -119,13 +119,13 @@
         <div class="col-lg-12 col-xl-12 order-lg-1 order-xl-1">
             <div class="row">
                 <div  class="col-md-6">
-                    <a href="https://www.easytrax.com.bd/medical-equipments" target="_blank">
-                        <img src="/images/easytrax/mask and thermometer.png" alt="" width="100%">
+                    <a href="https://www.easyhaat.com.bd/product-category/online-doctors-appointment-bangladesh" target="_blank">
+                        <img src="/images/easytrax/video_consultation.png" alt="" width="100%">
                     </a>
                 </div>
                 <div  class="col-md-6">
-                    <a href="https://crm.easytrax.com.bd/payment?clientId={{\Auth::user()->id}}" target="_blank">
-                        <img src="/images/easytrax/donation.png" alt="" width="100%">
+                    <a href="https://www.easytrax.com.bd/shop" target="_blank">
+                        <img src="/images/easytrax/available_products.png" alt="" width="100%">
                     </a>
                 </div>
 
