@@ -2,37 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Payment;
-use App\Services\FaqService;
+use App\Distributor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
-class DashboardController extends Controller
+class DistributorController extends Controller
 {
-    protected $faqService;
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct(FaqService $faqService)
+
+    public function __construct()
     {
         $this->middleware('auth:client');
-        $this->faqService = $faqService;
     }
-
     /**
-     * Show the application dashboard.
+     * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        if(Auth::user()->category == 'distributor'){
-            return redirect()->route('distributors.index');
-        }
         $id = Auth::user()->id;
         $payment1 = DB::table('payments')->where('client_id',$id)->whereNull('amount_final')->sum('amount');
         $payment2 = DB::table('payments')->where('client_id',$id)->whereNotNull('amount_final')->sum('amount_final');
@@ -48,9 +37,9 @@ class DashboardController extends Controller
         if ($totalInvoiceAmount > $totalPaymentAmount){
             $totalPaidAmount = $totalPaymentAmount;
         }
-       if ($totalInvoiceAmount<$totalPaymentAmount){
-           $balance = $totalPaymentAmount-$totalInvoiceAmount;
-       }
+        if ($totalInvoiceAmount<$totalPaymentAmount){
+            $balance = $totalPaymentAmount-$totalInvoiceAmount;
+        }
         $totalPaidPercentage = 0;
         $totalDuePercentage = 0;
         if (isset($totalInvoiceAmount) && isset($totalPaidAmount) && $totalPaidAmount>0){
@@ -68,8 +57,81 @@ class DashboardController extends Controller
             'balance'=>$balance,
             'totalDue'=>$totalInvoiceDue,
             'totalDuePercentage'=>$totalDuePercentage,
-            'faqArray' => $this->faqService->faqArray(9),
         ];
-        return view('dashboard',$data);
+        return view('distributors.dashboard',$data);
+    }
+
+    public function getClientsUnderDistributor($id,Request $filter){
+        DB::table('clients')->where('referral_seller_client_id',$id);
+    }
+
+    public function chart(){
+
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Distributor  $distributor
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Distributor $distributor)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Distributor  $distributor
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Distributor $distributor)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Distributor  $distributor
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Distributor $distributor)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Distributor  $distributor
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Distributor $distributor)
+    {
+        //
     }
 }

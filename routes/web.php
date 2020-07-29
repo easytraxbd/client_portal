@@ -56,4 +56,6 @@ Route::resource('offer','OfferController');
 Route::resource('faq','FaqController');
 Route::resource('notice','NoticeController');
 
+Route::resource('distributors','DistributorController');
+
 //Route::get('/logout', 'Auth\ClientLoginController@logout')->name('client.logout');
