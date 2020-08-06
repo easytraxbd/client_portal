@@ -26,6 +26,26 @@
 {{--                            </ul>--}}
 {{--                        </div>--}}
 {{--                    </li>--}}
+                    @if(\Auth::user()->category == 'distributor')
+                        <li class="kt-menu__item {{ Request::is("distributor") ? 'kt-menu__item--here' : '' }}">
+                            <a href="/distributor" class="kt-menu__link" title="Dashboard"><span class="kt-menu__link-text"><i class="fa fa-home"></i></span></a>
+                        </li>
+                        <li class="kt-menu__item {{ Request::is("distributor/clients") ? 'kt-menu__item--here' : '' }}">
+                            <a href="/distributor/clients" class="kt-menu__link"><span class="kt-menu__link-text">Clients</span></a>
+                        </li>
+                        <li class="kt-menu__item {{ Request::is("distributor/clients-payment") ? 'kt-menu__item--here' : '' }}">
+                            <a href="/distributor/clients-payment" class="kt-menu__link"><span class="kt-menu__link-text">Payment</span></a>
+                        </li>
+                        <li class="kt-menu__item {{ Request::is("distributor/clients-invoice") ? 'kt-menu__item--here' : '' }}">
+                            <a href="/distributor/clients-invoice" class="kt-menu__link"><span class="kt-menu__link-text">Invoice</span></a>
+                        </li>
+                        <li class="kt-menu__item {{ Request::is("distributor/clients-ticket") ? 'kt-menu__item--here' : '' }}">
+                            <a href="/distributor/clients-ticket" class="kt-menu__link"><span class="kt-menu__link-text">Service Request</span></a>
+                        </li>
+                        <li class="kt-menu__item {{ Request::is("distributor/clients-vehicle") ? 'kt-menu__item--here' : '' }}">
+                            <a href="/distributor/clients-vehicle" class="kt-menu__link"><span class="kt-menu__link-text">Vehicle</span></a>
+                        </li>
+                    @else
                     <li class="kt-menu__item {{ Request::is("/") ? 'kt-menu__item--here' : '' }}">
                         <a href="/" class="kt-menu__link"><span class="kt-menu__link-text">Dashboard</span></a>
                     </li>
@@ -44,6 +64,7 @@
                     <li class="kt-menu__item {{ Request::is("vehicle") ? 'kt-menu__item--here' : '' }}">
                         <a href="/vehicle" class="kt-menu__link"><span class="kt-menu__link-text">Vehicle</span></a>
                     </li>
+                    @endif
                     <li class="kt-menu__item {{ Request::is("offer") ? 'kt-menu__item--here' : '' }}">
                         <a href="/offer" class="kt-menu__link"><span class="kt-menu__link-text">Offer</span></a>
                     </li>

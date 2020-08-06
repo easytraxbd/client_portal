@@ -43,9 +43,49 @@ class VehicleController extends Controller
             })
             ->editColumn('vehicle_type', function ($vehicle) {
                 if (isset($vehicle->vehicle_type)){
-                    return '<span class="kt-font-info kt-font-bold">৳ '.ucfirst($vehicle->vehicle_type).'</span>';
+                    return '<span class="kt-font-info kt-font-bold">'.ucfirst($vehicle->vehicle_type).'</span>';
                 }
                 return "N/A";
+            })
+
+            ->addColumn('action', function ($vehicle) {
+                $a = '<div class="container text-center">';
+                $a .= '<a href="' . url("vehicle") . '/' . $vehicle->id.'" title="View details" class="btn btn-sm btn-clean btn-icon btn-icon-md"><i class="la la-eye"></i></a>';
+                $a .= '</div>';
+                return $a;
+            })
+            ->make();
+    }
+
+    public function getDataForDistributors()
+    {
+        $distributorId = Auth::user()->id;
+        $clientsIdArray = DB::table('clients')->where('referral_seller_client_id',$distributorId)->pluck('id');
+        $vehicle = DB::table('vehicles')->whereIn('client_id',$clientsIdArray)->select()->orderBy('id','desc');
+        return Datatables::of($vehicle)
+            ->escapeColumns([])
+            ->addIndexColumn()
+            ->editColumn('car_reg_date', function ($vehicle) {
+                if (isset($vehicle->car_reg_date)){
+                    return Carbon::parse($vehicle->car_reg_date)->format('j M, Y');
+                }
+                return "N/A";
+            })
+            ->editColumn('vehicle_type', function ($vehicle) {
+                if (isset($vehicle->vehicle_type)){
+                    return '<span class="kt-font-info kt-font-bold">'.ucfirst($vehicle->vehicle_type).'</span>';
+                }
+                return "N/A";
+            })
+            ->addColumn('client', function ($vehicle) {
+                if (isset($vehicle->client_id) && $vehicle->client_id != null){
+                    $clientName = DB::table('clients')->find($vehicle->client_id)->name;
+                    $a = '<a href="#">'.$clientName.'</a>';
+                }
+                else{
+                    $a = 'N/A';
+                }
+                return $a;
             })
 
             ->addColumn('action', function ($vehicle) {

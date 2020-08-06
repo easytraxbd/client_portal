@@ -34,7 +34,7 @@ class TicketController extends Controller
             'title' => 'Service Requests',
             'subHeader'=>'Service Requests list'
         ];
-        return view('ticket.index',$data);
+        return view('tickets.index',$data);
     }
 
     public function getData()
@@ -106,6 +106,86 @@ class TicketController extends Controller
             ->make();
     }
 
+    public function getDataForDistributors()
+    {
+        $distributorId = Auth::user()->id;
+        $clientsIdArray = DB::table('clients')->where('referral_seller_client_id',$distributorId)->pluck('id');
+        $ticket = Ticket::select()->whereIn('client_id',$clientsIdArray)->orderBy('id','desc');
+        return Datatables::of($ticket)
+            ->escapeColumns([])
+            ->addIndexColumn()
+            ->addColumn('type', function ($ticket) {
+                if (isset($ticket->ticket_type_id)) {
+                    $type = DB::table('ticket_types')->find($ticket->ticket_type_id)->title;
+                    return $type;
+                } else {
+                    return "N/A";
+                }
+            })
+            ->addColumn('sub_type', function ($ticket) {
+                if (isset($ticket->ticket_sub_type_id)) {
+                    $type = DB::table('ticket_types')->find($ticket->ticket_sub_type_id)->title;
+                    return $type;
+                } else {
+                    return "N/A";
+                }
+            })
+            ->addColumn('client', function ($ticket) {
+                if (isset($ticket->client_id) && $ticket->client_id != null){
+                    $clientName = DB::table('clients')->find($ticket->client_id)->name;
+                    $a = '<a href="#">'.$clientName.'</a>';
+                }
+                else{
+                    $a = 'N/A';
+                }
+                return $a;
+            })
+            ->addColumn('action', function ($ticket) {
+                $a = '<div class="container text-center">';
+                $a .= '<a href="' . url("ticket") . '/' . $ticket->id.'" title="View details" class="btn btn-sm btn-clean btn-icon btn-icon-md"><i class="la la-eye"></i></a>';
+                $a .= '</div>';
+                return $a;
+            })
+
+
+//            ->filter(function ($query) use ($request) {
+//                if ($request->filled('payment_id')) {
+//                    $query->where('id', $request->get('payment_id'));
+//                }
+//                if ($request->filled('bkash_payment_id')) {
+//                    $query->where('bkash_payment_id', $request->get('bkash_payment_id'));
+//                }
+//                if ($request->filled('from_number')) {
+//                    $query->where('from_number', $request->get('from_number'));
+//                }
+//                if ($request->filled('transaction_id')) {
+//                    $query->where('transaction_id', $request->get('transaction_id'));
+//                }
+//                if ($request->filled('payment_gateway_source')) {
+//                    $query->where('payment_gateway_source', $request->get('payment_gateway_source'));
+//                }
+//                if ($request->filled('db_entry_type')) {
+//                    $query->where('db_entry_type', $request->get('db_entry_type'));
+//                }
+//                if ($request->filled('client_id')) {
+//                    $query->where('client_id', $request->get('client_id'));
+//                }
+//                if ($request->filled('payment_collector_id')) {
+//                    $query->where('payment_collector_id', $request->get('payment_collector_id'));
+//                }
+//                if ($request->filled('date_from')) {
+//                    $query->where('payment_date', '>=', $request->get('date_from'));
+//                }
+//                if ($request->filled('date_to')) {
+//                    $query->where('payment_date', '<=', $request->get('date_to'));
+//                }
+//                if ($request->filled('payment_method')) {
+//                    $query->where('payment_method', $request->get('payment_method'));
+//                }
+//            })
+            ->make();
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -119,7 +199,7 @@ class TicketController extends Controller
             'subHeader'=>'Service Requests Creation',
             'ticketTypes'=> $ticketTypes,
         ];
-        return view('ticket.create',$data);
+        return view('tickets.create',$data);
     }
 
     /**
@@ -174,13 +254,15 @@ Ticket Link: https://crm.easytrax.com.bd/tickets/'.$ticket->id;
     public function show(Ticket $ticket)
     {
         $id = Auth::user()->id;
-        if ($ticket->client_id != $id){
+        if ($ticket->client_id != $id && Auth::user()->category != 'distributor'){
             return "Permission Denied";
         }
         $assigned_user_name = null;
         if (isset($ticket->assigned_user_id)){
             $assigned_user = DB::table('users')->find($ticket->assigned_user_id);
-            $assigned_user_name = $assigned_user->first_name.' '.$assigned_user->last_name;
+            $firstName = $assigned_user->first_name ?? '';
+            $lastName = $assigned_user->last_name ?? '';
+            $assigned_user_name = $firstName .' '.$lastName;
         }
         $vehicles = null;
         if (isset($ticket->other_data) && $ticket->other_data != '' && $ticket->other_data != []){
@@ -212,7 +294,10 @@ Ticket Link: https://crm.easytrax.com.bd/tickets/'.$ticket->id;
             'vehicles' => $vehicles,
             'ticket_complain_source' => $ticket_complain_source,
         ];
-        return view('ticket.show',$data);
+        if ($ticket->client_id == $id){
+            return view('tickets.show',$data);
+        }
+        return view('tickets.distributor_show',$data);
     }
 
     public function getTypeName($id){

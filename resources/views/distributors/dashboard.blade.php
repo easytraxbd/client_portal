@@ -21,7 +21,7 @@
 {{--                    <div class="row row-no-padding row-col-separator-lg">--}}
 {{--                        <div class="col-md-12 col-lg-6 col-xl-3">--}}
 {{--                            <!--begin::Total Profit-->--}}
-{{--                            <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">--}}
+{{--                            <div id="date-range" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">--}}
 {{--                                <i class="fa fa-calendar"></i>&nbsp;--}}
 {{--                                <span></span> <i class="fa fa-caret-down"></i>--}}
 {{--                            </div>--}}
@@ -33,9 +33,13 @@
 {{--    </div>--}}
     <div class="row">
         <div class="col-lg-3 col-xl-3 order-lg-1 order-xl-1">
-            <div id="reportrange" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%" class="rounded">
+            <div id="date-range" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%" class="rounded">
                 <i class="fa fa-calendar"></i>&nbsp;
                 <span></span> <i class="fa fa-caret-down"></i>
+                <form class="filtering-dates-form">
+                    <input type="hidden" class="start-date" id="hidden-start-date" name="hidden-start-date">
+                    <input type="hidden" class="end-date" id="hidden-end-date" name="hidden-end-date">
+                </form>
             </div>
         </div>
     </div>
@@ -50,11 +54,11 @@
                             <div class="kt-widget24">
                                 <div class="kt-widget24__details">
                                     <div class="kt-widget24__info">
-                                        <a href="#">Total Clients</a>
+                                        <a href="/distributor/clients">Total Clients</a>
                                     </div>
                                 </div>
                                 <br>
-                                <h3 class="pull-left">৳ {{$balance}}</h3>
+                                <h3 class="pull-left"> {{$numberOfClients}}</h3>
                                 <p class="pull-right rounded" style="background-color: #e2e4e7;padding: 5px;">0%</p>
                             </div>
                             <!--end::Total Profit-->
@@ -64,11 +68,11 @@
                             <div class="kt-widget24">
                                 <div class="kt-widget24__details">
                                     <div class="kt-widget24__info">
-                                        <a href="#">Total Invoice</a>
+                                        <a href="/distributor/clients-invoice">Total Invoice</a>
                                     </div>
                                 </div>
                                 <br>
-                                <h3 class="pull-left">৳ {{$balance}}</h3>
+                                <h3 class="pull-left">৳ <span id="invoice-total" class="invoice-total">0</span></h3>
                                 <p class="pull-right rounded" style="background-color: #e2e4e7;padding: 5px;">0%</p>
                             </div>
                             <!--end::Total Profit-->
@@ -78,11 +82,11 @@
                             <div class="kt-widget24">
                                 <div class="kt-widget24__details">
                                     <div class="kt-widget24__info">
-                                        <a href="#">Invoice Paid</a>
+                                        <a href="/distributor/clients-invoice">Invoice Paid</a>
                                     </div>
                                 </div>
                                 <br>
-                                <h3 class="pull-left">৳ {{$balance}}</h3>
+                                <h3 class="pull-left">৳ <span id="invoice-paid" class="invoice-paid">0</span></h3>
                                 <p class="pull-right rounded" style="background-color: #e2e4e7;padding: 5px;">0%</p>
                             </div>
                             <!--end::Total Profit-->
@@ -92,11 +96,11 @@
                             <div class="kt-widget24">
                                 <div class="kt-widget24__details">
                                     <div class="kt-widget24__info">
-                                        <a href="#">Invoice Due</a>
+                                        <a href="/distributor/clients-invoice">Invoice Due</a>
                                     </div>
                                 </div>
                                 <br>
-                                <h3 class="pull-left">৳ {{$balance}}</h3>
+                                <h3 class="pull-left">৳ <span id="invoice-due" class="invoice-due">0</span></h3>
                                 <p class="pull-right rounded" style="background-color: #e2e4e7;padding: 5px;">0%</p>
                             </div>
                             <!--end::Total Profit-->
@@ -106,21 +110,21 @@
             </div>
         </div>
 
-        <div class="col-lg-6 col-xl-6 order-lg-1 order-xl-1">
+        <div class="col-lg-12 col-xl-12 order-lg-1 order-xl-1">
             <!--begin:: payment-->
             <div class="kt-portlet kt-portlet--mobile">
                 <div class="kt-portlet__head kt-portlet__head--lg">
                     <div class="kt-portlet__head-label">
                         <h3 class="kt-portlet__head-title">
-                            Payments
+                            Clients
                         </h3>
                     </div>
                     <div class="kt-portlet__head-toolbar">
                         <div class="kt-portlet__head-wrapper">
 {{--                            @if(isset($totalDue) && $totalDue > 0)--}}
-                            <a href="https://crm.easytrax.com.bd/payment?clientId={{\Auth::user()->id}}" class="btn btn-info btn-icon-sm">
-                                <i class="flaticon2-plus"></i> Pay Now
-                            </a>
+{{--                            <a href="https://crm.easytrax.com.bd/payment?clientId={{\Auth::user()->id}}" class="btn btn-info btn-icon-sm">--}}
+{{--                                <i class="flaticon2-plus"></i> Pay Now--}}
+{{--                            </a>--}}
 {{--                                @endif--}}
                         </div>
                     </div>
@@ -132,18 +136,16 @@
                          id="local_data"
                          style="">
                         <div class="col-md-12">
-                            <table id="payment-table" class="table table-bordered dataTable table-responsive-sm"
+                            <table id="client-table" class="table table-bordered dataTable table-responsive-sm"
                                    role="grid" aria-describedby="example1_info">
                                 <thead>
                                 <tr role="row">
-                                    <th>ID</th>
-                                    <th>Payment Date</th>
-                                    <th>Paid Amount</th>
-                                    {{--                                    <th>Invoice</th>--}}
-                                    <th>Payment Method</th>
-                                    <th>Status</th>
-                                    {{--                                    <th>Payment Collector</th>--}}
-                                    <th>Action</th>
+                                    <th>Client ID</th>
+                                    <th>Name</th>
+                                    <th>Phone No</th>
+                                    <th>Alternative Phone</th>
+                                    <th>Address</th>
+                                    <th>Payment status</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -155,99 +157,6 @@
                 </div>
             </div>
             <!--end:: payment-->
-        </div>
-        <div class="col-lg-6 col-xl-6 order-lg-1 order-xl-1">
-            <!--begin:: invoice-->
-            <div class="kt-portlet kt-portlet--mobile">
-                <div class="kt-portlet__head kt-portlet__head--lg">
-                    <div class="kt-portlet__head-label">
-{{--			<span class="kt-portlet__head-icon">--}}
-{{--				<i class="kt-font-brand flaticon2-line-chart"></i>--}}
-{{--			</span>--}}
-                        <h3 class="kt-portlet__head-title">
-                            Invoices
-                        </h3>
-                    </div>
-                </div>
-                <br>
-                <div class="kt-portlet__body kt-portlet__body--fit">
-                    <!--begin: Datatable -->
-                    <div class="kt-datatable kt-datatable--default kt-datatable--brand kt-datatable--loaded"
-                         id="local_data"
-                         style="">
-                        <div class="col-md-12">
-                            <table id="invoice-table" class="table table-bordered dataTable table-responsive-sm"
-                                   role="grid" aria-describedby="example1_info">
-                                <thead>
-                                <tr role="row">
-                                    <th>Invoice Number</th>
-{{--                                    <th>Auto Renewal</th>--}}
-                                    <th>Total Amount</th>
-                                    <th>Due Amount</th>
-                                    <th>Due Date</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
-                        </div>
-                        <!--end: Datatable -->
-                    </div>
-                </div>
-            </div>
-            <!--end:: invoice-->
-        </div>
-        <div class="col-lg-6 col-xl-6 order-lg-1 order-xl-1">
-            <div class="kt-portlet kt-portlet--mobile">
-                <div class="kt-portlet__head kt-portlet__head--lg">
-                    <div class="kt-portlet__head-label">
-{{--			<span class="kt-portlet__head-icon">--}}
-{{--				<i class="kt-font-brand flaticon2-line-chart"></i>--}}
-{{--			</span>--}}
-                        <h3 class="kt-portlet__head-title">
-                            Service Requests
-                        </h3>
-                    </div>
-                    <div class="kt-portlet__head-toolbar">
-                        <div class="kt-portlet__head-wrapper">
-                            <a href="/ticket/create" class="btn btn-info btn-icon-sm">
-                                <i class="flaticon2-plus"></i> New Service Request
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <div class="kt-portlet__body kt-portlet__body--fit">
-                    <!--begin: Datatable -->
-                    <div class="kt-datatable kt-datatable--default kt-datatable--brand kt-datatable--loaded"
-                         id="local_data"
-                         style="">
-                        <div class="col-md-12">
-                            <table id="ticket-table" class="table table-bordered dataTable table-responsive-sm"
-                                   role="grid" aria-describedby="example1_info">
-                                <thead>
-                                <tr role="row">
-                                    <th>ID</th>
-                                    <th>Title</th>
-                                    <th>Type</th>
-                                    {{--                                    <th>Subtype</th>--}}
-                                    {{--                                    <th>Date</th>--}}
-{{--                                    <th>Call Type</th>--}}
-                                    <th>Status</th>
-                                    {{--                                    <th>Priority</th>--}}
-                                    <th>Action</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
-                        </div>
-                        <!--end: Datatable -->
-                    </div>
-                </div>
-            </div>
         </div>
         <div class="col-lg-12 col-xl-12 order-lg-1 order-xl-1">
             <a href="https://crm.easytrax.com.bd/payment?clientId={{\Auth::user()->id}}" target="_blank">
@@ -305,95 +214,37 @@
     <script>
           $(document).ready(function () {
 
-            $('#payment-table').DataTable({
-                processing: true,
-                serverSide: true,
-                order: [[ 0, "desc" ]],
-                pageLength: 5,
-                ajax: '/payment/data',
-                columns: [
-                    {data: 'id', name: 'id'},
-                    {data: 'payment_date', name: 'payment_date'},
-                    {data: 'amount_final', name: 'amount_final'},
-                    // {data: 'invoice', name: 'invoice'},
-                    {data: 'payment_method', name: 'payment_method'},
-                    {data: 'status', name: 'status'},
-                    // {data: 'payment_collector', name: 'payment_collector'},
-                    // {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-                    {data: 'action', name: 'action'},
-                ]
-            });
-
-            // $('#draft-payment-table').DataTable({
-            //     processing: true,
-            //     serverSide: true,
-            //     ajax: '/payment-draft/data',
-            //     columns: [
-            //         {data: 'id', name: 'id'},
-            //         {data: 'payment_date', name: 'payment_date'},
-            //         {data: 'amount', name: 'amount'},
-            //         // {data: 'invoice', name: 'invoice'},
-            //         {data: 'payment_method', name: 'payment_method'},
-            //         // {data: 'payment_collector', name: 'payment_collector'},
-            //         // {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-            //         {data: 'action', name: 'action'},
-            //     ]
-            // });
-
-            $('#invoice-table').DataTable({
-                processing: true,
-                serverSide: true,
-                // order: [[ 3, "desc" ]],
-                pageLength: 5,
-                ajax: '/invoice/data',
-                columns: [
-                    // {data: 'id', name: 'id'},
-                    {data: 'invoice_no', name: 'invoice_no'},
-                    // {data: 'is_recurring', name: 'is_recurring'},
-                    {data: 'invoice_total', name: 'invoice_total'},
-                    {data: 'invoice_total_due', name: 'invoice_total_due'},
-                    {data: 'payment_due_date', name: 'payment_due_date'},
-
-                    // {data: 'date', name: 'date'},
-                    {data: 'status', name: 'status'},
-                    // {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-                    {data: 'action', name: 'action'},
-                ]
-            });
-
-            $('#ticket-table').DataTable({
-                processing: true,
-                serverSide: true,
-                // order: [[ 3, "desc" ]],
-                pageLength: 5,
-                ajax: '/ticket/data',
-                columns: [
-                    {data: 'id', name: 'id'},
-                    {data: 'title', name: 'title'},
-                    {data: 'type', name: 'type'},
-                    // {data: 'sub_type', name: 'sub_type'},
-                    // {data: 'date', name: 'date'},
-                    // {data: 'call_type', name: 'call_type'},
-                    {data: 'status', name: 'status'},
-                    // {data: 'priority', name: 'priority'},
-                    // {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-                    {data: 'action', name: 'action'},
-                ]
-            });
+              $('#client-table').DataTable({
+                  "pageLength": 10,
+                  processing: true,
+                  serverSide: true,
+                  order: [[ 0, "desc" ]],
+                  ajax: '/distributor/clients-data',
+                  columns: [
+                      {data: 'id', name: 'id'},
+                      {data: 'name', name: 'name'},
+                      {data: 'work_phone', name: 'work_phone'},
+                      {data: 'alt_phone', name: 'alt_phone'},
+                      {data: 'home_address', name: 'home_address'},
+                      {data: 'payment_status', name: 'payment_status'},
+                  ]
+              });
 
         });
     </script>
         <script type="text/javascript">
             $(function() {
 
-                var start = moment().subtract(29, 'days');
-                var end = moment();
+                var start = moment().startOf('month');
+                var end = moment().endOf('month');
 
                 function cb(start, end) {
-                    $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+                    $('#date-range span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+                    $('#hidden-start-date').val(start.format('YYYY-MM-DD'));
+                    $('#hidden-end-date').val(end.format('YYYY-MM-DD'));
                 }
 
-                $('#reportrange').daterangepicker({
+                $('#date-range').daterangepicker({
                     startDate: start,
                     endDate: end,
                     ranges: {
@@ -408,6 +259,87 @@
 
                 cb(start, end);
 
+                var start_date = start.format("YYYY-MM-DD");
+                var end_date = end.format("YYYY-MM-DD");
+                var filter = {
+                    start_date: start_date,
+                    end_date: end_date,
+                };
+
+                getClientsInvoiceTotalAmount(filter);
+                getClientsInvoicePaidAmount(filter);
+                getClientsInvoiceDueAmount(filter);
+
             });
+
+            //After applying in Date Range picker
+            $('#date-range').on('apply.daterangepicker', function (ev, picker) {
+                if (picker.startDate.format('YYYY-MM-DD') <= '2016-01-28' && picker.endDate.format('YYYY-MM-DD') >= '2040-12-01') {
+                    $('#date-range').val('All Time');
+                } else {
+                    $('#date-range').val(picker.startDate.format('MMMM D, YYYY') + ' - ' + picker.endDate.format('MMMM D, YYYY'));
+                }
+
+                filter = {
+                    // start_date: picker.startDate,
+                    start_date: $('#hidden-start-date').val(),
+                    // end_date: picker.endDate,
+                    end_date: $('#hidden-end-date').val(),
+                };
+                // test();
+                getClientsInvoiceTotalAmount(filter);
+                getClientsInvoicePaidAmount(filter);
+                getClientsInvoiceDueAmount(filter);
+            });
+
+            function getClientsInvoiceTotalAmount(filter) {
+                $('.invoice-total').html('<div  class="tc"><img src="/images/easytrax/loading.png"/></div>');
+                $.ajax({
+                    url: 'distributor/clients-invoice-total-amount',
+                    type: "GET",
+                    data: {
+                        start_date: filter.start_date,
+                        end_date: filter.end_date,
+                    },
+                    //Receive Data
+                    success: function (data) {
+                        $('#invoice-total').html(data);
+                    }
+                })
+            }
+            function getClientsInvoicePaidAmount(filter) {
+                $('.invoice-paid').html('<div  class="tc"><img src="/images/easytrax/loading.png"/></div>');
+                $.ajax({
+                    url: 'distributor/clients-invoice-paid-amount',
+                    type: "GET",
+                    data: {
+                        start_date: filter.start_date,
+                        end_date: filter.end_date,
+                    },
+                    //Receive Data
+                    success: function (data) {
+                        $('#invoice-paid').html(data);
+                    }
+                })
+            }
+            function getClientsInvoiceDueAmount(filter) {
+                $('.invoice-due').html('<div  class="tc"><img src="/images/easytrax/loading.png"/></div>');
+                $.ajax({
+                    url: 'distributor/clients-invoice-due-amount',
+                    type: "GET",
+                    data: {
+                        start_date: filter.start_date,
+                        end_date: filter.end_date,
+                    },
+                    //Receive Data
+                    success: function (data) {
+                        $('#invoice-due').html(data);
+                    }
+                })
+            }
+
+            function test() {
+                alert('lol');
+            }
         </script>
 @endsection

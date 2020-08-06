@@ -30,13 +30,16 @@ Route::get('payment-draft','PaymentController@draftPayment');
 Route::get('payment-draft/{id}','PaymentController@showPaymentDraft');
 
 Route::get('payment/data','PaymentController@getData');
+Route::get('payment/distributors-data','PaymentController@getDataForDistributors');
 Route::resource('payment','PaymentController');
 
 Route::get('invoice/data','InvoiceController@getData');
+Route::get('invoice/distributors-data','InvoiceController@getDataForDistributors');
 Route::resource('invoice','InvoiceController');
 
 Route::post('comment/store','TicketCommentController@store')->name('comment.store');
 Route::get('ticket/data','TicketController@getData');
+Route::get('ticket/distributors-data','TicketController@getDataForDistributors');
 Route::resource('ticket','TicketController');
 
 Route::get('profile/overview','ProfileController@overview');
@@ -48,6 +51,7 @@ Route::post('profile/update-other-info','ProfileController@update')->name('profi
 
 
 Route::get('vehicle/data','VehicleController@getData');
+Route::get('vehicle/distributors-data','VehicleController@getDataForDistributors');
 Route::resource('vehicle','VehicleController');
 
 Route::get('offer/data','OfferController@getData');
@@ -56,6 +60,19 @@ Route::resource('offer','OfferController');
 Route::resource('faq','FaqController');
 Route::resource('notice','NoticeController');
 
-Route::resource('distributors','DistributorController');
+Route::get('distributor/clients-invoice','DistributorController@clientsInvoice');
+Route::get('distributor/clients-payment','DistributorController@clientsPayment');
+Route::get('distributor/clients-ticket','DistributorController@clientsTicket');
+Route::get('distributor/clients-vehicle','DistributorController@clientsVehicles');
+
+Route::get('distributor/number-of-client','DistributorController@numberOfClient');
+Route::get('distributor/clients-invoice-total-amount','DistributorController@clientsInvoiceTotalAmount');
+Route::get('distributor/clients-invoice-paid-amount','DistributorController@clientsInvoicePaidAmount');
+Route::get('distributor/clients-invoice-due-amount','DistributorController@clientsInvoiceDueAmount');
+Route::get('distributor/clients-data','DistributorController@getClientDataForDistributors');
+Route::get('distributor/clients','DistributorController@clientList');
+//Route::get('distributor/dashboard','DistributorController@index');
+Route::resource('distributor','DistributorController');
+
 
 //Route::get('/logout', 'Auth\ClientLoginController@logout')->name('client.logout');

@@ -31,7 +31,7 @@ class DashboardController extends Controller
     public function index()
     {
         if(Auth::user()->category == 'distributor'){
-            return redirect()->route('distributors.index');
+            return redirect()->route('distributor.index');
         }
         $id = Auth::user()->id;
         $payment1 = DB::table('payments')->where('client_id',$id)->whereNull('amount_final')->sum('amount');
