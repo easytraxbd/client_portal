@@ -113,10 +113,15 @@ class InvoiceController extends Controller
 ////            })
             ->make();
     }
-    public function getDataForDistributors()
+    public function getDataForDistributors(Request $request)
     {
         $distributorId = Auth::user()->id;
         $clientsIdArray = DB::table('clients')->where('referral_seller_client_id',$distributorId)->pluck('id');
+        if ($request->filled('client_id')){
+            if (in_array($request->client_id,$clientsIdArray->toArray())) {
+                $clientsIdArray = [$request->client_id];
+            }
+        }
         $invoice = Invoice::whereIn('client_id',$clientsIdArray)
 //            ->where('invoice_type', 0)
             ->where('is_recurring_setting', '!=', 1)

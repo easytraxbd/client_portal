@@ -57,10 +57,15 @@ class VehicleController extends Controller
             ->make();
     }
 
-    public function getDataForDistributors()
+    public function getDataForDistributors(Request $request)
     {
         $distributorId = Auth::user()->id;
         $clientsIdArray = DB::table('clients')->where('referral_seller_client_id',$distributorId)->pluck('id');
+        if ($request->filled('client_id')){
+            if (in_array($request->client_id,$clientsIdArray->toArray())) {
+                $clientsIdArray = [$request->client_id];
+            }
+        }
         $vehicle = DB::table('vehicles')->whereIn('client_id',$clientsIdArray)->select()->orderBy('id','desc');
         return Datatables::of($vehicle)
             ->escapeColumns([])

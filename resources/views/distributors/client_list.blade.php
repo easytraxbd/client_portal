@@ -40,6 +40,7 @@
                             <th>Alternative Phone</th>
                             <th>Address</th>
                             <th>Payment status</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -62,6 +63,7 @@
 
                     $('#payment-table').DataTable({
                         "pageLength": 50,
+                        responsive: true,
                         processing: true,
                         serverSide: true,
                         order: [[ 0, "desc" ]],
@@ -73,6 +75,7 @@
                             {data: 'alt_phone', name: 'alt_phone'},
                             {data: 'home_address', name: 'home_address'},
                             {data: 'payment_status', name: 'payment_status'},
+                            {data: 'action', name: 'action'},
                         ]
                     });
 

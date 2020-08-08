@@ -205,11 +205,15 @@ class PaymentController extends Controller
 //            })
             ->make();
     }
-    public function getDataForDistributors()
+    public function getDataForDistributors(Request $request)
     {
         $distributorId = Auth::user()->id;
         $clientsIdArray = DB::table('clients')->where('referral_seller_client_id',$distributorId)->pluck('id');
-
+        if ($request->filled('client_id')){
+            if (in_array($request->client_id,$clientsIdArray->toArray())) {
+                $clientsIdArray = [$request->client_id];
+            }
+        }
         $payment2 = DB::table('payment_drafts')->select()->whereIn('client_id',$clientsIdArray)->get();
         foreach ($payment2 as $payment){
             $payment->status = 0;

@@ -122,12 +122,17 @@ class DistributorController extends Controller
                 return '<a href="tel:+88'.$clients->alt_phone.'">'.$clients->alt_phone.'</a>';
             })
             ->addColumn('payment_status', function ($clients) {
+
                 $clientsDue = DB::table('sales_invoices')->where('client_id',$clients->id)->where('is_recurring_setting', '!=', 1)->sum('invoice_total_due');
                 if($clientsDue > 0){
                     $a = '<span class="btn btn-bold btn-sm btn-font-sm  btn-label-danger">Unpaid</span><br><span class="kt-font-info kt-font-bold">৳ '.round($clientsDue).'</span>';
                 }
                 else{
                     $a = '<span class="btn btn-bold btn-sm btn-font-sm  btn-label-success">Paid</span>';
+                    $invoiceCount = DB::table('sales_invoices')->where('client_id',$clients->id)->where('is_recurring_setting', '!=', 1)->count();
+                    if ($invoiceCount < 1){
+                        $a = '<span class="btn btn-bold btn-sm btn-font-sm  btn-label-info">No Invoice</span>';
+                    }
                 }
                 return $a;
             })
@@ -145,15 +150,12 @@ class DistributorController extends Controller
 //                return '<span class="kt-font-success kt-font-bold">৳ '.$invoice->invoice_total_due.'</span>';
 //            })
 //
-//            ->addColumn('action', function ($invoice) {
-//                $a = '<div class="container text-center">';
-//                if ($invoice->payment_status != 3){
-//                    $a .= '<a href="https://crm.easytrax.com.bd/payment?clientId='.Auth::user()->id.'" target="_blank" title="Pay now" class="btn btn-sm btn-clean btn-icon btn-icon-md"><i class="far fa-credit-card"></i></a>';
-//                }
-//                $a .= '<a href="' . url("invoice") . '/' . $invoice->id.'" title="View details" class="btn btn-sm btn-clean btn-icon btn-icon-md"><i class="la la-eye"></i></a>';
-//                $a .= '</div>';
-//                return $a;
-//            })
+            ->addColumn('action', function ($client) {
+                $a = '<div class="container text-center">';
+                $a .= '<a href="' . url("clients") . '/' . $client->id.'" title="View details" class="btn btn-sm btn-clean btn-icon btn-icon-md"><i class="la la-eye"></i></a>';
+                $a .= '</div>';
+                return $a;
+            })
 
 //            ->filter(function ($query) use ($request) {
 //                if ($request->filled('payment_id')) {
@@ -191,6 +193,28 @@ class DistributorController extends Controller
 //                }
 //            })
             ->make();
+    }
+
+    public function clientShow($id)
+    {
+        $distributorId = Auth::user()->id;
+        $client = DB::table('clients')->find($id);
+        if($client->referral_seller_client_id != $distributorId){
+            return "Access Denied!";
+        }
+        $invoices = DB::table('sales_invoices')->where('client_id',$client->id)->where('is_recurring_setting', '!=', 1)->get();
+        $payments = DB::table('payments')->where('client_id',$client->id)->get();
+        $vehicles = DB::table('vehicles')->where('client_id',$client->id)->get();
+
+        $data = [
+            'title' => 'Client',
+            'subHeader'=>'client details',
+            'client' => $client,
+            'invoices' => $invoices,
+            'payments' => $payments,
+            'vehicles' => $vehicles,
+        ];
+        return view('distributors.client_details',$data);
     }
 
     /**

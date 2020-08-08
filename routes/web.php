@@ -65,6 +65,7 @@ Route::get('distributor/clients-payment','DistributorController@clientsPayment')
 Route::get('distributor/clients-ticket','DistributorController@clientsTicket');
 Route::get('distributor/clients-vehicle','DistributorController@clientsVehicles');
 
+Route::get('clients/{id}','DistributorController@clientShow');
 Route::get('distributor/number-of-client','DistributorController@numberOfClient');
 Route::get('distributor/clients-invoice-total-amount','DistributorController@clientsInvoiceTotalAmount');
 Route::get('distributor/clients-invoice-paid-amount','DistributorController@clientsInvoicePaidAmount');
