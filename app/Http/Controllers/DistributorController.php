@@ -122,7 +122,7 @@ class DistributorController extends Controller
                 return '<a href="tel:+88'.$clients->alt_phone.'">'.$clients->alt_phone.'</a>';
             })
             ->addColumn('payment_status', function ($clients) {
-                $clientsDue = DB::table('sales_invoices')->where('client_id',$clients->id)->sum('invoice_total_due');
+                $clientsDue = DB::table('sales_invoices')->where('client_id',$clients->id)->where('is_recurring_setting', '!=', 1)->sum('invoice_total_due');
                 if($clientsDue > 0){
                     $a = '<span class="btn btn-bold btn-sm btn-font-sm  btn-label-danger">Unpaid</span><br><span class="kt-font-info kt-font-bold">৳ '.round($clientsDue).'</span>';
                 }

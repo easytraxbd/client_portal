@@ -168,43 +168,41 @@ class InvoiceController extends Controller
                 $a .= '</div>';
                 return $a;
             })
-//
-//
-////            ->filter(function ($query) use ($request) {
-////                if ($request->filled('payment_id')) {
-////                    $query->where('id', $request->get('payment_id'));
-////                }
-////                if ($request->filled('bkash_payment_id')) {
-////                    $query->where('bkash_payment_id', $request->get('bkash_payment_id'));
-////                }
-////                if ($request->filled('from_number')) {
-////                    $query->where('from_number', $request->get('from_number'));
-////                }
-////                if ($request->filled('transaction_id')) {
-////                    $query->where('transaction_id', $request->get('transaction_id'));
-////                }
-////                if ($request->filled('payment_gateway_source')) {
-////                    $query->where('payment_gateway_source', $request->get('payment_gateway_source'));
-////                }
-////                if ($request->filled('db_entry_type')) {
-////                    $query->where('db_entry_type', $request->get('db_entry_type'));
-////                }
-////                if ($request->filled('client_id')) {
-////                    $query->where('client_id', $request->get('client_id'));
-////                }
-////                if ($request->filled('payment_collector_id')) {
-////                    $query->where('payment_collector_id', $request->get('payment_collector_id'));
-////                }
-////                if ($request->filled('date_from')) {
-////                    $query->where('payment_date', '>=', $request->get('date_from'));
-////                }
-////                if ($request->filled('date_to')) {
-////                    $query->where('payment_date', '<=', $request->get('date_to'));
-////                }
-////                if ($request->filled('payment_method')) {
-////                    $query->where('payment_method', $request->get('payment_method'));
-////                }
-////            })
+//            ->filter(function ($query) use ($request) {
+//                if ($request->filled('payment_id')) {
+//                    $query->where('id', $request->get('payment_id'));
+//                }
+//                if ($request->filled('bkash_payment_id')) {
+//                    $query->where('bkash_payment_id', $request->get('bkash_payment_id'));
+//                }
+//                if ($request->filled('from_number')) {
+//                    $query->where('from_number', $request->get('from_number'));
+//                }
+//                if ($request->filled('transaction_id')) {
+//                    $query->where('transaction_id', $request->get('transaction_id'));
+//                }
+//                if ($request->filled('payment_gateway_source')) {
+//                    $query->where('payment_gateway_source', $request->get('payment_gateway_source'));
+//                }
+//                if ($request->filled('db_entry_type')) {
+//                    $query->where('db_entry_type', $request->get('db_entry_type'));
+//                }
+//                if ($request->filled('client_id')) {
+//                    $query->where('client_id', $request->get('client_id'));
+//                }
+//                if ($request->filled('payment_collector_id')) {
+//                    $query->where('payment_collector_id', $request->get('payment_collector_id'));
+//                }
+//                if ($request->filled('date_from')) {
+//                    $query->where('payment_date', '>=', $request->get('date_from'));
+//                }
+//                if ($request->filled('date_to')) {
+//                    $query->where('payment_date', '<=', $request->get('date_to'));
+//                }
+//                if ($request->filled('payment_method')) {
+//                    $query->where('payment_method', $request->get('payment_method'));
+//                }
+//            })
             ->make();
     }
 
