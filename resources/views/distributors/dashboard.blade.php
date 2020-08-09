@@ -116,6 +116,73 @@
                 <div class="kt-portlet__head kt-portlet__head--lg">
                     <div class="kt-portlet__head-label">
                         <h3 class="kt-portlet__head-title">
+                            Clients Chart
+                        </h3>
+                    </div>
+                    <div class="kt-portlet__head-toolbar">
+                        <div class="kt-portlet__head-wrapper">
+                            <button id="client_bar_chart" class="btn btn-outline-info btn-icon-sm">Bar</button>&nbsp;
+                            <button id="client_horizontalBar_chart" class="btn btn-outline-info btn-icon-sm">horizontal Bar</button>&nbsp;
+                            <button id="client_line_chart" class="btn btn-outline-info btn-icon-sm">Line</button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="kt-portlet__body kt-portlet__body--fit">
+                    <!--begin: Datatable -->
+                    <div class="kt-datatable kt-datatable--default kt-datatable--brand kt-datatable--loaded"
+                         id="local_data"
+                         style="">
+                        <div class="col-md-12 clients-chart" >
+{{--                            <canvas id="clients-chart"></canvas>--}}
+                        </div>
+                        <!--end: Datatable -->
+                    </div>
+                </div>
+            </div>
+            <!--end:: payment-->
+        </div>
+
+        <div class="col-lg-12 col-xl-12 order-lg-1 order-xl-1">
+            <!--begin:: payment-->
+            <div class="kt-portlet kt-portlet--mobile">
+                <div class="kt-portlet__head kt-portlet__head--lg">
+                    <div class="kt-portlet__head-label">
+                        <h3 class="kt-portlet__head-title">
+                            Revenue Chart
+                        </h3>
+                    </div>
+                    <div class="kt-portlet__head-toolbar">
+                        <div class="kt-portlet__head-wrapper">
+                            <button id="revenue_bar_chart" class="btn btn-outline-info btn-icon-sm">Bar</button>&nbsp;
+                            <button id="revenue_horizontalBar_chart" class="btn btn-outline-info btn-icon-sm">horizontal Bar</button>&nbsp;
+                            <button id="revenue_line_chart" class="btn btn-outline-info btn-icon-sm">Line</button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="kt-portlet__body kt-portlet__body--fit">
+                    <!--begin: Datatable -->
+                    <div class="kt-datatable kt-datatable--default kt-datatable--brand kt-datatable--loaded"
+                         id="local_data"
+                         style="">
+                        <div class="col-md-12 revenue-chart" >
+{{--                            <canvas id="revenue-chart"></canvas>--}}
+                        </div>
+                        <!--end: Datatable -->
+                    </div>
+                </div>
+            </div>
+            <!--end:: payment-->
+        </div>
+
+
+        <div class="col-lg-12 col-xl-12 order-lg-1 order-xl-1">
+            <!--begin:: payment-->
+            <div class="kt-portlet kt-portlet--mobile">
+                <div class="kt-portlet__head kt-portlet__head--lg">
+                    <div class="kt-portlet__head-label">
+                        <h3 class="kt-portlet__head-title">
                             Clients
                         </h3>
                     </div>
@@ -178,28 +245,6 @@
                     <span class="fa fa-star checked h1"></span>
                 </div>
             </a>
-{{--            <div class="row">--}}
-{{--                <div class="col-md-3">--}}
-{{--                    <a href="https://tawk.to/chat/58307fdbfccdfa3ec838b0e2/default" target="_blank">--}}
-{{--                        <img src="/images/easytrax/Group 49.png" alt="" width="100%">--}}
-{{--                    </a>--}}
-{{--                </div>--}}
-{{--                <div class="col-md-3">--}}
-{{--                    <a href="https://t.me/joinchat/AYNtSg82zgf9r_LoXhpR1g" target="_blank">--}}
-{{--                        <img src="/images/easytrax/Group 50.png" alt="" width="100%">--}}
-{{--                    </a>--}}
-{{--                </div>--}}
-{{--                <div class="col-md-3">--}}
-{{--                    <a href="https://wa.me/8801709888903?text=Hello,%20I%20am%20interested%20in%20your%20products,%20please%20share%20features%20and%20pricing" target="_blank">--}}
-{{--                        <img src="/images/easytrax/Group 51.png" alt="" width="100%">--}}
-{{--                    </a>--}}
-{{--                </div>--}}
-{{--                <div class="col-md-3">--}}
-{{--                    <a href="tel:09606667788" target="_blank">--}}
-{{--                        <img src="/images/easytrax/Group 52.png" alt="" width="100%">--}}
-{{--                    </a>--}}
-{{--                </div>--}}
-{{--            </div>--}}
             <br>
         </div>
     </div>
@@ -213,7 +258,6 @@
             defer></script>
     <script>
           $(document).ready(function () {
-
               $('#client-table').DataTable({
                   "pageLength": 10,
                   processing: true,
@@ -269,6 +313,8 @@
                 getClientsInvoiceTotalAmount(filter);
                 getClientsInvoicePaidAmount(filter);
                 getClientsInvoiceDueAmount(filter);
+                getClientsChart();
+                getRevenueChart();
 
             });
 
@@ -337,9 +383,92 @@
                     }
                 })
             }
+            function getClientsChart(chartType = 'bar') {
+                $('.clients-chart').html('<div  class="tc"><img src="/images/easytrax/loading.png"/></div>');
+                $.ajax({
+                    url: 'distributor/lol',
+                    type: "GET",
+                    success: function (data) {
+                        $('.clients-chart').html(' <canvas id="clients-chart"></canvas>');
+                        chart('clients-chart',chartType,data.labels,data.dataset_label,data.dataset_data);
+                    }
+                })
+            }
+
+            function getRevenueChart(chartType = 'bar') {
+                $('.revenue-chart').html('<div  class="tc"><img src="/images/easytrax/loading.png"/></div>');
+                $.ajax({
+                    url: 'distributor/lol2',
+                    type: "GET",
+                    success: function (data) {
+                        $('.revenue-chart').html(' <canvas id="revenue-chart"></canvas>');
+                        chart('revenue-chart',chartType,data.labels,data.dataset_label,data.dataset_data);
+                    }
+                })
+            }
 
             function test() {
                 alert('lol');
+            }
+
+            $('#client_bar_chart').click(function(){
+                getClientsChart('bar');
+            });
+            $('#client_horizontalBar_chart').click(function(){
+                getClientsChart('horizontalBar');
+            });
+            $('#client_line_chart').click(function(){
+                getClientsChart('line');
+            });
+
+            $('#revenue_bar_chart').click(function(){
+                getRevenueChart('bar');
+            });
+            $('#revenue_horizontalBar_chart').click(function(){
+                getRevenueChart('horizontalBar');
+            });
+            $('#revenue_line_chart').click(function(){
+                getRevenueChart('line');
+            });
+
+            function chart(id,type,labels,dataset_labels,dataset_data) {
+                var ctx = $('#'+id);
+                var myChart = new Chart(ctx, {
+                    type: type,
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: dataset_labels,
+                            data: dataset_data,
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
             }
         </script>
 @endsection

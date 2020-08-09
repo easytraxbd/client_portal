@@ -60,6 +60,10 @@ Route::resource('offer','OfferController');
 Route::resource('faq','FaqController');
 Route::resource('notice','NoticeController');
 
+Route::get('distributor/lol','DistributorController@monthlyClientCreation');
+Route::get('distributor/lol2','DistributorController@monthlyRevenue');
+
+
 Route::get('distributor/clients-invoice','DistributorController@clientsInvoice');
 Route::get('distributor/clients-payment','DistributorController@clientsPayment');
 Route::get('distributor/clients-ticket','DistributorController@clientsTicket');

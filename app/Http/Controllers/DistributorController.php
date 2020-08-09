@@ -283,6 +283,63 @@ class DistributorController extends Controller
         //
     }
 
+    public function monthlyClientCreation(Request $request){
+        $distributorId = Auth::user()->id;
+        $clientsIdArray = $this->getClientsIdArrayUnderDistributor($distributorId);
+        $lastTwelveMonthArray = $this->lastTwelveMonthArray();
+        $clients = DB::table('clients')->whereIn('id',$clientsIdArray)->where('created_at','>',Carbon::now()->subMonth(12)->lastOfMonth())->get(['id','created_at']);
+        $data = [];
+        foreach ($lastTwelveMonthArray as $singleMonth ){
+            $startDate = Carbon::parse($singleMonth)->firstOfMonth();
+            $endDate = Carbon::parse($singleMonth)->lastOfMonth();
+            $clientsCreatedOnThatMonth = $clients->whereBetween('created_at',[$startDate,$endDate])->count();
+            $data[] = $clientsCreatedOnThatMonth;
+
+        }
+        $return = [
+            'labels'=> $lastTwelveMonthArray,
+            'dataset_data'=>$data,
+            'dataset_label'=>'Month on Month New Customer',
+        ];
+        return $return;
+    }
+    public function monthlyRevenue(Request $request){
+        $distributorId = Auth::user()->id;
+        $clientsIdArray = $this->getClientsIdArrayUnderDistributor($distributorId);
+        $lastTwelveMonthArray = $this->lastTwelveMonthArray();
+        $invoices = DB::table('sales_invoices')->whereIn('client_id',$clientsIdArray)->where('is_recurring_setting', '!=', 1)->get(['id','date','invoice_total','invoice_total_due']);
+//        $salesItemsIdArrayOfServices = DB::table('sales_items')->where('type',2)->pluck('id');
+//        $clients = DB::table('clients')->whereIn('id',$clientsIdArray)->where('created_at','>',Carbon::now()->subMonth(12)->lastOfMonth())->get(['id','created_at']);
+        $data = [];
+        foreach ($lastTwelveMonthArray as $singleMonth ){
+            $startDate = Carbon::parse($singleMonth)->firstOfMonth();
+            $endDate = Carbon::parse($singleMonth)->lastOfMonth();
+            $invoice_total = $invoices->whereBetween('date',[$startDate,$endDate])->sum('invoice_total');
+            $invoice_total_due = $invoices->whereBetween('date',[$startDate,$endDate])->sum('invoice_total-due');
+            $data[] = $invoice_total-$invoice_total_due;
+
+        }
+        $return = [
+            'labels'=> $lastTwelveMonthArray,
+            'dataset_data'=>$data,
+            'dataset_label'=>'Month on Month Revenue',
+        ];
+        return $return;
+    }
+
+    public function lastTwelveMonthArray(){
+        $start =  Carbon::now()->subMonth(11);
+        $end = Carbon::now();
+
+        $months = [];
+        while ($start->lte($end)) {
+            $months[] = $start->copy()->format('F Y');
+            $start->addMonth();
+        }
+
+        return $months;
+    }
+
     public function clientsInvoice()
     {
         $data = [
