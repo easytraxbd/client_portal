@@ -110,7 +110,7 @@
             </div>
         </div>
 
-        <div class="col-lg-12 col-xl-12 order-lg-1 order-xl-1">
+        <div class="col-lg-6 col-xl-6 order-lg-1 order-xl-1">
             <!--begin:: payment-->
             <div class="kt-portlet kt-portlet--mobile">
                 <div class="kt-portlet__head kt-portlet__head--lg">
@@ -143,7 +143,7 @@
             <!--end:: payment-->
         </div>
 
-        <div class="col-lg-12 col-xl-12 order-lg-1 order-xl-1">
+        <div class="col-lg-6 col-xl-6 order-lg-1 order-xl-1">
             <!--begin:: payment-->
             <div class="kt-portlet kt-portlet--mobile">
                 <div class="kt-portlet__head kt-portlet__head--lg">
