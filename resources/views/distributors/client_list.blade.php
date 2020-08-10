@@ -62,7 +62,7 @@
                 $(document).ready(function () {
 
                     $('#payment-table').DataTable({
-                        "pageLength": 50,
+                        "pageLength": 200,
                         responsive: true,
                         processing: true,
                         serverSide: true,

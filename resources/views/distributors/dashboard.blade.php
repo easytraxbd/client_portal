@@ -59,7 +59,7 @@
                                 </div>
                                 <br>
                                 <h3 class="pull-left"> {{$numberOfClients}}</h3>
-                                <p class="pull-right rounded" style="background-color: #e2e4e7;padding: 5px;">0%</p>
+{{--                                <p class="pull-right rounded" style="background-color: #e2e4e7;padding: 5px;">0%</p>--}}
                             </div>
                             <!--end::Total Profit-->
                         </div>
@@ -73,7 +73,8 @@
                                 </div>
                                 <br>
                                 <h3 class="pull-left">৳ <span id="invoice-total" class="invoice-total">0</span></h3>
-                                <p class="pull-right rounded" style="background-color: #e2e4e7;padding: 5px;">0%</p>
+                                <input type="hidden" id="invoice-total-amount" value="">
+{{--                                <p class="pull-right rounded" style="background-color: #e2e4e7;padding: 5px;">0%</p>--}}
                             </div>
                             <!--end::Total Profit-->
                         </div>
@@ -87,7 +88,8 @@
                                 </div>
                                 <br>
                                 <h3 class="pull-left">৳ <span id="invoice-paid" class="invoice-paid">0</span></h3>
-                                <p class="pull-right rounded" style="background-color: #e2e4e7;padding: 5px;">0%</p>
+                                <input type="hidden" id="invoice-paid-amount" value="">
+                                <p class="pull-right rounded" id="invoice-paid-percentage" style="background-color: #e2e4e7;padding: 5px;">0%</p>
                             </div>
                             <!--end::Total Profit-->
                         </div>
@@ -101,7 +103,8 @@
                                 </div>
                                 <br>
                                 <h3 class="pull-left">৳ <span id="invoice-due" class="invoice-due">0</span></h3>
-                                <p class="pull-right rounded" style="background-color: #e2e4e7;padding: 5px;">0%</p>
+                                <input type="hidden" id="invoice-due-amount" value="">
+                                <p class="pull-right rounded" id="invoice-due-percentage" style="background-color: #e2e4e7;padding: 5px;">0%</p>
                             </div>
                             <!--end::Total Profit-->
                         </div>
@@ -225,28 +228,6 @@
             </div>
             <!--end:: payment-->
         </div>
-        <div class="col-lg-12 col-xl-12 order-lg-1 order-xl-1">
-            <a href="https://crm.easytrax.com.bd/payment?clientId={{\Auth::user()->id}}" target="_blank">
-                <img src="/images/easytrax/SSL Commerz Pay With logo All Size-01.png" alt="" width="100%">
-            </a>
-        </div>
-
-        <div class="col-lg-12 col-xl-12 order-lg-1 order-xl-1 text-center">
-            <br>
-            <br>
-            <a href="https://g.page/easytrax/review?mt" target="_blank">
-                <div class="container" style="height: 180px; width: 100%;">
-                    <h4>Please rate your experience</h4>
-                    <br>
-                    <span class="fa fa-star checked h1"></span>
-                    <span class="fa fa-star checked h1"></span>
-                    <span class="fa fa-star checked h1"></span>
-                    <span class="fa fa-star checked h1"></span>
-                    <span class="fa fa-star checked h1"></span>
-                </div>
-            </a>
-            <br>
-        </div>
     </div>
 @endsection
 @section('script')
@@ -258,8 +239,9 @@
             defer></script>
     <script>
           $(document).ready(function () {
+              // setPercentageValue();
               $('#client-table').DataTable({
-                  "pageLength": 10,
+                  "pageLength": 30,
                   processing: true,
                   serverSide: true,
                   order: [[ 0, "desc" ]],
@@ -338,6 +320,18 @@
                 getClientsInvoiceDueAmount(filter);
             });
 
+            function setPercentageValue(){
+                var invoiceTotal = $('#invoice-total-amount').val();
+                var invoiceDue = $('#invoice-due-amount').val();
+                var invoicePaid = $('#invoice-paid-amount').val();
+
+                var duePercentage = (invoiceDue/invoiceTotal)*100;
+                var paidPercentage = (invoicePaid/invoiceTotal)*100;
+
+                $('#invoice-due-percentage').text(Math.round(duePercentage)+'%')
+                $('#invoice-paid-percentage').text(Math.round(paidPercentage)+'%')
+            }
+
             function getClientsInvoiceTotalAmount(filter) {
                 $('.invoice-total').html('<div  class="tc"><img src="/images/easytrax/loading.png"/></div>');
                 $.ajax({
@@ -350,6 +344,7 @@
                     //Receive Data
                     success: function (data) {
                         $('#invoice-total').html(data);
+                        $('#invoice-total-amount').val(data);
                     }
                 })
             }
@@ -365,6 +360,8 @@
                     //Receive Data
                     success: function (data) {
                         $('#invoice-paid').html(data);
+                        $('#invoice-paid-amount').val(data);
+                        setPercentageValue();
                     }
                 })
             }
@@ -380,6 +377,8 @@
                     //Receive Data
                     success: function (data) {
                         $('#invoice-due').html(data);
+                        $('#invoice-due-amount').val(data);
+                        setPercentageValue();
                     }
                 })
             }

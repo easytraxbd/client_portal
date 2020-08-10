@@ -315,7 +315,7 @@ class DistributorController extends Controller
             $startDate = Carbon::parse($singleMonth)->firstOfMonth();
             $endDate = Carbon::parse($singleMonth)->lastOfMonth();
             $invoice_total = $invoices->whereBetween('date',[$startDate,$endDate])->sum('invoice_total');
-            $invoice_total_due = $invoices->whereBetween('date',[$startDate,$endDate])->sum('invoice_total-due');
+            $invoice_total_due = $invoices->whereBetween('date',[$startDate,$endDate])->sum('invoice_total_due');
             $data[] = $invoice_total-$invoice_total_due;
 
         }
