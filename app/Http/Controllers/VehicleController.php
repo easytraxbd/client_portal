@@ -85,7 +85,7 @@ class VehicleController extends Controller
             ->addColumn('client', function ($vehicle) {
                 if (isset($vehicle->client_id) && $vehicle->client_id != null){
                     $clientName = DB::table('clients')->find($vehicle->client_id)->name;
-                    $a = '<a href="#">'.$clientName.'</a>';
+                    $a = '<a href="/clients/'.$vehicle->client_id.'">'.$clientName.'</a>';
                 }
                 else{
                     $a = 'N/A';

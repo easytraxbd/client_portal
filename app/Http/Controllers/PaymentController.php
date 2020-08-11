@@ -216,12 +216,21 @@ class PaymentController extends Controller
                 $clientsIdArray = [$request->client_id];
             }
         }
-        $payment2 = DB::table('payment_drafts')->select()->whereIn('client_id',$clientsIdArray)->get();
+
+        $payment2 = DB::table('payment_drafts')->select()->whereIn('client_id',$clientsIdArray);
+        if ($request->filled('date_from') && $request->filled('date_to')) {
+            $payment2->whereBetween('payment_date', [$request->get('date_from'),$request->get('date_to')]);
+        }
+        $payment2 = $payment2->get();
         foreach ($payment2 as $payment){
             $payment->status = 0;
         }
 
-        $payment1 = DB::table('payments')->select()->whereIn('client_id',$clientsIdArray)->get();
+        $payment1 = DB::table('payments')->select()->whereIn('client_id',$clientsIdArray);
+        if ($request->filled('date_from') && $request->filled('date_to')) {
+            $payment1->whereBetween('payment_date', [$request->get('date_from'),$request->get('date_to')]);
+        }
+          $payment1 = $payment1->get();
         foreach ($payment1 as $payment){
             $payment->status = 1;
         }
@@ -339,7 +348,7 @@ class PaymentController extends Controller
             ->addColumn('client', function ($payment) {
                 if (isset($payment->client_id) && $payment->client_id != null){
                     $clientName = DB::table('clients')->find($payment->client_id)->name;
-                    $a = '<a href="#">'.$clientName.'</a>';
+                    $a = '<a href="/clients/'.$payment->client_id.'">'.$clientName.'</a>';
                 }
               else{
                   $a = 'N/A';
@@ -357,43 +366,6 @@ class PaymentController extends Controller
                 $a .= '</div>';
                 return $a;
             })
-
-
-//            ->filter(function ($query) use ($request) {
-//                if ($request->filled('payment_id')) {
-//                    $query->where('id', $request->get('payment_id'));
-//                }
-//                if ($request->filled('bkash_payment_id')) {
-//                    $query->where('bkash_payment_id', $request->get('bkash_payment_id'));
-//                }
-//                if ($request->filled('from_number')) {
-//                    $query->where('from_number', $request->get('from_number'));
-//                }
-//                if ($request->filled('transaction_id')) {
-//                    $query->where('transaction_id', $request->get('transaction_id'));
-//                }
-//                if ($request->filled('payment_gateway_source')) {
-//                    $query->where('payment_gateway_source', $request->get('payment_gateway_source'));
-//                }
-//                if ($request->filled('db_entry_type')) {
-//                    $query->where('db_entry_type', $request->get('db_entry_type'));
-//                }
-//                if ($request->filled('client_id')) {
-//                    $query->where('client_id', $request->get('client_id'));
-//                }
-//                if ($request->filled('payment_collector_id')) {
-//                    $query->where('payment_collector_id', $request->get('payment_collector_id'));
-//                }
-//                if ($request->filled('date_from')) {
-//                    $query->where('payment_date', '>=', $request->get('date_from'));
-//                }
-//                if ($request->filled('date_to')) {
-//                    $query->where('payment_date', '<=', $request->get('date_to'));
-//                }
-//                if ($request->filled('payment_method')) {
-//                    $query->where('payment_method', $request->get('payment_method'));
-//                }
-//            })
             ->make();
     }
 

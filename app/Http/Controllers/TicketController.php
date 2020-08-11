@@ -138,7 +138,7 @@ class TicketController extends Controller
             ->addColumn('client', function ($ticket) {
                 if (isset($ticket->client_id) && $ticket->client_id != null){
                     $clientName = DB::table('clients')->find($ticket->client_id)->name;
-                    $a = '<a href="#">'.$clientName.'</a>';
+                    $a = '<a href="/clients/'.$ticket->client_id.'">'.$clientName.'</a>';
                 }
                 else{
                     $a = 'N/A';
@@ -153,7 +153,7 @@ class TicketController extends Controller
             })
 
 
-//            ->filter(function ($query) use ($request) {
+            ->filter(function ($query) use ($request) {
 //                if ($request->filled('payment_id')) {
 //                    $query->where('id', $request->get('payment_id'));
 //                }
@@ -178,16 +178,16 @@ class TicketController extends Controller
 //                if ($request->filled('payment_collector_id')) {
 //                    $query->where('payment_collector_id', $request->get('payment_collector_id'));
 //                }
-//                if ($request->filled('date_from')) {
-//                    $query->where('payment_date', '>=', $request->get('date_from'));
-//                }
-//                if ($request->filled('date_to')) {
-//                    $query->where('payment_date', '<=', $request->get('date_to'));
-//                }
+                if ($request->filled('date_from')) {
+                    $query->where('date', '>=', $request->get('date_from'));
+                }
+                if ($request->filled('date_to')) {
+                    $query->where('date', '<=', $request->get('date_to'));
+                }
 //                if ($request->filled('payment_method')) {
 //                    $query->where('payment_method', $request->get('payment_method'));
 //                }
-//            })
+            })
             ->make();
     }
 
