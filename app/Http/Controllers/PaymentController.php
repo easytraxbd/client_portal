@@ -316,7 +316,7 @@ class PaymentController extends Controller
                 $collector = '';
                 if (isset($payment->payment_collector_id)) {
                     $employee = DB::table('employees')->find($payment->payment_collector_id);
-                    $collector = $employee->first_name.' '.$employee->last_name;
+                    $collector = $employee->first_name ?? ''.' '.$employee->last_name ?? '';
                 }
                 return $collector;
             })
