@@ -137,9 +137,11 @@ class PaymentController extends Controller
             })
             ->editColumn('payment_collector', function ($payment) {
                 $collector = '';
-                if (isset($payment->payment_collector_id)) {
+                if (isset($payment->payment_collector_id) && $payment->payment_collector_id != null) {
                     $employee = DB::table('employees')->find($payment->payment_collector_id);
-                    $collector = $employee->first_name.' '.$employee->last_name;
+                    $fName= $employee->first_name ?? '';
+                    $lName=$employee->last_name ?? '';
+                    $collector = $fName.' '.$lName;
                 }
                 return $collector;
             })
@@ -314,7 +316,7 @@ class PaymentController extends Controller
             })
             ->editColumn('payment_collector', function ($payment) {
                 $collector = '';
-                if (isset($payment->payment_collector_id)) {
+                if (isset($payment->payment_collector_id) && $payment->payment_collector_id != null) {
                     $employee = DB::table('employees')->find($payment->payment_collector_id);
                     $fName= $employee->first_name ?? '';
                     $lName=$employee->last_name ?? '';
